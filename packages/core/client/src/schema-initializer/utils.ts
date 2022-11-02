@@ -101,7 +101,7 @@ export const useTableColumnInitializerFields = () => {
 };
 
 export const useAssociatedTableColumnInitializerFields = () => {
-  const { name, fields } = useCollection();
+  const { name, fields = [] } = useCollection();
   const { getInterface, getCollectionFields } = useCollectionManager();
 
   const groups = fields
@@ -151,7 +151,7 @@ export const useAssociatedTableColumnInitializerFields = () => {
 };
 
 export const useFormItemInitializerFields = (options?: any) => {
-  const { name, fields } = useCollection();
+  const { name, fields = [] } = useCollection();
   const { getInterface } = useCollectionManager();
   const form = useForm();
   const { readPretty = form.readPretty, block = 'Form' } = options || {};
@@ -187,7 +187,7 @@ export const useFormItemInitializerFields = (options?: any) => {
 };
 
 export const useAssociatedFormItemInitializerFields = (options?: any) => {
-  const { name, fields } = useCollection();
+  const { name, fields = [] } = useCollection();
   const { getInterface, getCollectionFields } = useCollectionManager();
   const form = useForm();
   const { readPretty = form.readPretty, block = 'Form' } = options || {};
@@ -239,7 +239,7 @@ export const useAssociatedFormItemInitializerFields = (options?: any) => {
 };
 
 export const useCustomFormItemInitializerFields = (options?: any) => {
-  const { name, fields } = useCollection();
+  const { name, fields = [] } = useCollection();
   const { getInterface } = useCollectionManager();
   const form = useForm();
   const { readPretty = form.readPretty, block = 'Form' } = options || {};
@@ -273,7 +273,7 @@ export const useCustomFormItemInitializerFields = (options?: any) => {
 };
 
 export const useCustomBulkEditFormItemInitializerFields = (options?: any) => {
-  const { name, fields } = useCollection();
+  const { name, fields = [] } = useCollection();
   const { getInterface } = useCollectionManager();
   const form = useForm();
   const { readPretty = form.readPretty, block = 'Form' } = options || {};
