@@ -34,17 +34,12 @@ export default React.memo(props => {
   const items = useContext(SchemaInitializerContext);
   const children = items.BlockInitializers.items[2].children;
 
-  const hasCustomBlock = children.find(d => d.key === 'customBlock');
-
-  // 不要重复 push
-  if (!hasCustomBlock) {
-    children.push({
-      key: 'customBlock',
-      type: 'item',
-      title: '{{t("Hello block")}}',
-      component: 'HelloBlockInitializer',
-    });
-  }
+  children.push({
+    key: 'customBlock',
+    type: 'item',
+    title: '{{t("Hello block")}}',
+    component: 'HelloBlockInitializer',
+  });
 
   return (
     <SchemaComponentOptions components={{ HelloDesigner, HelloBlockInitializer }}>

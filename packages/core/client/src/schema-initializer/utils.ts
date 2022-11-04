@@ -101,7 +101,7 @@ export const useTableColumnInitializerFields = () => {
 };
 
 export const useAssociatedTableColumnInitializerFields = () => {
-  const { name, fields = [] } = useCollection();
+  const { name, fields } = useCollection();
   const { getInterface, getCollectionFields } = useCollectionManager();
 
   const groups = fields

@@ -49,7 +49,7 @@ NocoBase 插件也是 NPM 包，插件名和 NPM 包名的对应规则为 `${PLU
 
 ## 编写插件
 
-查看 `packages/plugins/hello/src/server/index.ts` 文件，并修改为：
+查看 `packages/plugins/hello/src/server/plugin.ts` 文件，并修改为：
 
 ```ts
 import { InstallOptions, Plugin } from '@nocobase/server';

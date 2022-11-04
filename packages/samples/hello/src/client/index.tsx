@@ -40,16 +40,12 @@ export default React.memo(props => {
   const items = useContext(SchemaInitializerContext);
   const children = items.BlockInitializers.items[2].children;
 
-  const hasHelloBlock = children.find(d => d.key === 'hello');
-
-  if (!hasHelloBlock) {
-    children.push({
-      key: 'hello',
-      type: 'item',
-      title: '{{t("Hello block")}}',
-      component: 'HelloBlockInitializer',
-    });
-  }
+  children.push({
+    key: 'hello',
+    type: 'item',
+    title: '{{t("Hello block")}}',
+    component: 'HelloBlockInitializer',
+  });
 
   return (
     <SettingsCenterProvider
