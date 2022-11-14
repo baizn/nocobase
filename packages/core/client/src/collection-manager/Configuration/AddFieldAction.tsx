@@ -143,7 +143,7 @@ export const AddCollectionField = (props) => {
 };
 
 export const AddFieldAction = (props) => {
-  const { scope, getContainer, item: record, children } = props;
+  const { scope, getContainer, item: record, children,trigger ,align} = props;
   const { getInterface } = useCollectionManager();
   const [visible, setVisible] = useState(false);
   const [schema, setSchema] = useState({});
@@ -154,6 +154,8 @@ export const AddFieldAction = (props) => {
       <ActionContext.Provider value={{ visible, setVisible }}>
         <Dropdown
           getPopupContainer={getContainer}
+          trigger={trigger}
+          align={align}
           overlay={
             <Menu
               style={{

@@ -44,10 +44,7 @@ export default {
       title: 'Release',
       'title.zh-CN': '版本发布',
       type: 'group',
-      children: [
-        '/welcome/release/index',
-        '/welcome/release/v08-changelog',
-      ],
+      children: ['/welcome/release/index', '/welcome/release/v08-changelog'],
     },
     {
       title: 'Community',
@@ -57,7 +54,7 @@ export default {
         '/welcome/community/contributing',
         // '/welcome/community/faq',
         '/welcome/community/translations',
-        
+
         '/welcome/community/thanks',
       ],
     },
@@ -91,9 +88,7 @@ export default {
       title: 'Blocks Guide',
       'title.zh-CN': '区块指南',
       type: 'group',
-      children: [
-        '/manual/blocks-guide/charts',
-      ],
+      children: ['/manual/blocks-guide/charts'],
     },
   ],
   '/development': [
@@ -116,7 +111,20 @@ export default {
       type: 'group',
       children: [
         '/development/server/index',
-        '/development/server/collections-fields',
+        {
+          title: 'Collections & Fields',
+          'title.zh-CN': '数据表和字段',
+          type: 'subMenu',
+          children: [
+            '/development/server/collections/index',
+            '/development/server/collections/options',
+            '/development/server/collections/configure',
+            '/development/server/collections/association-fields',
+            '/development/server/collections/field-extension',
+            '/development/server/collections/collection-template',
+          ],
+        },
+        // '/development/server/collections-fields',
         '/development/server/resources-actions',
         '/development/server/middleware',
         '/development/server/commands',
@@ -161,17 +169,14 @@ export default {
     {
       title: 'HTTP API',
       type: 'subMenu',
-      children: [
-        '/api/http/index', 
-        '/api/http/rest-api', 
-      ],
+      children: ['/api/http/index', '/api/http/rest-api'],
     },
     {
       title: '@nocobase/server',
       type: 'subMenu',
       children: [
-        '/api/server/application', 
-        // '/api/server/plugin-manager', 
+        '/api/server/application',
+        // '/api/server/plugin-manager',
         '/api/server/plugin',
       ],
     },
