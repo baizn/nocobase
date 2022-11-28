@@ -3,50 +3,24 @@ import { ArrayField, Field } from '@formily/core';
 import { observer, RecursionField, Schema, useField, useFieldSchema } from '@formily/react';
 import { Table, TableColumnProps } from 'antd';
 import { default as classNames } from 'classnames';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RecordIndexProvider, RecordProvider, useCollectionManager, useRequest, useSchemaInitializer } from '../..';
+import { findIndex } from 'lodash';
+import {
+  RecordIndexProvider,
+  RecordProvider,
+  useCollectionManager,
+  useRequest,
+  useSchemaInitializer,
+  useRecord,
+  useCompile,
+  SchemaComponent,
+  useCollection,
+} from '../..';
+import { overridingSchema } from '../Configuration/schemas/collectionFields';
 
 const isColumnComponent = (schema: Schema) => {
   return schema['x-component']?.endsWith('.Column') > -1;
-};
-
-const useTableColumns = () => {
-  const field = useField<ArrayField>();
-  const schema = useFieldSchema();
-  const { exists, render } = useSchemaInitializer(schema['x-initializer']);
-  const columns = schema
-    .reduceProperties((buf, s) => {
-      if (isColumnComponent(s)) {
-        return buf.concat([s]);
-      }
-    }, [])
-    .map((s: Schema) => {
-      return {
-        title: <RecursionField name={s.name} schema={s} onlyRenderSelf />,
-        dataIndex: s.name,
-        key: s.name,
-        render: (v, record) => {
-          const index = field.value?.indexOf(record);
-          // console.log((Date.now() - start) / 1000);
-          return (
-            <RecordIndexProvider index={index}>
-              <RecordProvider record={record}>
-                <RecursionField schema={s} name={index} onlyRenderProperties />
-              </RecordProvider>
-            </RecordIndexProvider>
-          );
-        },
-      } as TableColumnProps<any>;
-    });
-  if (!exists) {
-    return columns;
-  }
-  return columns.concat({
-    title: render(),
-    dataIndex: 'TABLE_COLUMN_INITIALIZER',
-    key: 'TABLE_COLUMN_INITIALIZER',
-  });
 };
 
 export const components = {
@@ -93,7 +67,6 @@ const groupColumns = [
 ];
 
 type CategorizeKey = 'primaryAndForeignKey' | 'relation' | 'systemInfo' | 'basic';
-const sortKeyArr: Array<CategorizeKey> = ['primaryAndForeignKey', 'relation', 'basic', 'systemInfo'];
 const CategorizeKeyNameMap = new Map<CategorizeKey, string>([
   ['primaryAndForeignKey', 'PK & FK fields'],
   ['relation', 'Association fields'],
@@ -108,10 +81,13 @@ interface CategorizeDataItem {
 }
 
 export const CollectionFieldsTableArray: React.FC<any> = observer((props) => {
+  const sortKeyArr: Array<CategorizeKey> = ['primaryAndForeignKey', 'relation', 'basic', 'systemInfo'];
   const field = useField<ArrayField>();
-  const columns = useTableColumns();
+  const { name } = useRecord();
   const { t } = useTranslation();
-  const { getInterface } = useCollectionManager();
+  const compile = useCompile();
+  const { getInterface, getInheritCollections, getCollection, getCurrentCollectionFields, getInheritedFields } =
+    useCollectionManager();
   const {
     showIndex = true,
     useSelectedRowKeys = useDef,
@@ -120,12 +96,14 @@ export const CollectionFieldsTableArray: React.FC<any> = observer((props) => {
     ...others
   } = props;
   const [selectedRowKeys, setSelectedRowKeys] = useSelectedRowKeys();
-
   const [categorizeData, setCategorizeData] = useState<Array<CategorizeDataItem>>([]);
+  const [expandedKeys, setExpendedKeys] = useState(selectedRowKeys);
+  const inherits = getInheritCollections(name);
+  const currentFields = getCurrentCollectionFields(name);
   useDataSource({
     onSuccess(data) {
       field.value = data?.data || [];
-      // categorize field
+      const tmpData: Array<CategorizeDataItem> = [];
       const categorizeMap = new Map<CategorizeKey, any>();
       const addCategorizeVal = (categorizeKey: CategorizeKey, val) => {
         let fieldArr = categorizeMap.get(categorizeKey);
@@ -151,48 +129,123 @@ export const CollectionFieldsTableArray: React.FC<any> = observer((props) => {
             addCategorizeVal('basic', item);
         }
       });
-      const tmpData: Array<CategorizeDataItem> = [];
+      if (inherits) {
+        inherits.forEach((v) => {
+          sortKeyArr.push(v);
+          const parentCollection = getCollection(v);
+          parentCollection.fields.map((k) => {
+            if (k.interface) {
+              addCategorizeVal(v, new Proxy(k, {}));
+              field.value.push(new Proxy(k, {}));
+            }
+          });
+        });
+      }
       sortKeyArr.forEach((key) => {
         if (categorizeMap.get(key)?.length > 0) {
+          const parentCollection = getCollection(key);
           tmpData.push({
             key,
-            name: t(CategorizeKeyNameMap.get(key)),
+            name:
+              t(CategorizeKeyNameMap.get(key)) ||
+              t(`Parent collection fields`) + `(${compile(parentCollection.title)})`,
             data: categorizeMap.get(key),
           });
         }
       });
+      setExpendedKeys(sortKeyArr);
       setCategorizeData(tmpData);
     },
   });
-  const restProps = {
-    rowSelection: props.rowSelection
-      ? {
-          type: 'checkbox',
-          selectedRowKeys,
-          onChange(selectedRowKeys: any[]) {
-            setSelectedRowKeys(selectedRowKeys);
-          },
-          ...props.rowSelection,
+  const useTableColumns = () => {
+    const schema = useFieldSchema();
+    const { exists, render } = useSchemaInitializer(schema['x-initializer']);
+    const columns = schema
+      .reduceProperties((buf, s) => {
+        if (isColumnComponent(s)) {
+          return buf.concat([s]);
         }
-      : undefined,
+      }, [])
+      .map((s: Schema) => {
+        return {
+          title: <RecursionField name={s.name} schema={s} onlyRenderSelf />,
+          dataIndex: s.name,
+          key: s.name,
+          render: (v, record) => {
+            const index = findIndex(field.value, record);
+            return (
+              <RecordIndexProvider index={index}>
+                <RecordProvider record={record}>
+                  <RecursionField schema={s} name={index} onlyRenderProperties />
+                </RecordProvider>
+              </RecordIndexProvider>
+            );
+          },
+        } as TableColumnProps<any>;
+      });
+    if (!exists) {
+      return columns;
+    }
+    return columns.concat({
+      title: render(),
+      dataIndex: 'TABLE_COLUMN_INITIALIZER',
+      key: 'TABLE_COLUMN_INITIALIZER',
+    });
   };
 
-  const defaultRowKey = (record: any) => {
-    return field.value?.indexOf?.(record);
-  };
 
   const expandedRowRender = (record: CategorizeDataItem, index, indent, expanded) => {
-    return (
-      <Table
-        {...others}
-        {...restProps}
-        components={components}
-        showHeader={true}
-        columns={columns}
-        dataSource={record.data}
-        pagination={false}
-      />
-    );
+    if(!props.loading){
+      const columns = useTableColumns();
+      if (inherits.includes(record.key)) {
+        columns.pop();
+        columns.push({
+          title: <RecursionField name={'column4'} schema={overridingSchema as Schema} onlyRenderSelf />,
+          dataIndex: 'column4',
+          key: 'column4',
+          render: (v, record) => {
+            const index = findIndex(field.value, record);
+            return (
+              <RecordIndexProvider index={index}>
+                <RecordProvider record={record}>
+                  <SchemaComponent
+                    scope={{ currentCollection: name }}
+                    schema={overridingSchema as Schema}
+                    name={index}
+                    onlyRenderProperties
+                  />
+                </RecordProvider>
+              </RecordIndexProvider>
+            );
+          },
+        });
+      }
+      const restProps = {
+        rowSelection:
+          props.rowSelection && !inherits.includes(record.key)
+            ? {
+                type: 'checkbox',
+                selectedRowKeys,
+                onChange(selectedRowKeys: any[]) {
+                  setSelectedRowKeys(selectedRowKeys);
+                },
+                ...props.rowSelection,
+              }
+            : undefined,
+      };
+      return (
+        <Table
+          {...others}
+          {...restProps}
+          components={components}
+          showHeader={true}
+          columns={columns}
+          dataSource={record.data}
+          pagination={false}
+        />
+      );
+    }
+   
   };
   return (
     <div
@@ -211,7 +264,18 @@ export const CollectionFieldsTableArray: React.FC<any> = observer((props) => {
         pagination={false}
         expandable={{
           expandedRowRender,
-          defaultExpandedRowKeys: sortKeyArr,
+          expandedRowKeys: expandedKeys,
+        }}
+        onExpand={(expanded, record) => {
+          let keys = [];
+          if (expanded) {
+            keys = expandedKeys.concat([record.key]);
+          } else {
+            keys = expandedKeys.filter((v) => {
+              return v !== record.key;
+            });
+          }
+          setExpendedKeys(keys);
         }}
       />
     </div>

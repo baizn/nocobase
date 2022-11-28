@@ -6,6 +6,7 @@ import lodash from 'lodash';
 import { basename, isAbsolute, resolve } from 'path';
 import semver from 'semver';
 import {
+  DataTypes,
   ModelCtor,
   Op,
   Options,
@@ -56,6 +57,8 @@ import {
 } from './types';
 import { referentialIntegrityCheck } from './features/referential-integrity-check';
 import ReferencesMap from './features/ReferencesMap';
+import { InheritedCollection } from './inherited-collection';
+import InheritanceMap from './inherited-map';
 
 export interface MergeOptions extends merge.Options {}
 
@@ -71,6 +74,7 @@ interface MapOf<T> {
 export interface IDatabaseOptions extends Options {
   tablePrefix?: string;
   migrator?: any;
+  usingBigIntForId?: boolean;
 }
 
 export type DatabaseOptions = IDatabaseOptions;
@@ -148,7 +152,10 @@ export class Database extends EventEmitter implements AsyncEmitter {
   collections = new Map<string, Collection>();
   pendingFields = new Map<string, RelationField[]>();
   modelCollection = new Map<ModelCtor<any>, Collection>();
+  tableNameCollectionMap = new Map<string, Collection>();
+
   referenceMap = new ReferencesMap();
+  inheritanceMap = new InheritanceMap();
 
   modelHook: ModelHook;
   version: DatabaseVersion;
@@ -157,8 +164,6 @@ export class Database extends EventEmitter implements AsyncEmitter {
 
   constructor(options: DatabaseOptions) {
     super();
-
-    // this.setMaxListeners(100);
 
     this.version = new DatabaseVersion(this);
 
@@ -182,6 +187,11 @@ export class Database extends EventEmitter implements AsyncEmitter {
       delete opts.timezone;
     } else if (!opts.timezone) {
       opts.timezone = '+00:00';
+    }
+
+    if (options.dialect === 'postgres') {
+      // https://github.com/sequelize/sequelize/issues/1774
+      require('pg').defaults.parseInt8 = true;
     }
 
     this.sequelize = new Sequelize(opts);
@@ -257,6 +267,20 @@ export class Database extends EventEmitter implements AsyncEmitter {
         transaction: options.transaction,
       });
     });
+
+    this.on('afterRemoveCollection', (collection) => {
+      this.inheritanceMap.removeNode(collection.name);
+    });
+
+    this.on('afterDefine', (model) => {
+      if (lodash.get(this.options, 'usingBigIntForId', true)) {
+        const idAttribute = model.rawAttributes['id'];
+        if (idAttribute && idAttribute.primaryKey) {
+          model.rawAttributes['id'].type = DataTypes.BIGINT;
+          model.refreshAttributes();
+        }
+      }
+    });
   }
 
   addMigration(item: MigrationItem) {
@@ -293,9 +317,17 @@ export class Database extends EventEmitter implements AsyncEmitter {
   ): Collection<Attributes, CreateAttributes> {
     this.emit('beforeDefineCollection', options);
 
-    const collection = new Collection(options, {
-      database: this,
-    });
+    const hasValidInheritsOptions = (() => {
+      return options.inherits && lodash.castArray(options.inherits).length > 0;
+    })();
+
+    const collection = hasValidInheritsOptions
+      ? new InheritedCollection(options, {
+          database: this,
+        })
+      : new Collection(options, {
+          database: this,
+        });
 
     this.collections.set(collection.name, collection);
 
@@ -323,6 +355,8 @@ export class Database extends EventEmitter implements AsyncEmitter {
   removeCollection(name: string) {
     const collection = this.collections.get(name);
     this.emit('beforeRemoveCollection', collection);
+
+    collection.resetFields();
 
     const result = this.collections.delete(name);
 
@@ -425,10 +459,13 @@ export class Database extends EventEmitter implements AsyncEmitter {
     if (isMySQL) {
       await this.sequelize.query('SET FOREIGN_KEY_CHECKS = 0', null);
     }
+
     const result = await this.sequelize.sync(options);
+
     if (isMySQL) {
       await this.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null);
     }
+
     return result;
   }
 

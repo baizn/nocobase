@@ -1,8 +1,12 @@
 import lodash from 'lodash';
-import { Model as SequelizeModel, ModelCtor } from 'sequelize';
+import { DataTypes, Model as SequelizeModel, ModelCtor } from 'sequelize';
 import { Collection } from './collection';
 import { Database } from './database';
 import { Field } from './fields';
+import type { InheritedCollection } from './inherited-collection';
+import { SyncRunner } from './sync-runner';
+
+const _ = lodash;
 
 interface IModel {
   [key: string]: any;
@@ -144,5 +148,24 @@ export class Model<TModelAttributes extends {} = any, TCreationAttributes extend
     });
 
     return lodash.orderBy(data, orderItems, orderDirections);
+  }
+
+  static async sync(options) {
+    const model = this as any;
+
+    // fix sequelize sync with model that not have any column
+    if (Object.keys(model.tableAttributes).length === 0) {
+      if (this.database.inDialect('sqlite', 'mysql')) {
+        throw new Error(`Zero-column tables aren't supported in ${this.database.sequelize.getDialect()}`);
+      }
+
+      options.alter = false;
+    }
+
+    if (this.collection.isInherited()) {
+      return SyncRunner.syncInheritModel(model, options);
+    }
+
+    return SequelizeModel.sync.call(this, options);
   }
 }

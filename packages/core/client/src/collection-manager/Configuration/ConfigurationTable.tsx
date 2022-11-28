@@ -1,17 +1,19 @@
 import { useForm } from '@formily/react';
 import { action } from '@formily/reactive';
 import { uid } from '@formily/shared';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { CollectionFieldsTable } from '.';
 import { useRequest } from '../../api-client';
+import { useCurrentAppInfo } from '../../appInfo';
 import { useRecord } from '../../record-provider';
 import { SchemaComponent, SchemaComponentContext, useActionContext, useCompile } from '../../schema-component';
+import { useCancelAction, useUpdateCollectionActionAndRefreshCM } from '../action-hooks';
 import { useCollectionManager } from '../hooks/useCollectionManager';
 import { DataSourceContext } from '../sub-table';
 import { AddSubFieldAction } from './AddSubFieldAction';
 import { FieldSummary } from './components/FieldSummary';
 import { EditSubFieldAction } from './EditSubFieldAction';
 import { collectionSchema } from './schemas/collections';
-import { CollectionFieldsTable } from ".";
 
 const useAsyncDataSource = (service: any) => (field: any) => {
   field.loading = true;
@@ -37,7 +39,7 @@ const useCollectionValues = (options) => {
           fields: [
             {
               name: 'id',
-              type: 'integer',
+              type: 'bigInt',
               autoIncrement: true,
               primaryKey: true,
               allowNull: false,
@@ -173,9 +175,14 @@ const useNewId = (prefix) => {
 
 export const ConfigurationTable = () => {
   const { collections = [] } = useCollectionManager();
+  const {
+    data: { database },
+  } = useCurrentAppInfo();
+  const collectonsRef: any = useRef();
+  collectonsRef.current = collections;
   const compile = useCompile();
   const loadCollections = async (field: any) => {
-    return collections
+    return collectonsRef.current
       ?.filter((item) => !(item.autoCreate && item.isThrough))
       .map((item: any) => ({
         label: compile(item.title),
@@ -192,7 +199,7 @@ export const ConfigurationTable = () => {
             AddSubFieldAction,
             EditSubFieldAction,
             FieldSummary,
-            CollectionFieldsTable
+            CollectionFieldsTable,
           }}
           scope={{
             useDestroySubField,
@@ -203,6 +210,9 @@ export const ConfigurationTable = () => {
             loadCollections,
             useCurrentFields,
             useNewId,
+            useCancelAction,
+            useUpdateCollectionActionAndRefreshCM,
+            enableInherits: database?.dialect === 'postgres',
           }}
         />
       </SchemaComponentContext.Provider>
