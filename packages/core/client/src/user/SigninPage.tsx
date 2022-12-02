@@ -15,7 +15,7 @@ const passwordForm: ISchema = {
       type: 'string',
       required: true,
       'x-component': 'Input',
-      'x-validator': 'email',
+      // 'x-validator': 'email',
       'x-decorator': 'FormItem',
       'x-component-props': { placeholder: '{{t("Email")}}', style: {} },
     },

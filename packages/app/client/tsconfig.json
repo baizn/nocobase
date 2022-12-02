@@ -11,6 +11,7 @@
     "baseUrl": "./",
     "strict": true,
     "paths": {
+      "@alipay/plugin-graph-console-*/client": ["../../graph-plugins/console/*/src/client"],
       "@nocobase/plugin-sample-*/client": ["../../samples/*/src/client"],
       "@nocobase/plugin-pro-*/client": ["../../pro-plugins/*/src/client"],
       "@nocobase/plugin-*/client": ["../../plugins/*/src/client"],

@@ -17,27 +17,14 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
-      "@nocobase/app-*": [
-        "packages/app/*/src"
-      ],
-      "@nocobase/plugin-sample-*": [
-        "packages/samples/*/src"
-      ],
-      "@nocobase/plugin-pro-*": [
-        "packages/pro-plugins/*/src"
-      ],
-      "@nocobase/plugin-*": [
-        "packages/plugins/*/src"
-      ],
-      "@nocobase/preset-*": [
-        "packages/presets/*/src"
-      ],
-      "@nocobase/utils/client": [
-        "packages/core/utils/src/client"
-      ],
-      "@nocobase/*": [
-        "packages/core/*/src"
-      ]
+      "@alipay/plugin-graph-console-*": ["packages/graph-plugins/console/*/src"],
+      "@nocobase/app-*": ["packages/app/*/src"],
+      "@nocobase/plugin-sample-*": ["packages/samples/*/src"],
+      "@nocobase/plugin-pro-*": ["packages/pro-plugins/*/src"],
+      "@nocobase/plugin-*": ["packages/plugins/*/src"],
+      "@nocobase/preset-*": ["packages/presets/*/src"],
+      "@nocobase/utils/client": ["packages/core/utils/src/client"],
+      "@nocobase/*": ["packages/core/*/src"]
     }
   },
   "ts-node": {
