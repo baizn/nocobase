@@ -18,7 +18,7 @@ export class SystemSettingsPlugin extends Plugin {
           filename: '682e5ad037dd02a0fe4800a3e91c283b.svg',
           extname: '.svg',
           mimetype: 'image/svg',
-          url: 'https://mdn.alipayobjects.com/huamei_2dxjn8/afts/img/A*VumQQoSS6QkAAAAAAAAAAAAADrR-AQ/original',
+          url: 'https://mdn.alipayobjects.com/huamei_2dxjn8/afts/img/A*wbScRr0wTBUAAAAAAAAAAAAADrR-AQ/original'//'https://mdn.alipayobjects.com/huamei_2dxjn8/afts/img/A*t-vJTKbtM5cAAAAAAAAAAAAADrR-AQ/original',
         },
       },
     });

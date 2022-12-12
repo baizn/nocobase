@@ -1,27 +1,43 @@
 import { Plugin } from '@nocobase/server';
-import path from 'path';
 
 export class PresetNocoBase extends Plugin {
   async addBuiltInPlugins() {
-    const plugins = process.env.PRESET_NOCOBASE_PLUGINS
-      ? process.env.PRESET_NOCOBASE_PLUGINS.split(',')
-      : [
-          'error-handler',
-          'collection-manager',
-          'ui-schema-storage',
-          'ui-routes-storage',
-          'file-manager',
-          'system-settings',
-          'verification',
-          'users',
-          'acl',
-          'china-region',
-          'workflow',
-          'client',
-          'export',
-          'import',
-          'audit-logs',
-        ];
+    // const plugins = process.env.PRESET_NOCOBASE_PLUGINS
+    //   ? process.env.PRESET_NOCOBASE_PLUGINS.split(',')
+    //   : [
+    //       'error-handler',
+    //       'collection-manager',
+    //       'ui-schema-storage',
+    //       'ui-routes-storage',
+    //       'file-manager',
+    //       'system-settings',
+    //       // 'verification',
+    //       'users',
+    //       'acl',
+    //       // 'china-region',
+    //       // 'workflow',
+    //       'client',
+    //       'export',
+    //       'import',
+    //       // 'audit-logs',
+    //     ];
+    const plugins = [
+      'error-handler',
+      'collection-manager',
+      'ui-schema-storage',
+      'ui-routes-storage',
+      'file-manager',
+      'system-settings',
+      // 'verification',
+      'users',
+      'acl',
+      // 'china-region',
+      // 'workflow',
+      'client',
+      'export',
+      'import',
+      // 'audit-logs',
+    ]
     await this.app.pm.add(plugins, {
       enabled: true,
       builtIn: true,
@@ -61,15 +77,15 @@ export class PresetNocoBase extends Plugin {
       await this.addBuiltInPlugins();
     });
   }
-  beforeLoad() {
-    this.db.addMigrations({
-      namespace: this.getName(),
-      directory: path.resolve(__dirname, './migrations'),
-      context: {
-        plugin: this,
-      },
-    });
-  }
+  // beforeLoad() {
+  //   this.db.addMigrations({
+  //     namespace: this.getName(),
+  //     directory: path.resolve(__dirname, './migrations'),
+  //     context: {
+  //       plugin: this,
+  //     },
+  //   });
+  // }
 }
 
 export default PresetNocoBase;

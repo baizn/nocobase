@@ -28,6 +28,7 @@ export const CurrentUser = () => {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const { data } = useCurrentUserContext();
+  console.log('当前用户', data)
   return (
     <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
       <DropdownVisibleContext.Provider value={{ visible, setVisible }}>
@@ -58,7 +59,7 @@ export const CurrentUser = () => {
             </Menu>
           }
         >
-          <span style={{ cursor: 'pointer', border: 0, padding: '16px', color: 'rgba(255, 255, 255, 0.65)' }}>
+          <span style={{ cursor: 'pointer', border: 0, padding: '16px', color: 'rgba(26,27,37,0.65)' }}>
             {data?.data?.nickname || data?.data?.email}
           </span>
         </Dropdown>

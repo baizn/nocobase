@@ -135,15 +135,30 @@ const InternalAdminLayout = (props: any) => {
     <Layout>
       <Layout.Header
         className={css`
+          .ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a, .ant-menu-dark .ant-menu-item > span > a {
+            color: rgba(26,27,37,0.65);
+          }
           .ant-menu.ant-menu-dark .ant-menu-item-selected,
           .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+            height: 46px;
             background-color: rgba(255, 255, 255, 0.1);
+            color: rgba(54,55,64,1);
+            border-bottom: 2px solid rgba(54,55,64,1);
           }
           .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
             background-color: rgba(255, 255, 255, 0.1);
           }
+          .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+            background: #e4ebff;
+          }
+          .ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon, .ant-menu-dark .ant-menu-item-selected .anticon {
+            color: rgba(54,55,64,1);
+          }
+          .ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon + span, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+            color: rgba(54,55,64,1);
+          }
         `}
-        style={{ height: 46, lineHeight: '46px', position: 'relative', paddingLeft: 0 }}
+        style={{ height: 47, lineHeight: '46px', position: 'relative', paddingLeft: 0, background: '#e4ebff', borderBottom: '1px solid rgba(22,80,255,0.08)' }}
       >
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', height: '100%', width: 'calc(100vw - 300px)' }}>
           <div style={{ width: 200, display: 'inline-flex', color: '#fff', padding: '0', alignItems: 'center' }}>
@@ -173,7 +188,7 @@ const InternalAdminLayout = (props: any) => {
           <CurrentUser />
         </div>
       </Layout.Header>
-      <Layout>
+      <Layout style={{ background: '#e4ebff' }}>
         <Layout.Sider style={{ display: 'none' }} theme={'light'} ref={sideMenuRef}></Layout.Sider>
         <Layout.Content
           className={css`
@@ -196,9 +211,9 @@ const InternalAdminLayout = (props: any) => {
           `}
         >
           {service.contentLoading ? <Spin /> : props.children}
-          <Layout.Footer>
+          {/* <Layout.Footer>
             <PoweredBy />
-          </Layout.Footer>
+          </Layout.Footer> */}
         </Layout.Content>
       </Layout>
     </Layout>

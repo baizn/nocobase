@@ -5,7 +5,6 @@ import { resolve } from 'path';
 import { getAccessible } from './actions/getAccessible';
 
 export class UiRoutesStoragePlugin extends Plugin {
-
   async install() {
     const repository = this.app.db.getRepository('uiRoutes');
     const routes = [
@@ -58,22 +57,22 @@ export class UiRoutesStoragePlugin extends Plugin {
           },
         ],
       },
-      {
-        type: 'route',
-        component: 'AuthLayout',
-        routes: [
-          {
-            type: 'route',
-            path: '/signin',
-            component: 'SigninPage',
-          },
-          {
-            type: 'route',
-            path: '/signup',
-            component: 'SignupPage',
-          },
-        ],
-      },
+      // {
+      //   type: 'route',
+      //   component: 'AuthLayout',
+      //   routes: [
+      //     {
+      //       type: 'route',
+      //       path: '/signin',
+      //       component: 'SigninPage',
+      //     },
+      //     {
+      //       type: 'route',
+      //       path: '/signup',
+      //       component: 'SignupPage',
+      //     },
+      //   ],
+      // },
     ];
     for (const values of routes) {
       await repository.create({

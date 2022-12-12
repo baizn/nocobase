@@ -509,4 +509,11 @@ export default {
   "Selector": "Selector",
   "Inner": "Inner",
   "Search and select collection": "Search and select collection",
+
+  // 业务相关
+  'Back To Previous Version': 'Previous Version',
+  'Public domain': 'Public domain',
+  'Product Docs': 'Product Docs',
+  'Help Center': 'Help Center',
+  'Create Issue': 'Create Issue'
 }

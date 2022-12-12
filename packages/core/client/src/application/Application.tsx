@@ -29,6 +29,8 @@ import {
 import { SchemaInitializerProvider } from '../schema-initializer';
 import { BlockTemplateDetails, BlockTemplatePage, SchemaTemplateShortcut } from '../schema-templates';
 import { SystemSettingsProvider, SystemSettingsShortcut } from '../system-settings';
+import { BackToPreviousVersion } from '../back-to-previous-version'
+import { HelpCenter } from '../helpCenter'
 import { SigninPage, SignupPage } from '../user';
 import { compose } from './compose';
 
@@ -102,6 +104,8 @@ export class Application {
         SchemaTemplateShortcut,
         PluginManagerLink,
         SettingsCenterDropdown,
+        BackToPreviousVersion,
+        HelpCenter
       },
     });
     this.use(SchemaComponentProvider, { components: { Link, NavLink } });

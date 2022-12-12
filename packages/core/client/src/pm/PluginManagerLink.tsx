@@ -8,22 +8,6 @@ import { useHistory } from 'react-router-dom';
 import { PluginManager } from '../plugin-manager';
 import { ActionContext } from '../schema-component';
 
-const schema: ISchema = {
-  type: 'object',
-  properties: {
-    [uid()]: {
-      'x-component': 'Action.Drawer',
-      type: 'void',
-      title: '{{t("Collections & Fields")}}',
-      properties: {
-        configuration: {
-          'x-component': 'ConfigurationTable',
-        },
-      },
-    },
-  },
-};
-
 export const PluginManagerLink = () => {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
@@ -77,7 +61,7 @@ export const SettingsCenterDropdown = () => {
         overlay={
           <Menu>
             <Menu.ItemGroup title={t('Bookmark')}>
-              {items.map((item) => {
+              {items.map(item => {
                 return (
                   <Menu.Item
                     onClick={() => {
@@ -104,7 +88,7 @@ export const SettingsCenterDropdown = () => {
       >
         <PluginManager.Toolbar.Item
           icon={<SettingOutlined />}
-          // title={t('Settings center')}
+          title={t('Settings center')}
         ></PluginManager.Toolbar.Item>
       </Dropdown>
     </ActionContext.Provider>

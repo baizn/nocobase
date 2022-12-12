@@ -40,6 +40,7 @@ export const ACLRolesCheckProvider = (props) => {
   if (result.loading) {
     return <Spin />;
   }
+  debugger
   if (result.error) {
     return <Redirect to={'/signin'} />;
   }

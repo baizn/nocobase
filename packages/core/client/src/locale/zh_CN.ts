@@ -623,4 +623,11 @@ export default {
   "Selector": "选择器",
   "Inner": "里面",
   "Search and select collection": "搜索并选择数据表",
+
+  // 业务相关
+  'Back To Previous Version': '返回旧版',
+  'Public domain': '公共域',
+  'Product Docs': '产品文档',
+  'Help Center': '帮助中心',
+  'Create Issue': '提交 Issue'
 }

@@ -100,7 +100,7 @@ PluginManager.Toolbar = (props: ToolbarProps) => {
 
 PluginManager.Toolbar.Item = (props) => {
   const item = useContext(ToolbarItemContext);
-  const { selected, icon, title, subtitle, ...others } = props;
+  const { selected, icon, title, subtitle, showTitle = false, ...others } = props;
   const prefix = usePrefixCls();
   const className = cls({ [`${prefix}-menu-item-selected`]: selected });
   if (item.pin) {
@@ -125,18 +125,18 @@ PluginManager.Toolbar.Item = (props) => {
     return title ? (
       <Tooltip title={titleComponent}>
         <Menu.Item {...others} className={className} eventKey={item.component}>
-          {icon}
+          {showTitle ? title : ''}{icon}
         </Menu.Item>
       </Tooltip>
     ) : (
       <Menu.Item {...others} className={className} eventKey={item.component}>
-        {icon}
+        {showTitle ? title : ''}{icon}
       </Menu.Item>
     );
   }
   return (
     <Menu.Item {...others} className={className} eventKey={item.component} icon={icon}>
-      {title}
+      {showTitle ? title : ''}{title}
     </Menu.Item>
   );
 };
@@ -151,9 +151,11 @@ export const RemotePluginManagerToolbar = () => {
   //   return <Spin />;
   // }
   const items = [
+    { component: 'BackToPreviousVersion', pin: true },
     { component: 'DesignableSwitch', pin: true },
     { component: 'PluginManagerLink', pin: true },
-    { component: 'SettingsCenterDropdown', pin: true },
+    // { component: 'SettingsCenterDropdown', pin: true },
+    { component: 'HelpCenter', pin: true }
     // ...data?.data,
   ];
   return <PluginManager.Toolbar items={items} />;

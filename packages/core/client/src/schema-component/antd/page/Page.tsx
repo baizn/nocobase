@@ -16,8 +16,8 @@ export const Page = props => {
   }, [field.title, title]);
   return (
     <>
-      <AntdPageHeader ghost={false} title={compile(title)} {...others} />
-      <div style={{ margin: 24, background: 'red' }}>{children}</div>
+      <AntdPageHeader style={{ background: '#e4ebff' }} ghost={false} title={compile(title)} {...others} />
+      <div style={{ margin: 24 }}>{children}</div>
     </>
   );
 };
