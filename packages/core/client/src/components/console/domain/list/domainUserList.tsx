@@ -37,8 +37,8 @@ const DomainUserList: React.FC<DomainUserListProps> = ({
     userList: [],
   });
 
-  const getAdminList = async () => {
-    const result = await getDomainAdminList(JSON.parse(record.owners))
+  const getAdminList = async (owners: string) => {
+    const result = await getDomainAdminList(JSON.parse(owners))
     setState({
       ...state,
       originUserList: result,
@@ -46,8 +46,8 @@ const DomainUserList: React.FC<DomainUserListProps> = ({
     })
   }
 
-  const getUserList = async () => {
-    const result = await getDomainUserList(record.domainCode)
+  const getUserList = async (domainCode: string) => {
+    const result = await getDomainUserList(domainCode)
     setState({
       ...state,
       originUserList: result,
@@ -57,11 +57,11 @@ const DomainUserList: React.FC<DomainUserListProps> = ({
 
   useEffect(() => {
     if (type === 'user') {
-      getUserList()
+      getUserList(record.domainCode)
     } else if (type === 'admin') {
-      getAdminList()
+      getAdminList(record.owners)
     }
-  }, [type])
+  }, [type, record.domainCode, record.owners])
 
   const { userList } = state
   const columns: ProColumns<TableListItem>[] = [
