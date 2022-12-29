@@ -21,5 +21,11 @@
         "mainFile": "index.ts",
         "rootDir": "packages/core/client/src/components/console/domain/list"
     },
+    "components/console/instance/list": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "list.tsx",
+        "rootDir": "packages/core/client/src/components/console/instance/list"
+    },
     "$schema-version": "15.0.0"
 }

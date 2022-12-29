@@ -17,7 +17,7 @@ export const Page = props => {
   return (
     <>
       <AntdPageHeader style={{ background: '#e4ebff' }} ghost={false} title={compile(title)} {...others} />
-      <div style={{ margin: 24 }}>{children}</div>
+      <div style={{ margin: 24, marginTop: 0 }}>{children}</div>
     </>
   );
 };
