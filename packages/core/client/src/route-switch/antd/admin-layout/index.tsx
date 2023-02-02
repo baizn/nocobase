@@ -182,9 +182,9 @@ const InternalAdminLayout = (props: any) => {
           </div>
         </div>
         <div style={{ position: 'absolute', zIndex: 10, top: 0, right: 0 }}>
-          <ACLAllowConfigure>
+          {/* <ACLAllowConfigure>
+          </ACLAllowConfigure> */}
             <RemotePluginManagerToolbar />
-          </ACLAllowConfigure>
           <CurrentUser />
         </div>
       </Layout.Header>

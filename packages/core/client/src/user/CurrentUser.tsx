@@ -41,7 +41,7 @@ export const CurrentUser = () => {
             <Menu>
               <ApplicationVersion />
               <Menu.Divider />
-              <EditProfile />
+              {/* <EditProfile />
               <ChangePassword />
               <SwitchRole />
               <LanguageSettings />
@@ -55,7 +55,7 @@ export const CurrentUser = () => {
                 }}
               >
                 {t('Sign out')}
-              </Menu.Item>
+              </Menu.Item> */}
             </Menu>
           }
         >

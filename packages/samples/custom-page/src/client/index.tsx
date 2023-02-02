@@ -1,4 +1,4 @@
-import { RouteSwitchContext } from '@nocobase/client';
+import { RouteSwitchContext, AdminLayout } from '@nocobase/client';
 import React, { useContext } from 'react';
 
 const HelloWorld = () => {
@@ -6,11 +6,17 @@ const HelloWorld = () => {
 };
 
 export default React.memo((props) => {
-  const ctx = useContext(RouteSwitchContext);
-  ctx.routes.push({
-    type: 'route',
-    path: '/hello-world',
-    component: HelloWorld,
-  });
-  return <RouteSwitchContext.Provider value={ctx}>{props.children}</RouteSwitchContext.Provider>;
+
+  const { routes, ...others } = useContext(RouteSwitchContext);
+  
+  routes[1].routes.unshift(
+    {
+      type: 'route',
+      path: '/admin/yh2l1okydow/detail',
+      component: HelloWorld,
+      uiSchemaUid: routes[1].uiSchemaUid,
+    },
+  );
+  
+  return <RouteSwitchContext.Provider value={{ ...others, routes }}>{props.children}</RouteSwitchContext.Provider>;
 });

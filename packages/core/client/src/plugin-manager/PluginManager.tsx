@@ -100,6 +100,7 @@ PluginManager.Toolbar = (props: ToolbarProps) => {
 
 PluginManager.Toolbar.Item = (props) => {
   const item = useContext(ToolbarItemContext);
+  
   const { selected, icon, title, subtitle, showTitle = false, ...others } = props;
   const prefix = usePrefixCls();
   const className = cls({ [`${prefix}-menu-item-selected`]: selected });
@@ -152,10 +153,10 @@ export const RemotePluginManagerToolbar = () => {
   // }
   const items = [
     { component: 'BackToPreviousVersion', pin: true },
+    { component: 'HelpCenter', pin: true },
     { component: 'DesignableSwitch', pin: true },
     { component: 'PluginManagerLink', pin: true },
     // { component: 'SettingsCenterDropdown', pin: true },
-    { component: 'HelpCenter', pin: true }
     // ...data?.data,
   ];
   return <PluginManager.Toolbar items={items} />;

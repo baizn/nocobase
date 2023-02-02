@@ -53,26 +53,26 @@ export class UiRoutesStoragePlugin extends Plugin {
           {
             type: 'route',
             path: '/admin/:name(.+)?',
-            component: 'RouteSchemaComponent',
+            component: 'RouteSchemaComponent'
           },
         ],
       },
-      // {
-      //   type: 'route',
-      //   component: 'AuthLayout',
-      //   routes: [
-      //     {
-      //       type: 'route',
-      //       path: '/signin',
-      //       component: 'SigninPage',
-      //     },
-      //     {
-      //       type: 'route',
-      //       path: '/signup',
-      //       component: 'SignupPage',
-      //     },
-      //   ],
-      // },
+      {
+        type: 'route',
+        component: 'AuthLayout',
+        routes: [
+          {
+            type: 'route',
+            path: '/signin',
+            component: 'SigninPage',
+          },
+          {
+            type: 'route',
+            path: '/signup',
+            component: 'SignupPage',
+          },
+        ],
+      },
     ];
     for (const values of routes) {
       await repository.create({
