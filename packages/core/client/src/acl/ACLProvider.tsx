@@ -42,7 +42,8 @@ export const ACLRolesCheckProvider = (props) => {
   }
   
   if (result.error) {
-    return <Redirect to={'/signin'} />;
+
+    return <Redirect to={'/admin'} />;
   }
   return <ACLContext.Provider value={result}>{props.children}</ACLContext.Provider>;
 };

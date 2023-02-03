@@ -17,8 +17,8 @@ import {
   RouteSwitchProvider,
   SchemaComponentProvider,
   SchemaInitializerProvider,
-  SigninPage,
-  SignupPage,
+  // SigninPage,
+  // SignupPage,
   SystemSettingsProvider,
   SystemSettingsShortcut,
   useRequest
@@ -45,7 +45,9 @@ const providers = [
   AntdSchemaComponentProvider,
   SchemaInitializerProvider,
   [DocumentTitleProvider, { addonAfter: 'NocoBase' }],
-  [RouteSwitchProvider, { components: { AuthLayout, AdminLayout, RouteSchemaComponent, SigninPage, SignupPage } }],
+  [RouteSwitchProvider, { components: { AuthLayout, AdminLayout, RouteSchemaComponent, 
+    // SigninPage, SignupPage 
+  } }],
 ];
 
 const App = compose(...providers)(() => {

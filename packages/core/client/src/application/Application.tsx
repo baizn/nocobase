@@ -31,7 +31,7 @@ import { BlockTemplateDetails, BlockTemplatePage, SchemaTemplateShortcut } from 
 import { SystemSettingsProvider, SystemSettingsShortcut } from '../system-settings';
 import { BackToPreviousVersion } from '../back-to-previous-version'
 import { HelpCenter } from '../helpCenter'
-import { SigninPage, SignupPage } from '../user';
+// import { SigninPage, SignupPage } from '../user';
 import { compose } from './compose';
 
 export interface ApplicationOptions {
@@ -88,8 +88,8 @@ export class Application {
         AuthLayout,
         AdminLayout,
         RouteSchemaComponent,
-        SigninPage,
-        SignupPage,
+        // SigninPage,
+        // SignupPage,
         BlockTemplatePage,
         BlockTemplateDetails,
       },
@@ -97,7 +97,7 @@ export class Application {
     this.use(SystemSettingsProvider);
     this.use(PluginManagerProvider, {
       components: {
-        ACLShortcut,
+        // ACLShortcut,
         DesignableSwitch,
         CollectionManagerShortcut,
         SystemSettingsShortcut,
