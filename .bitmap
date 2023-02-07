@@ -27,5 +27,17 @@
         "mainFile": "list.tsx",
         "rootDir": "packages/core/client/src/components/console/instance/list"
     },
+    "components/studio/create-schema": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/create-schema"
+    },
+    "components/studio/graph-list": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/graph-list"
+    },
     "$schema-version": "15.0.0"
 }
