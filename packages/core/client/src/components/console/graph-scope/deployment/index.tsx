@@ -6,7 +6,7 @@ import { Chart, Line, Axis, Legend } from '@antv/f2';
 import Status from '@/components/console/graph-scope/Status'
 import ServiceStatus from '@/components/console/graph-scope/ServiceStatus/index'
 import './index.less'
-const Cluster = () => {
+const Deployment = () => {
     // f2
     const tableLine = (title = '', symbol = '', name = '') => {
         return (
@@ -195,4 +195,4 @@ const Cluster = () => {
     )
 }
 
-export default Cluster
+export default Deployment

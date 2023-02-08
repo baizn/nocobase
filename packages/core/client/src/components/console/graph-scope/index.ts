@@ -1,1 +1,5 @@
 export { default as OverView } from './overview'
+export { default as Deployment } from './deployment'
+export { default as Log } from './log-viewer'
+export { default as Jobs } from './jobs'
+export { default as ExtensionType } from './extension-type'

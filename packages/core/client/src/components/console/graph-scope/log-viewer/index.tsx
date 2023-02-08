@@ -42,7 +42,7 @@ const stdout = () => {
     )
 }
 
-const App: React.FC = () => {
+const Log: React.FC = () => {
     const [form] = Form.useForm();
     const onFinish = (values: any) => {
         console.log('Success:', values);
@@ -160,4 +160,4 @@ const App: React.FC = () => {
     )
 }
 
-export default App;
+export default Log;
