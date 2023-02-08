@@ -2,20 +2,26 @@ import { message } from 'antd';
 import { request, HTTP_SERVICE_URL } from '@nocobase/client';
 
 export const getDomainList = async () => {
-  const response = await request(`${HTTP_SERVICE_URL}/domain`, {
-    method: 'get',
-  });
-
-  if (!response.success) {
-    message.error(`查询域列表失败: ${response.message}`);
-    if (response.buserviceErrorCode === 'USER_NOT_LOGIN') {
-      // 用户没有登录
-      window.location.href = response.buserviceErrorMsg;
-      return;
+  try {
+    const response = await request(`${HTTP_SERVICE_URL}/domain`, {
+      method: 'get',
+    });
+  
+    if (!response.success) {
+      message.error(`查询域列表失败: ${response.message}`);
+      if (response.buserviceErrorCode === 'USER_NOT_LOGIN') {
+        // 用户没有登录
+        window.location.href = response.buserviceErrorMsg;
+        return;
+      }
+      return [];
     }
-    return [];
+    return response.data;
+  } catch (error) {
+    console.log('request error', error)
+    return []
   }
-  return response.data;
+  
 };
 
 /**
