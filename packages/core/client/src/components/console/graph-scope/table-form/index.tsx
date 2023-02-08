@@ -3,7 +3,7 @@ import { Col, Row, Space, Modal, Select, Tag, Button } from 'antd';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { history } from "umi";
-import Tools from '@/components/console/graph-scope/Tools'
+import Tools from '../Tools'
 import './index.less'
 
 export type TableListItem = {

@@ -3,13 +3,13 @@ import { Card, Select, Divider, Row, Col, Input } from 'antd';
 import { EyeOutlined } from '@ant-design/icons';
 import { Line } from '@antv/g2plot';
 import { history } from "umi";
-import TableForm from '@/components/console/graph-scope/TableForm/index'
-import Information from '@/components/console/graph-scope/Information/index'
-import Actions from '@/components/console/graph-scope/Actions/index'
-import Status from '@/components/console/graph-scope/Status/index'
-import ServiceStatus from '@/components/console/graph-scope/ServiceStatus/index'
+import TableForm from '../table-form'
+import Information from '../information'
+import Actions from '../actions'
+import Status from '../status'
+import ServiceStatus from '../service-status'
 import './index.less'
-const Cluster = () => {
+const OverView = () => {
     const { Search } = Input;
     const onSearch = (value: string) => console.log(value);
     const options = [{
@@ -123,4 +123,4 @@ const Cluster = () => {
     )
 }
 
-export default Cluster
+export default OverView
