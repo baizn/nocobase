@@ -21,12 +21,125 @@
         "mainFile": "index.ts",
         "rootDir": "packages/core/client/src/components/console/domain/list"
     },
+    "components/console/graph-scope/actions": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/actions"
+    },
+    "components/console/graph-scope/connect": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/connect"
+    },
+    "components/console/graph-scope/data-import": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/data-import"
+    },
+    "components/console/graph-scope/deployment": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/deployment"
+    },
+    "components/console/graph-scope/extension-type": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/extension-type"
+    },
+    "components/console/graph-scope/information": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/information"
+    },
+    "components/console/graph-scope/jobs": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/jobs"
+    },
+    "components/console/graph-scope/log-viewer": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/log-viewer"
+    },
+    "components/console/graph-scope/overview": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/overview"
+    },
+    "components/console/graph-scope/service-status": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/service-status"
+    },
+    "components/console/graph-scope/status": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/status"
+    },
+    "components/console/graph-scope/table-form": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/table-form"
+    },
+    "components/console/graph-scope/tools": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/console/graph-scope/tools"
+    },
     "components/console/instance/list": {
         "scope": "graph",
         "version": "0.0.1",
         "mainFile": "list.tsx",
         "rootDir": "packages/core/client/src/components/console/instance/list"
     },
+    "components/studio/create-vertex-edge": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/create-vertex-edge"
+    },
+    "components/studio/data-source": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/data-source"
+    },
+    "components/studio/graph-basic-information": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/graph-basic-information"
+    },
+    "components/studio/new-collapse-vertex-edge-template": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/new-collapse-vertex-edge-template"
+    },
+    "components/studio/new-create-schema": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/new-create-schema"
+    },
+    "components/studio/new-graph-basic-information": {
+        "scope": "graph",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "packages/core/client/src/components/studio/new-graph-basic-information"
     "components/studio/create-schema": {
         "scope": "graph",
         "version": "0.0.1",
