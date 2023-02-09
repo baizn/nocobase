@@ -6,19 +6,19 @@ import {
   BlockItem,
   Grid,
   FormItem,
-  OverView
+  GraphScopeOverView
 } from '@nocobase/client';
 import React, { useContext } from 'react';
-import { DomainDesigner } from './DomainDesigner';
+import { OverViewDesigner } from './Designer';
 
 const schema = {
   type: 'void',
   'x-component': 'CardItem',
-  'x-designer': 'DomainDesigner',
+  'x-designer': 'OverViewDesigner',
   properties: {
     row1: {
       type: 'void',
-      'x-component': 'OverView',
+      'x-component': 'GraphScopeOverView',
       'x-async': false,
       'x-index': 1,
     },
@@ -26,7 +26,7 @@ const schema = {
 };
 
 
-export const DomainBlockInitializer = props => {
+export const OverviewBlockInitializer = props => {
   const { insert } = props;
   return (
     <SchemaInitializer.Item
@@ -51,7 +51,7 @@ export default React.memo(props => {
       key: 'gs-overview',
       type: 'item',
       title: 'GraphScope-Overview',
-      component: DomainBlockInitializer,
+      component: OverviewBlockInitializer,
     });
   }
   return (
@@ -60,9 +60,9 @@ export default React.memo(props => {
         FormItem,
         Grid,
         BlockItem,
-        DomainDesigner,
-        DomainBlockInitializer,
-        OverView
+        OverViewDesigner,
+        OverviewBlockInitializer,
+        GraphScopeOverView
       }}
     >
       <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>

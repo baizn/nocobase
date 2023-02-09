@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row, Button, Input, Space, Breadcrumb } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { history } from "umi";
-import TableForm from '../../console/graph-scope/TableForm/index'
-import CreateSchema from "../CreateSchema";
+import { GraphScopeTableForm } from '@nocobase/client'
+import CreateSchema from "../create-schema";
 import './index.less'
 const { Search } = Input;
 const onSearch = (value: string) => console.log(value);
@@ -58,7 +57,7 @@ const GraphList = () => {
 							</div>
 						</Col>
 					</Row>
-					<TableForm/>
+					<GraphScopeTableForm/>
 				</>	
 			}
 		</div>

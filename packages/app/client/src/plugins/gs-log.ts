@@ -1,0 +1,1 @@
+export { default } from '@alipay/plugin-graph-console-gs-log/client';

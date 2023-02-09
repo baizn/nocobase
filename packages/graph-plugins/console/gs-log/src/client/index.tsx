@@ -6,19 +6,19 @@ import {
   BlockItem,
   Grid,
   FormItem,
-  Log
+  GraphScopeLog
 } from '@nocobase/client';
 import React, { useContext } from 'react';
-import { DomainDesigner } from './DomainDesigner';
+import { LogDesigner } from './Designer';
 
 const schema = {
   type: 'void',
   'x-component': 'CardItem',
-  'x-designer': 'DomainDesigner',
+  'x-designer': 'LogDesigner',
   properties: {
     row1: {
       type: 'void',
-      'x-component': 'Log',
+      'x-component': 'GraphScopeLog',
       'x-async': false,
       'x-index': 1,
     },
@@ -26,7 +26,7 @@ const schema = {
 };
 
 
-export const DomainBlockInitializer = props => {
+export const LogBlockInitializer = props => {
   const { insert } = props;
   return (
     <SchemaInitializer.Item
@@ -51,7 +51,7 @@ export default React.memo(props => {
       key: 'gs-log',
       type: 'item',
       title: 'GraphScope-Log',
-      component: DomainBlockInitializer,
+      component: LogBlockInitializer,
     });
   }
   return (
@@ -60,9 +60,9 @@ export default React.memo(props => {
         FormItem,
         Grid,
         BlockItem,
-        DomainDesigner,
-        DomainBlockInitializer,
-        Log
+        LogDesigner,
+        LogBlockInitializer,
+        GraphScopeLog
       }}
     >
       <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>

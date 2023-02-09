@@ -2,7 +2,7 @@ import { useFieldSchema } from '@formily/react';
 import { GeneralSchemaDesigner, SchemaSettings, useCollection } from '@nocobase/client';
 import React from 'react';
 
-export const DomainDesigner = () => {
+export const ExtensionDesigner = () => {
   const { name, title } = useCollection();
   const fieldSchema = useFieldSchema();
   return (

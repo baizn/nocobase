@@ -45,5 +45,12 @@
     "prettier": "^2.2.1",
     "pretty-format": "^24.0.0",
     "pretty-quick": "^3.1.0"
+  },
+  "repository": "https://github.com/baizn/nocobase.git",
+  "dependencies": {
+    "@antv/f2": "^4.0.41",
+    "@antv/f2-react": "^4.0.42",
+    "@codemirror/lang-json": "^6.0.1",
+    "@uiw/react-codemirror": "^4.19.7"
   }
 }

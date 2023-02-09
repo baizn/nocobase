@@ -24,7 +24,11 @@ export class PresetNocoBase extends Plugin {
       builtIn: true,
       installed: true,
     });
-    const samples = ['sample-hello'];
+
+    // 启动时候就默认添加 GraphScope 所有的差距
+
+    // const samples = ['sample-hello'];
+    const samples = ['gs-overview', 'gs-log', 'gs-jobs', 'gs-graph-list', 'gs-extensiontype', 'gs-deployment'];
     await this.app.pm.add(samples, {});
     await this.app.reload();
   }

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Col, Row, Button, Tabs, Space } from 'antd';
 import type { TabsProps } from 'antd';
-import GraphBasicInformation from '../GraphBasicInformation'
-import CollapseVertexTemplate from '../CollapseVertexEdgeTemplate'
+import GraphBasicInformation from '../graph-basic-information'
+import CollapseVertexTemplate from '../new-collapse-vertex-edge-template'
 
 import './index.less'
 

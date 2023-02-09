@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button, Collapse, Drawer, Space } from 'antd'
 import { PlusOutlined, CaretRightOutlined } from '@ant-design/icons';
-import DataSource from '@/components/studio/DataSource'
-import DataImport from '@/components/console/graph-scope/DataImport'
-import CreateVertexEdge from '@/components/studio/NewCollapseVertexEdgeTemplate/components/CreateVertexEdge'
+import DataSource from '../data-source'
+import { GraphScopeDataImport } from '@nocobase/client'
+import CreateVertexEdge from '../new-collapse-vertex-edge-template/components/CreateVertexEdge'
 import './index.less'
 const { Panel } = Collapse;
 const NewCollapseVertexEdgeTemplate = (props: { deleteNode?: any; type?: any; titleArr?: any; }) => {
@@ -169,7 +169,7 @@ const NewCollapseVertexEdgeTemplate = (props: { deleteNode?: any; type?: any; ti
         <DataSource onClose={onClose} />
       </Drawer>
       <Drawer width='80%' title="Data Import g3" placement="right" onClose={() => setopenImport(false)} open={openImport}>
-        <DataImport />
+        <GraphScopeDataImport />
       </Drawer>
     </>
   )

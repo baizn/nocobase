@@ -6,19 +6,19 @@ import {
   BlockItem,
   Grid,
   FormItem,
-  Deployment
+  GraphScopeDeployment
 } from '@nocobase/client';
 import React, { useContext } from 'react';
-import { DomainDesigner } from './DomainDesigner';
+import { DeploymentDesigner } from './Designer';
 
 const schema = {
   type: 'void',
   'x-component': 'CardItem',
-  'x-designer': 'DomainDesigner',
+  'x-designer': 'DeploymentDesigner',
   properties: {
     row1: {
       type: 'void',
-      'x-component': 'Deployment',
+      'x-component': 'GraphScopeDeployment',
       'x-async': false,
       'x-index': 1,
     },
@@ -60,9 +60,9 @@ export default React.memo(props => {
         FormItem,
         Grid,
         BlockItem,
-        DomainDesigner,
+        DeploymentDesigner,
         DomainBlockInitializer,
-        Deployment
+        GraphScopeDeployment
       }}
     >
       <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>

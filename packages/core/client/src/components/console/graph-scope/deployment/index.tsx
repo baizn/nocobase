@@ -3,8 +3,8 @@ import { Card, Space, Select, Progress, Divider } from 'antd';
 import { RedoOutlined } from '@ant-design/icons';
 import Canvas from '@antv/f2-react';
 import { Chart, Line, Axis, Legend } from '@antv/f2';
-import Status from '@/components/console/graph-scope/Status'
-import ServiceStatus from '@/components/console/graph-scope/ServiceStatus/index'
+import Status from '../status'
+import ServiceStatus from '../service-status'
 import './index.less'
 const Deployment = () => {
     // f2

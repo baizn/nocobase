@@ -6,19 +6,19 @@ import {
   BlockItem,
   Grid,
   FormItem,
-  GraphScopeJobs
+  GraphScopeGraphList
 } from '@nocobase/client';
 import React, { useContext } from 'react';
-import { JobsDesigner } from './Designer';
+import { GraphListDesigner } from './Designer';
 
 const schema = {
   type: 'void',
   'x-component': 'CardItem',
-  'x-designer': 'JobsDesigner',
+  'x-designer': 'GraphListDesigner',
   properties: {
     row1: {
       type: 'void',
-      'x-component': 'GraphScopeJobs',
+      'x-component': 'GraphScopeGraphList',
       'x-async': false,
       'x-index': 1,
     },
@@ -26,7 +26,7 @@ const schema = {
 };
 
 
-export const JobsBlockInitializer = props => {
+export const GraphListBlockInitializer = props => {
   const { insert } = props;
   return (
     <SchemaInitializer.Item
@@ -35,7 +35,7 @@ export const JobsBlockInitializer = props => {
       onClick={() => {
         insert(schema);
       }}
-      title="GraphScope Jobs"
+      title="GraphScopeGraphList"
     />
   );
 };
@@ -44,14 +44,14 @@ export default React.memo(props => {
   const items = useContext(SchemaInitializerContext);
   const children = items.BlockInitializers.items[2].children;
 
-  const hasCustomBlock = children.find(d => d.key === 'gs-jobs');
+  const hasCustomBlock = children.find(d => d.key === 'gs-graph-list');
 
   if (!hasCustomBlock) {
     children.push({
-      key: 'gs-jobs',
+      key: 'gs-graph-list',
       type: 'item',
-      title: 'GraphScope-Jobs',
-      component: JobsBlockInitializer,
+      title: 'GraphScope-GraphList',
+      component: GraphListBlockInitializer,
     });
   }
   return (
@@ -60,9 +60,9 @@ export default React.memo(props => {
         FormItem,
         Grid,
         BlockItem,
-        JobsDesigner,
-        JobsBlockInitializer,
-        GraphScopeJobs
+        GraphListDesigner,
+        GraphListBlockInitializer,
+        GraphScopeGraphList
       }}
     >
       <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>
