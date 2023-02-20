@@ -169,7 +169,7 @@ class AppGenerator extends Generator {
     });
 
     await this.downloadServerPackage();
-    await this.downloadClientPackage();
+    // await this.downloadClientPackage();
 
     this.checkDbEnv();
 

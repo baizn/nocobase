@@ -4,9 +4,8 @@ export default {
   excludePkgs: [
     'core/build',
     'core/cli',
-    'core/create-nocobase-app',
+    'core/create-openpiece-app',
     'core/devtools',
-    'core/dumi-theme-nocobase',
     'app/client',
   ],
 };

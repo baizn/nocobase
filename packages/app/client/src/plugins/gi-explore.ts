@@ -1,1 +1,0 @@
-export { default } from '@alipay/plugin-graph-console-gi-explore/client';
