@@ -19,7 +19,7 @@ services:
     volumes:
       - ./storage:/app/nocobase/storage
     ports:
-      - "13000:80"
+      - "7700:80"
   mysql:
     image: mysql:8
     environment:

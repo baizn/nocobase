@@ -156,7 +156,7 @@ export const RemotePluginManagerToolbar = () => {
     { component: 'HelpCenter', pin: true },
     { component: 'DesignableSwitch', pin: true },
     { component: 'PluginManagerLink', pin: true },
-    // { component: 'SettingsCenterDropdown', pin: true },
+    { component: 'SettingsCenterDropdown', pin: true },
     // ...data?.data,
   ];
   return <PluginManager.Toolbar items={items} />;

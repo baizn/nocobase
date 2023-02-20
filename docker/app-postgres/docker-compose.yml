@@ -14,7 +14,7 @@ services:
     volumes:
       - ./storage:/app/nocobase/storage
     ports:
-      - "13000:80"
+      - "7700:80"
     depends_on:
       - postgres
   postgres:
