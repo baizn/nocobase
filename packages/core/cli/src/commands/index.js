@@ -12,7 +12,6 @@ module.exports = (cli) => {
   require('./start')(cli);
   require('./test')(cli);
   require('./clean')(cli);
-  require('./doc')(cli);
   require('./umi')(cli);
   require('./upgrade')(cli);
   require('./postinstall')(cli);
