@@ -7,7 +7,7 @@ import {
   compose,
   RecordProvider,
   useCollectionField,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import MockAdapter from 'axios-mock-adapter';
 
 const apiClient = new APIClient();

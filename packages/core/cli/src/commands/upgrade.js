@@ -35,7 +35,7 @@ module.exports = (cli) => {
       const clientPackage = resolve(process.cwd(), `packages/${APP_PACKAGE_ROOT}/client/package.json`);
       const serverPackage = resolve(process.cwd(), `packages/${APP_PACKAGE_ROOT}/server/package.json`);
       await updateJsonFile(clientPackage, (data) => {
-        data.devDependencies['@nocobase/client'] = version;
+        data.devDependencies['@tugraph/openpiece-client'] = version;
         return data;
       });
       await updateJsonFile(serverPackage, (data) => {

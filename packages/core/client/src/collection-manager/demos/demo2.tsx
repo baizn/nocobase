@@ -7,7 +7,7 @@ import {
   Action,
   CollectionProvider,
   CollectionField,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import 'antd/dist/antd.css';
 import { FormItem, Input } from '@formily/antd';
 

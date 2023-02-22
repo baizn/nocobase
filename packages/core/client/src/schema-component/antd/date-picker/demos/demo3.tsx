@@ -2,7 +2,7 @@
  * title: DatePicker (GMT)
  */
 import { FormItem } from '@formily/antd';
-import { DatePicker, Input, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { DatePicker, Input, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

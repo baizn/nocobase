@@ -1,4 +1,4 @@
-import { Application } from '@nocobase/client';
+import { Application } from '@tugraph/openpiece-client';
 
 export const app = new Application({
   apiClient: {

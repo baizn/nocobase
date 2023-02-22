@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, MemoryRouter } from 'react-router-dom';
-import { RouteSwitchProvider, RouteSwitch, SchemaComponentProvider, compose } from '@nocobase/client';
+import { RouteSwitchProvider, RouteSwitch, SchemaComponentProvider, compose } from '@tugraph/openpiece-client';
 import { Hello } from './Hello';
 import { RouteSchemaComponent } from './RouteSchemaComponent';
 import routes from './routes';

@@ -8,7 +8,7 @@ import {
   SchemaInitializerItemOptions,
   SchemaInitializerProvider,
   useSchemaInitializer
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { Input } from 'antd';
 import React from 'react';
 

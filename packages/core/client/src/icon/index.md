@@ -8,7 +8,7 @@ group:
 # Icon
 
 ```tsx | pure
-import { Icon } from '@nocobase/client';
+import { Icon } from '@tugraph/openpiece-client';
 
 Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
@@ -23,7 +23,7 @@ Use @ant-design/icons
 
 ```tsx
 import React from 'react';
-import { Icon } from '@nocobase/client';
+import { Icon } from '@tugraph/openpiece-client';
 
 export default () => <Icon type="BookOutlined" />
 ```
@@ -32,7 +32,7 @@ Use iconfont.cn
 
 ```tsx
 import React from 'react';
-import { Icon } from '@nocobase/client';
+import { Icon } from '@tugraph/openpiece-client';
 
 Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
@@ -45,7 +45,7 @@ Custom Icon
 
 ```tsx
 import React from 'react';
-import { Icon } from '@nocobase/client';
+import { Icon } from '@tugraph/openpiece-client';
 
 const HeartSvg = () => (
   <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -60,7 +60,7 @@ Register Icon
 
 ```tsx
 import React from 'react';
-import { Icon } from '@nocobase/client';
+import { Icon } from '@tugraph/openpiece-client';
 
 const HeartSvg = () => (
   <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">

@@ -22,7 +22,7 @@ import {
   SystemSettingsProvider,
   SystemSettingsShortcut,
   useRequest
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { Spin } from 'antd';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';

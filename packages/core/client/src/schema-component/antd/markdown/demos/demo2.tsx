@@ -3,7 +3,7 @@
  */
 import { FormItem } from '@formily/antd';
 import { observer, useField } from '@formily/react';
-import { Markdown, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Markdown, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import { Button } from 'antd';
 import React from 'react';
 

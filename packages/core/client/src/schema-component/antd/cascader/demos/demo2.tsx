@@ -9,7 +9,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   useAPIClient
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import MockAdapter from 'axios-mock-adapter';
 import React from 'react';
 

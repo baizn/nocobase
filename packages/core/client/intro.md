@@ -65,7 +65,7 @@ export default App;
  */
 import React from 'react';
 import { Link, MemoryRouter as Router } from 'react-router-dom';
-import { RouteRedirectProps, RouteSwitchProvider, RouteSwitch } from '@nocobase/client';
+import { RouteRedirectProps, RouteSwitchProvider, RouteSwitch } from '@tugraph/openpiece-client';
 
 const Home = () => <h1>Home</h1>;
 const About = () => <h1>About</h1>;
@@ -110,7 +110,7 @@ export default () => {
  */
 import React from 'react';
 import { ISchema } from '@formily/react';
-import { SchemaComponentProvider, SchemaComponent } from '@nocobase/client';
+import { SchemaComponentProvider, SchemaComponent } from '@tugraph/openpiece-client';
 
 const schema: ISchema = {
   name: 'hello',
@@ -196,7 +196,7 @@ export default App;
  * title: Drawer Schema
  */
 import React, { useMemo } from 'react';
-import { SchemaComponentProvider, SchemaComponent } from '@nocobase/client';
+import { SchemaComponentProvider, SchemaComponent } from '@tugraph/openpiece-client';
 import { Drawer as AntdDrawer, Button } from 'antd';
 import { createForm } from '@formily/core';
 import { RecursionField } from '@formily/react';
@@ -333,7 +333,7 @@ Action.Drawer 完整的例子如下：
 import React, { createContext, useContext, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Button, Drawer } from 'antd';
-import { SchemaComponentProvider, SchemaComponent } from '@nocobase/client';
+import { SchemaComponentProvider, SchemaComponent } from '@tugraph/openpiece-client';
 import { observer, RecursionField, useField, useFieldSchema, ISchema } from '@formily/react';
 
 const VisibleContext = createContext(null);
@@ -484,7 +484,7 @@ import {
   SchemaComponent,
   useDesignable,
   useSchemaComponentContext,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { Spin, Button } from 'antd';
 import { observer, Schema } from '@formily/react';
 
@@ -654,7 +654,7 @@ import React from 'react';
 import { uid } from '@formily/shared';
 import { observer, useField, useFieldSchema } from '@formily/react';
 import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core';
-import { SchemaComponent, SchemaComponentProvider, createDesignable, useDesignable } from '@nocobase/client';
+import { SchemaComponent, SchemaComponentProvider, createDesignable, useDesignable } from '@tugraph/openpiece-client';
 
 const useDragEnd = () => {
   const { refresh } = useDesignable();

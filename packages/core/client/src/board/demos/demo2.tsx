@@ -1,4 +1,4 @@
-import { Board } from '@nocobase/client';
+import { Board } from '@tugraph/openpiece-client';
 import { Button, Card } from 'antd';
 import React, { useState } from 'react';
 import '../style.less';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDesignable } from '@nocobase/client';
+import { useDesignable } from '@tugraph/openpiece-client';
 import { Button } from 'antd';
 import { observer } from '@formily/react';
 

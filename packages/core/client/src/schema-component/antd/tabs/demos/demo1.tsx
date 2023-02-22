@@ -2,7 +2,7 @@
  * title: Tabs
  */
 import { ISchema } from '@formily/react';
-import { Action, SchemaComponent, SchemaComponentProvider, Tabs } from '@nocobase/client';
+import { Action, SchemaComponent, SchemaComponentProvider, Tabs } from '@tugraph/openpiece-client';
 import React from 'react';
 import { AntdSchemaComponentProvider } from '../../AntdSchemaComponentProvider';
 

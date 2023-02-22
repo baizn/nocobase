@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
 import MockAdapter from 'axios-mock-adapter';
-import { APIClientProvider, SchemaComponentProvider, SchemaComponent, useRequest, APIClient } from '@nocobase/client';
+import { APIClientProvider, SchemaComponentProvider, SchemaComponent, useRequest, APIClient } from '@tugraph/openpiece-client';
 import { observer } from '@formily/react';
 
 const apiClient = new APIClient();

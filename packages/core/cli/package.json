@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/cli",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/op-cli",
+  "version": "0.0.1-beta.1",
   "description": "",
   "license": "Apache-2.0",
   "licenses": [
@@ -11,7 +11,7 @@
   ],
   "main": "./src/index.js",
   "bin": {
-    "nocobase": "./bin/index.js"
+    "openpiece": "./bin/index.js"
   },
   "dependencies": {
     "chalk": "^4.1.1",
@@ -27,8 +27,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/baizn/nocobase.git",
     "directory": "packages/core/cli"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

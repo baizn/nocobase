@@ -1,6 +1,6 @@
 import { FormItem, Input } from '@formily/antd';
 import { ISchema, observer, useForm } from '@formily/react';
-import { Action, Form, SchemaComponent, SchemaComponentProvider, useCloseAction } from '@nocobase/client';
+import { Action, Form, SchemaComponent, SchemaComponentProvider, useCloseAction } from '@tugraph/openpiece-client';
 import React from 'react';
 
 export default observer(() => {

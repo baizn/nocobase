@@ -2,7 +2,7 @@
  * title: stringMode
  */
 import { FormItem } from '@formily/antd';
-import { InputNumber, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { InputNumber, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

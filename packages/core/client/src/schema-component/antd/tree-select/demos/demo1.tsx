@@ -2,7 +2,7 @@
  * title: TreeSelect
  */
 import { FormItem } from '@formily/antd';
-import { SchemaComponent, SchemaComponentProvider, TreeSelect } from '@nocobase/client';
+import { SchemaComponent, SchemaComponentProvider, TreeSelect } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const dataSource = [

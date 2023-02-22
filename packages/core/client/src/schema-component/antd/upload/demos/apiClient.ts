@@ -1,4 +1,4 @@
-import { APIClient } from '@nocobase/client';
+import { APIClient } from '@tugraph/openpiece-client';
 import MockAdapter from 'axios-mock-adapter';
 
 export const apiClient = new APIClient({

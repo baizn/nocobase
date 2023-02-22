@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatabaseOutlined } from '@ant-design/icons';
-import { PluginManager } from '@nocobase/client';
+import { PluginManager } from '@tugraph/openpiece-client';
 
 export const Plugin1 = () => null;
 Plugin1.ToolbarItem = () => {

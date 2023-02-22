@@ -1,6 +1,6 @@
 import React from 'react';
 import { ISchema } from '@formily/react';
-import { Page, DocumentTitleProvider, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Page, DocumentTitleProvider, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 
 const schema: ISchema = {
   type: 'object',

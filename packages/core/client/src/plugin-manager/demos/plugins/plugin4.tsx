@@ -1,6 +1,6 @@
 import { VerifiedOutlined } from '@ant-design/icons';
 import { ISchema, useForm } from '@formily/react';
-import { ActionContext, PluginManager, SchemaComponent, useActionContext } from '@nocobase/client';
+import { ActionContext, PluginManager, SchemaComponent, useActionContext } from '@tugraph/openpiece-client';
 import React, { useState } from 'react';
 
 const useCloseAction = () => {

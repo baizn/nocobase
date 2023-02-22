@@ -1,14 +1,16 @@
 {
-  "name": "@nocobase/app-client",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/openpiece-client-app",
+  "version": "0.0.1-beta.1",
   "license": "MIT",
   "devDependencies": {
-    "@nocobase/client": "0.8.0-alpha.13"
+    "@tugraph/openpiece-client": "0.0.1-beta.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/baizn/nocobase.git",
     "directory": "packages/app/client"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

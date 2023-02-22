@@ -6,7 +6,7 @@ import {
   SchemaComponentProvider,
   SchemaInitializerItemOptions,
   SchemaInitializerProvider
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 
 const removeColumn = (schema, cb) => {

@@ -7,7 +7,7 @@ import {
   SchemaComponentProvider,
   useActionContext,
   useRequest
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 
 const dataSource = [

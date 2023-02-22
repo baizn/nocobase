@@ -7,7 +7,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   useActionContext
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React, { useState } from 'react';
 
 const useCloseAction = () => {

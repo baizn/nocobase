@@ -7,7 +7,7 @@ import {
   SchemaInitializer,
   SchemaInitializerProvider,
   useSchemaInitializer
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 
 const Hello = observer((props) => {

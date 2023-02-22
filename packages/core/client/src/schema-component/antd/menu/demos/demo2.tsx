@@ -2,7 +2,7 @@
  * title: Menu
  */
 import React from 'react';
-import { Menu, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Menu, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import { ISchema } from '@formily/react';
 
 const schema: ISchema = {

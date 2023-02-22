@@ -2,7 +2,7 @@
  * title: 勾选
  */
 import { FormItem } from '@formily/antd';
-import { Checkbox, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Checkbox, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

@@ -2,7 +2,7 @@
  * title: TimePicker
  */
 import { FormItem } from '@formily/antd';
-import { SchemaComponent, SchemaComponentProvider, TimePicker } from '@nocobase/client';
+import { SchemaComponent, SchemaComponentProvider, TimePicker } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

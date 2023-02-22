@@ -143,11 +143,11 @@ class AppGenerator extends Generator {
 
   async downloadClientPackage() {
     const { name } = this.context;
-    console.log('Download: @nocobase/app-client');
+    console.log('Download: @tugraph/openpiece-client-app');
     const clientPackageDir = resolve(this.cwd, 'packages/app/client');
-    await downloadPackageFromNpm('@nocobase/app-client', clientPackageDir);
+    await downloadPackageFromNpm('@tugraph/openpiece-client-app', clientPackageDir);
     await updateJsonFile(resolve(clientPackageDir, 'package.json'), (data) => {
-      data['name'] = `@${name}/app-client`;
+      data['name'] = `@${name}/openpiece-client-app`;
       data['version'] = '0.1.0';
       return data;
     });
@@ -169,7 +169,7 @@ class AppGenerator extends Generator {
     });
 
     await this.downloadServerPackage();
-    // await this.downloadClientPackage();
+    await this.downloadClientPackage();
 
     this.checkDbEnv();
 
