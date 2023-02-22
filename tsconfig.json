@@ -18,6 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "@alipay/plugin-graph-console-*": ["packages/graph-plugins/console/*/src"],
+      "@tugraph/plugin-graph-console-*": ["packages/graph-plugins/console/*/src"],
+      "@tugraph/plugin-graph-studio-*": ["packages/graph-plugins/studio/*/src"],
       "@nocobase/app-*": ["packages/app/*/src"],
       "@nocobase/plugin-sample-*": ["packages/samples/*/src"],
       "@nocobase/plugin-*": ["packages/plugins/*/src"],

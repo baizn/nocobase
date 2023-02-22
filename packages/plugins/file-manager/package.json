@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "@koa/multer": "^3.0.0",
-    "@tugraph/openpiece-client": "0.0.1-beta.1",
+    "@tugraph/openpiece-client": "0.0.1",
     "@nocobase/server": "0.8.0-alpha.13",
     "aws-sdk": "^2.2.32",
     "cos-nodejs-sdk-v5": "^2.11.14",

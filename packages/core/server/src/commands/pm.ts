@@ -7,7 +7,7 @@ export default (app: Application) => {
     .arguments('<plugins...>')
     .action(async (method, plugins, options, ...args) => {
       if (method === 'add') {
-        const { run } = require('@nocobase/cli/src/util');
+        const { run } = require('@tugraph/openpiece-cli/src/util');
         console.log('Install dependencies and rebuild workspaces');
         await run('yarn', ['install']);
       }

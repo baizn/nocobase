@@ -80,7 +80,7 @@ class AppGenerator extends Generator {
         if (!allDbDialect) {
           dependencies.push(`"sqlite3": "^5.0.8"`);
         }
-        envs.push(`DB_STORAGE=${env.DB_STORAGE || 'storage/db/nocobase.sqlite'}`);
+        envs.push(`DB_STORAGE=${env.DB_STORAGE || 'storage/db/openpiece.sqlite'}`);
         break;
       case 'mysql':
         if (!allDbDialect) {
@@ -119,11 +119,11 @@ class AppGenerator extends Generator {
       dependencies: dependencies.join(`,\n    `),
       envs: envs.join(`\n`),
       env: {
-        APP_PORT: 13000,
+        APP_PORT: 7700,
         APP_ENV: 'development',
         DB_DIALECT: dbDialect,
         APP_KEY: crypto.randomBytes(256).toString('base64'),
-        PLUGIN_PACKAGE_PREFIX: `@nocobase/plugin-,@nocobase/preset-,@${this.context.name}/plugin-`,
+        PLUGIN_PACKAGE_PREFIX: `@nocobase/plugin-,@nocobase/preset-,@tugraph/plugin-graph-console-,@tugraph/plugin-graph-studio-,@${this.context.name}/plugin-`,
         ...env,
       },
     };
@@ -159,7 +159,7 @@ class AppGenerator extends Generator {
 
     const { name } = this.context;
 
-    console.log(`Creating a new NocoBase application at ${chalk.green(name)}`);
+    console.log(`Creating a new Openpiece application at ${chalk.green(name)}`);
     console.log('Creating files');
 
     this.copyDirectory({
@@ -176,7 +176,7 @@ class AppGenerator extends Generator {
     console.log('');
     console.log(chalk.green(`$ cd ${name}`));
     console.log(chalk.green(`$ yarn install`));
-    console.log(chalk.green(`$ yarn nocobase install`));
+    console.log(chalk.green(`$ yarn openpiece install`));
     console.log(chalk.green(`$ yarn dev`));
     console.log('');
   }

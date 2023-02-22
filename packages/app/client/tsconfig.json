@@ -12,6 +12,8 @@
     "strict": true,
     "paths": {
       "@alipay/plugin-graph-console-*/client": ["../../graph-plugins/console/*/src/client"],
+      "@tugraph/plugin-graph-console-*/client": ["../..//graph-plugins/console/*/src/client"],
+      "@tugraph/plugin-graph-studio-*/client": ["../..//graph-plugins/studio/*/src/client"],
       "@nocobase/plugin-sample-*/client": ["../../samples/*/src/client"],
       "@nocobase/plugin-*/client": ["../../plugins/*/src/client"],
       "@nocobase/utils/client": ["../../core/utils/src/client"],

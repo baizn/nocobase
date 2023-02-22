@@ -11,7 +11,7 @@
     }
   ],
   "dependencies": {
-    "@tugraph/openpiece-client": "0.0.1-beta.1",
+    "@tugraph/openpiece-client": "0.0.1",
     "@nocobase/server": "0.8.0-alpha.13"
   },
   "devDependencies": {

@@ -38,11 +38,6 @@ export class UiRoutesStoragePlugin extends Plugin {
           // test...
           // {
           //   type: 'route',
-          //   path: '/admin/workflows/:id',
-          //   component: 'WorkflowPage',
-          // },
-          // {
-          //   type: 'route',
           //   path: '/admin/block-templates/:key',
           //   component: 'BlockTemplateDetails',
           // },

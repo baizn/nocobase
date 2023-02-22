@@ -87,7 +87,6 @@ export class ClientPlugin extends Plugin {
           ctx.body = [
             { component: 'CollectionManagerShortcut' },
             { component: 'ACLShortcut' },
-            { component: 'WorkflowShortcut' },
             { component: 'SchemaTemplateShortcut' },
             { component: 'SystemSettingsShortcut' },
             { component: 'FileStorageShortcut' },

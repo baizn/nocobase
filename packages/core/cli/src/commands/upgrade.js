@@ -31,7 +31,7 @@ module.exports = (cli) => {
         return;
       }
       const version = await getVersion();
-      await run('yarn', ['add', '@nocobase/cli', '@nocobase/devtools', '-W']);
+      await run('yarn', ['add', '@tugraph/openpiece-cli', '@nocobase/devtools', '-W']);
       const clientPackage = resolve(process.cwd(), `packages/${APP_PACKAGE_ROOT}/client/package.json`);
       const serverPackage = resolve(process.cwd(), `packages/${APP_PACKAGE_ROOT}/server/package.json`);
       await updateJsonFile(clientPackage, (data) => {
