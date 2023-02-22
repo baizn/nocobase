@@ -4,7 +4,7 @@ import {
   SchemaInitializer,
   SchemaInitializerContext,
   SettingsCenterProvider,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { Card } from 'antd';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
