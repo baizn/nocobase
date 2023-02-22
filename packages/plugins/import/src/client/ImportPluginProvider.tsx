@@ -1,4 +1,4 @@
-import { SchemaComponentOptions } from '@nocobase/client';
+import { SchemaComponentOptions } from '@tugraph/openpiece-client';
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ImportActionInitializer, ImportDesigner, ImportInitializerProvider } from '.';

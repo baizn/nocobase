@@ -1,5 +1,5 @@
 import { useFieldSchema } from '@formily/react';
-import { useCollectionManager } from '@nocobase/client';
+import { useCollectionManager } from '@tugraph/openpiece-client';
 
 export const useFields = (collectionName: string) => {
   const fieldSchema = useFieldSchema();

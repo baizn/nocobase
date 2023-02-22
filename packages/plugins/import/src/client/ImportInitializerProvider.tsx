@@ -1,4 +1,4 @@
-import { SchemaInitializerContext } from '@nocobase/client';
+import { SchemaInitializerContext } from '@tugraph/openpiece-client';
 import { useContext } from 'react';
 
 export const ImportInitializerProvider = (props: any) => {

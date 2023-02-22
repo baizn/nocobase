@@ -1,6 +1,6 @@
 import { Schema, useFieldSchema } from '@formily/react';
 import { merge } from '@formily/shared';
-import { SchemaInitializer, useCollection, useCompile, useDesignable } from '@nocobase/client';
+import { SchemaInitializer, useCollection, useCompile, useDesignable } from '@tugraph/openpiece-client';
 import React from 'react';
 import { useFields } from './useFields';
 

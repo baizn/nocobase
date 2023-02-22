@@ -1,5 +1,5 @@
 import { ISchema, useField, useFieldSchema } from '@formily/react';
-import { GeneralSchemaDesigner, SchemaSettings, useCollection, useCollectionFilterOptions, useDesignable, useSortFields, useTableBlockContext } from '@nocobase/client';
+import { GeneralSchemaDesigner, SchemaSettings, useCollection, useCollectionFilterOptions, useDesignable, useSortFields, useTableBlockContext } from '@tugraph/openpiece-client';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

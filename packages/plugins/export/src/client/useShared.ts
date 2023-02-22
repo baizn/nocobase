@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useCollection } from '@nocobase/client';
+import { useCollection } from '@tugraph/openpiece-client';
 import { useFields } from './useFields';
 
 export const useShared = () => {

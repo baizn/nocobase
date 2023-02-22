@@ -1,5 +1,5 @@
 import { TableOutlined } from '@ant-design/icons';
-import { SchemaInitializer } from '@nocobase/client';
+import { SchemaInitializer } from '@tugraph/openpiece-client';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

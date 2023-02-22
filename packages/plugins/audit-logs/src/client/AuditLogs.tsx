@@ -8,7 +8,7 @@ import {
   TableBlockProvider,
   useCollection,
   useCompile, useRecord
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React, { createContext, useContext } from 'react';
 import { AuditLogsDesigner } from './AuditLogsDesigner';
 

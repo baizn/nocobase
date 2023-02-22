@@ -7,7 +7,7 @@ import {
   useCollection,
   useCollectionManager,
   useCompile,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { message } from 'antd';
 import { saveAs } from 'file-saver';
 import { cloneDeep } from 'lodash';

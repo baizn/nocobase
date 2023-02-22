@@ -5,7 +5,7 @@ import {
   useCollection,
   useCollectionManager,
   useCompile,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { saveAs } from 'file-saver';
 import { cloneDeep } from 'lodash';
 import { useTranslation } from 'react-i18next';

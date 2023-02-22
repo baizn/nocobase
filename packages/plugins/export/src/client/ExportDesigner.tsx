@@ -1,7 +1,7 @@
 import { ArrayItems } from '@formily/antd';
 import type { ISchema } from '@formily/react';
 import { useField, useFieldSchema } from '@formily/react';
-import { GeneralSchemaDesigner, SchemaSettings, useDesignable } from '@nocobase/client';
+import { GeneralSchemaDesigner, SchemaSettings, useDesignable } from '@tugraph/openpiece-client';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useShared } from './useShared';

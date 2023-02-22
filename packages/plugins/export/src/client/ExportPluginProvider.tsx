@@ -1,4 +1,4 @@
-import { SchemaComponentOptions } from '@nocobase/client';
+import { SchemaComponentOptions } from '@tugraph/openpiece-client';
 import React from 'react';
 import { ExportActionInitializer, ExportDesigner, ExportInitializerProvider, useExportAction } from './';
 

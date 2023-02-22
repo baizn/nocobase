@@ -3,7 +3,7 @@ import {
   GeneralSchemaDesigner,
   SchemaSettings,
   useCollection
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 
 export const HelloDesigner = () => {

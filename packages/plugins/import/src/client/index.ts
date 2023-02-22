@@ -1,4 +1,4 @@
-import { i18n } from '@nocobase/client';
+import { i18n } from '@tugraph/openpiece-client';
 import { NAMESPACE } from './constants';
 import { enUS, zhCN } from './locale';
 

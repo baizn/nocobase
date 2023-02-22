@@ -1,4 +1,4 @@
-import { useCollectionManager } from '@nocobase/client';
+import { useCollectionManager } from '@tugraph/openpiece-client';
 
 const EXCLUDE_INTERFACES = [
   'icon',

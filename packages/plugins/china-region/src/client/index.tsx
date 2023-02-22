@@ -1,6 +1,6 @@
 import { ArrayField } from '@formily/core';
 import { useField } from '@formily/react';
-import { SchemaComponentOptions, useAPIClient, useRequest } from '@nocobase/client';
+import { SchemaComponentOptions, useAPIClient, useRequest } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const useChinaRegionDataSource = (options) => {
