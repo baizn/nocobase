@@ -153,7 +153,7 @@ exports.updateJsonFile = async (target, fn) => {
 };
 
 exports.getVersion = async () => {
-  const { stdout } = await execa('npm', ['v', '@nocobase/app-server', 'versions']);
+  const { stdout } = await execa('npm', ['v', '@tugraph/openpiece-server-app', 'versions']);
   const versions = new Function(`return (${stdout})`)();
   return versions[versions.length - 1];
 };

@@ -39,11 +39,11 @@ module.exports = (cli) => {
         return data;
       });
       await updateJsonFile(serverPackage, (data) => {
-        data.dependencies['@nocobase/preset-nocobase'] = version;
+        data.dependencies['@tugraph/preset-openpiece'] = version;
         return data;
       });
       await run('yarn', ['install']);
-      await run('nocobase', ['build']);
+      await run('openpiece', ['build']);
       await runAppCommand('upgrade');
     });
 };

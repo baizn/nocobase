@@ -44,7 +44,7 @@ const providers = [
   CollectionManagerProvider,
   AntdSchemaComponentProvider,
   SchemaInitializerProvider,
-  [DocumentTitleProvider, { addonAfter: 'NocoBase' }],
+  [DocumentTitleProvider, { addonAfter: 'Openpiece' }],
   [RouteSwitchProvider, { components: { AuthLayout, AdminLayout, RouteSchemaComponent, SigninPage, SignupPage } }],
 ];
 

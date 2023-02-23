@@ -123,7 +123,7 @@ class AppGenerator extends Generator {
         APP_ENV: 'development',
         DB_DIALECT: dbDialect,
         APP_KEY: crypto.randomBytes(256).toString('base64'),
-        PLUGIN_PACKAGE_PREFIX: `@nocobase/plugin-,@nocobase/preset-,@tugraph/plugin-graph-console-,@tugraph/plugin-graph-studio-,@${this.context.name}/plugin-`,
+        PLUGIN_PACKAGE_PREFIX: `@nocobase/plugin-,@tugraph/preset-,@tugraph/plugin-graph-console-,@tugraph/plugin-graph-studio-,@${this.context.name}/plugin-`,
         ...env,
       },
     };
@@ -131,11 +131,11 @@ class AppGenerator extends Generator {
 
   async downloadServerPackage() {
     const { name } = this.context;
-    console.log('Download: @nocobase/app-server');
+    console.log('Download: @tugraph/openpiece-server-app');
     const serverPackageDir = resolve(this.cwd, 'packages/app/server');
-    await downloadPackageFromNpm('@nocobase/app-server', serverPackageDir);
+    await downloadPackageFromNpm('@tugraph/openpiece-server-app', serverPackageDir);
     await updateJsonFile(resolve(serverPackageDir, 'package.json'), (data) => {
-      data['name'] = `@${name}/app-server`;
+      data['name'] = `@${name}/openpiece-server-app`;
       data['version'] = '0.1.0';
       return data;
     });

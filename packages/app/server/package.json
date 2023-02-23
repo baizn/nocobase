@@ -1,17 +1,19 @@
 {
-  "name": "@nocobase/app-server",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/openpiece-server-app",
+  "version": "0.0.2",
   "description": "",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@nocobase/preset-nocobase": "0.8.0-alpha.13"
+    "@tugraph/preset-openpiece": "0.0.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/baizn/nocobase.git",
     "directory": "packages/app/server"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

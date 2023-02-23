@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/preset-nocobase",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/preset-openpiece",
+  "version": "0.0.1",
   "license": "Apache-2.0",
   "licenses": [
     {
@@ -29,7 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
-    "directory": "packages/presets/nocobase"
+    "url": "git+https://github.com/baizn/nocobase.git",
+    "directory": "packages/presets"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

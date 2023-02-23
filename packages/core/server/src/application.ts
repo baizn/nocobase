@@ -239,7 +239,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     this._db = this.createDatabase(options);
 
     this._resourcer = createResourcer(options);
-    this._cli = new Command('nocobase').usage('[command] [options]');
+    this._cli = new Command('openpiece').usage('[command] [options]');
     this._i18n = createI18n(options);
     this._cache = createCache(options.cache);
     this.context.db = this._db;

@@ -23,9 +23,10 @@
       "@nocobase/app-*": ["packages/app/*/src"],
       "@nocobase/plugin-sample-*": ["packages/samples/*/src"],
       "@nocobase/plugin-*": ["packages/plugins/*/src"],
-      "@nocobase/preset-*": ["packages/presets/*/src"],
+      "@tugraph/preset-*": ["packages/presets/src"],
       "@nocobase/utils/client": ["packages/core/utils/src/client"],
       "@tugraph/openpiece-client": ["packages/core/client/src"],
+      "@tugraph/openpiece-server": ["packages/core/server/src"],
       "@nocobase/*": ["packages/core/*/src"]
     }
   },
