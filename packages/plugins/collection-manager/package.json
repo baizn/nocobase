@@ -14,8 +14,5 @@
     "@tugraph/openpiece-server": "0.0.1",
     "sequelize": "^6.9.0"
   },
-  "devDependencies": {
-    "@nocobase/test": "0.8.0-alpha.13"
-  },
   "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
 }

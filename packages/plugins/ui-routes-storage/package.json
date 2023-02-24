@@ -12,8 +12,5 @@
   "dependencies": {
     "flat-to-nested": "^1.1.1"
   },
-  "devDependencies": {
-    "@nocobase/test": "0.8.0-alpha.13"
-  },
   "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
 }
