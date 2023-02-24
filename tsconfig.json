@@ -25,8 +25,7 @@
       "@nocobase/plugin-*": ["packages/plugins/*/src"],
       "@tugraph/preset-*": ["packages/presets/src"],
       "@nocobase/utils/client": ["packages/core/utils/src/client"],
-      "@tugraph/openpiece-client": ["packages/core/client/src"],
-      "@tugraph/openpiece-server": ["packages/core/server/src"],
+      "@tugraph/openpiece-*": ["packages/core/*/src"],
       "@nocobase/*": ["packages/core/*/src"]
     }
   },

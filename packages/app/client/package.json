@@ -1,9 +1,9 @@
 {
   "name": "@tugraph/openpiece-client-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "devDependencies": {
-    "@tugraph/openpiece-client": "0.0.1"
+    "@tugraph/openpiece-client": "^0.0.3"
   },
   "repository": {
     "type": "git",

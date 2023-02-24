@@ -1,4 +1,4 @@
-import { resolveNocobasePackagesAlias } from '@nocobase/devtools/umiConfig';
+import { resolveNocobasePackagesAlias } from '@tugraph/openpiece-devtools';
 import { defineConfig } from 'dumi';
 
 export default defineConfig({

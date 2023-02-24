@@ -17,9 +17,8 @@
       "@nocobase/plugin-sample-*/client": ["../../samples/*/src/client"],
       "@nocobase/plugin-*/client": ["../../plugins/*/src/client"],
       "@nocobase/utils/client": ["../../core/utils/src/client"],
-      "@tugraph/openpiece-client": ["../../core/client/src"],
-      "@tugraph/openpiece-server": ["../../core/server/src"],
-      "@nocobase/*": ["../../core/*/src/"],
+      "@tugraph/openpiece-*": ["../../core/*/src"],
+      "@nocobase/*": ["../../core/*/src"],
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]
     },

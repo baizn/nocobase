@@ -24,6 +24,6 @@
     {{{dependencies}}}
   },
   "devDependencies": {
-    "@nocobase/devtools": "{{{version}}}"
+    "@tugraph/openpiece-devtools": "{{{version}}}"
   }
 }

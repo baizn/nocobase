@@ -1,12 +1,12 @@
 {
   "name": "@tugraph/openpiece-server-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@tugraph/preset-openpiece": "0.0.1"
+    "@tugraph/preset-openpiece": "^0.0.3"
   },
   "repository": {
     "type": "git",
