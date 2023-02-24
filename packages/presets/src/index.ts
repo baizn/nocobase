@@ -1,23 +1,21 @@
 import { Plugin } from '@nocobase/server';
-import path from 'path';
 
 export class PresetNocoBase extends Plugin {
   async addBuiltInPlugins() {
     const plugins = [
-      'error-handler',
+      // 'error-handler',
       'collection-manager',
       'ui-schema-storage',
       'ui-routes-storage',
       'file-manager',
       'system-settings',
-      'verification',
       'users',
       'acl',
-      'china-region',
+      // 'china-region',
       'client',
-      'export',
-      'import',
-      'audit-logs',
+      // 'export',
+      // 'import',
+      // 'audit-logs',
     ];
     await this.app.pm.add(plugins, {
       enabled: true,

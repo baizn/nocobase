@@ -221,15 +221,15 @@ export class CollectionManagerPlugin extends Plugin {
       directory: path.resolve(__dirname, './collections'),
     });
 
-    const errorHandlerPlugin = <PluginErrorHandler>this.app.getPlugin('error-handler');
-    errorHandlerPlugin.errorHandler.register(
-      (err) => {
-        return err instanceof UniqueConstraintError;
-      },
-      (err, ctx) => {
-        return ctx.throw(400, ctx.t(`The value of ${Object.keys(err.fields)} field duplicated`));
-      },
-    );
+    // const errorHandlerPlugin = <PluginErrorHandler>this.app.getPlugin('error-handler');
+    // errorHandlerPlugin.errorHandler.register(
+    //   (err) => {
+    //     return err instanceof UniqueConstraintError;
+    //   },
+    //   (err, ctx) => {
+    //     return ctx.throw(400, ctx.t(`The value of ${Object.keys(err.fields)} field duplicated`));
+    //   },
+    // );
 
     this.app.resourcer.use(async (ctx, next) => {
       if (ctx.action.resourceName === 'collections.fields' && ['create', 'update'].includes(ctx.action.actionName)) {
