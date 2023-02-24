@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 import { Collection, Op } from '@nocobase/database';
 import { HandlerType } from '@nocobase/resourcer';
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 import { Registry } from '@nocobase/utils';
 
 import { namespace } from './';

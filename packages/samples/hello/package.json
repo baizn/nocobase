@@ -4,12 +4,12 @@
   "main": "lib/server/index.js",
   "devDependencies": {
     "@tugraph/openpiece-client": "0.0.1",
-    "@nocobase/server": "0.8.0-alpha.13",
+    "@tugraph/openpiece-server": "0.0.1",
     "@nocobase/test": "0.8.0-alpha.13"
   },
   "peerDependencies": {
     "@tugraph/openpiece-client": "*",
-    "@nocobase/server": "*",
+    "@tugraph/openpiece-server": "*",
     "@nocobase/test": "*"
   },
   "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"

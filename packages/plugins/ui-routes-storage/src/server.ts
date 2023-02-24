@@ -1,6 +1,6 @@
 import { skip } from '@nocobase/acl';
 import { MagicAttributeModel } from '@nocobase/database';
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 import { getAccessible } from './actions/getAccessible';
 

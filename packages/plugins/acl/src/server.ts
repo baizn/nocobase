@@ -1,6 +1,6 @@
 import { Context } from '@nocobase/actions';
 import { Collection } from '@nocobase/database';
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 import { availableActionResource } from './actions/available-actions';
 import { checkAction } from './actions/role-check';

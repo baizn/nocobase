@@ -1,4 +1,4 @@
-import { Plugin, PluginManager } from '@nocobase/server';
+import { Plugin, PluginManager } from '@tugraph/openpiece-server';
 import send from 'koa-send';
 import serve from 'koa-static';
 import { isAbsolute, resolve } from 'path';

@@ -1,4 +1,4 @@
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 
 export class PresetNocoBase extends Plugin {
   async addBuiltInPlugins() {

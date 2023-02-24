@@ -1,5 +1,5 @@
 import { skip } from '@nocobase/acl';
-import { InstallOptions, Plugin } from '@nocobase/server';
+import { InstallOptions, Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 
 export class SystemSettingsPlugin extends Plugin {

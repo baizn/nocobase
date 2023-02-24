@@ -1,4 +1,4 @@
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 import { action as uploadAction, middleware as uploadMiddleware } from './actions/upload';
 import { STORAGE_TYPE_LOCAL } from './constants';

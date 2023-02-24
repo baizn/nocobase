@@ -1,10 +1,8 @@
 import path from 'path';
 
 import lodash from 'lodash';
-import { UniqueConstraintError } from 'sequelize';
 
-import PluginErrorHandler from '@nocobase/plugin-error-handler';
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 
 import { CollectionRepository } from '.';
 import {
