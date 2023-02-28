@@ -18,6 +18,7 @@
       "@tugraph/plugin-*/client": ["../../plugins/*/src/client"],
       "@nocobase/utils/client": ["../../core/utils/src/client"],
       "@tugraph/openpiece-*": ["../../core/*/src"],
+      "@tugraph/*": ["../../core/*/src"],
       "@nocobase/*": ["../../core/*/src"],
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]

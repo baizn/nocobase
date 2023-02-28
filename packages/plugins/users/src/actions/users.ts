@@ -1,5 +1,5 @@
-import { Context, Next } from '@nocobase/actions';
-import { PasswordField } from '@nocobase/database';
+import { Context, Next } from '@tugraph/actions';
+import { PasswordField } from '@tugraph/database';
 import { branch } from '@nocobase/resourcer';
 import crypto from 'crypto';
 import { namespace } from '../';

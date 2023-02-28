@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/actions",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/actions",
+  "version": "0.0.2",
   "description": "",
   "license": "Apache-2.0",
   "licenses": [
@@ -13,13 +13,15 @@
   "types": "./lib/index.d.ts",
   "dependencies": {
     "@nocobase/cache": "0.8.0-alpha.13",
-    "@nocobase/database": "0.8.1-alpha.3",
-    "@nocobase/resourcer": "0.8.0-alpha.13"
+    "@nocobase/resourcer": "0.8.0-alpha.13",
+    "@tugraph/database": "^0.0.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/baizn/nocobase.git",
     "directory": "packages/actions"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/plugin-file-manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -12,7 +12,7 @@
   "dependencies": {
     "@koa/multer": "^3.0.0",
     "@tugraph/openpiece-client": "^0.0.3",
-    "@tugraph/openpiece-server": "^0.0.3",
+    "@tugraph/openpiece-server": "^0.0.6",
     "aws-sdk": "^2.2.32",
     "cos-nodejs-sdk-v5": "^2.11.14",
     "koa-static": "^5.0.0",
@@ -22,8 +22,8 @@
     "multer-aliyun-oss": "2.1.1",
     "multer-cos": "^1.0.3",
     "multer-s3": "^2.10.0",
-    "@nocobase/actions": "0.8.0-alpha.13",
-    "@nocobase/database": "0.8.1-alpha.3"
+    "@tugraph/actions": "^0.0.2",
+    "@tugraph/database": "^0.0.2"
   },
   "devDependencies": {
     "@types/koa-multer": "^1.0.1",

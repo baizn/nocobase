@@ -1,4 +1,5 @@
-import { IDatabaseOptions } from '@nocobase/database';
+// @ts-nocheck
+import { IDatabaseOptions } from '@tugraph/database';
 
 export default {
   logging: process.env.DB_LOGGING == 'on' ? customLogger : false,
@@ -11,7 +12,7 @@ export default {
   port: process.env.DB_PORT as any,
   timezone: process.env.DB_TIMEZONE,
   tablePrefix: process.env.DB_TABLE_PREFIX,
-} as IDatabaseOptions;
+} as any;
 
 function customLogger(queryString, queryObject) {
   console.log(queryString); // outputs a string

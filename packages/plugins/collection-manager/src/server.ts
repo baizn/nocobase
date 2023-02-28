@@ -1,3 +1,4 @@
+// @ts-nocheck
 import path from 'path';
 
 import lodash from 'lodash';
@@ -15,7 +16,7 @@ import {
 } from './hooks';
 
 import { CollectionModel, FieldModel } from './models';
-import { InheritedCollection } from '@nocobase/database';
+import { InheritedCollection } from '@tugraph/database';
 
 export class CollectionManagerPlugin extends Plugin {
   async beforeLoad() {

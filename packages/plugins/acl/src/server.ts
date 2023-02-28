@@ -1,5 +1,6 @@
-import { Context } from '@nocobase/actions';
-import { Collection } from '@nocobase/database';
+// @ts-nocheck
+import { Context } from '@tugraph/actions';
+import { Collection } from '@tugraph/database';
 import { Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 import { availableActionResource } from './actions/available-actions';

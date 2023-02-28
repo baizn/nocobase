@@ -1,5 +1,5 @@
 import { ACL, ACLRole } from '@nocobase/acl';
-import { Database, Model } from '@nocobase/database';
+import { Database, Model } from '@tugraph/database';
 import { AssociationFieldAction, AssociationFieldsActions, GrantHelper } from '../server';
 
 export class RoleResourceActionModel extends Model {

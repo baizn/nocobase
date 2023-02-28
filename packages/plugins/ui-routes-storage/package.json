@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/plugin-ui-routes-storage",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -11,9 +11,9 @@
   ],
   "dependencies": {
     "flat-to-nested": "^1.1.1",
-    "@nocobase/actions": "0.8.0-alpha.13",
-    "@nocobase/database": "0.8.1-alpha.3",
-    "@tugraph/openpiece-server": "^0.0.3"
+    "@tugraph/actions": "^0.0.2",
+    "@tugraph/database": "^0.0.2",
+    "@tugraph/openpiece-server": "^0.0.6"
   },
   "publishConfig": {
     "access": "public"

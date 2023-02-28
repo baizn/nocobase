@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { skip } from '@nocobase/acl';
-import { MagicAttributeModel } from '@nocobase/database';
+import { MagicAttributeModel } from '@tugraph/database';
 import { Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 import { getAccessible } from './actions/getAccessible';

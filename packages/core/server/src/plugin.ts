@@ -1,4 +1,4 @@
-import { Database } from '@nocobase/database';
+import { Database } from '@tugraph/database';
 import { Application } from './application';
 import { InstallOptions } from './plugin-manager';
 

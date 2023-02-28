@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/plugin-system-settings",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -10,8 +10,8 @@
     }
   ],
   "dependencies": {
-    "@nocobase/database": "0.8.1-alpha.3",
-    "@tugraph/openpiece-server": "^0.0.3"
+    "@tugraph/database": "^0.0.2",
+    "@tugraph/openpiece-server": "^0.0.6"
   },
   "publishConfig": {
     "access": "public"

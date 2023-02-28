@@ -26,7 +26,8 @@
       "@tugraph/plugin-sample-*": ["packages/samples/*/src"],
       "@tugraph/plugin-*": ["packages/plugins/*/src"],
       "@tugraph/preset-*": ["packages/presets/src"],
-      "@tugraph/openpiece-*": ["packages/core/*/src"]
+      "@tugraph/openpiece-*": ["packages/core/*/src"],
+      "@tugraph/*": ["packages/core/*/src"]
     }
   },
   "ts-node": {

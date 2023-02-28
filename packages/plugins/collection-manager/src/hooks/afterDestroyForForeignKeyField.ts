@@ -1,4 +1,4 @@
-import Database, { FindOneOptions, FindOptions, Model } from '@nocobase/database';
+import Database, { FindOneOptions, FindOptions, Model } from '@tugraph/database';
 import { Transaction } from 'sequelize';
 
 async function destroyFields(db: Database, transaction: Transaction, fieldRecords: Model[]) {

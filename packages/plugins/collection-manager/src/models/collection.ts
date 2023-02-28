@@ -1,4 +1,4 @@
-import Database, { Collection, MagicAttributeModel } from '@nocobase/database';
+import Database, { Collection, MagicAttributeModel } from '@tugraph/database';
 import { SyncOptions, Transactionable } from 'sequelize';
 import { FieldModel } from './field';
 import lodash from 'lodash';

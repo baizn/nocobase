@@ -1,4 +1,4 @@
-import { Repository, Transactionable } from '@nocobase/database';
+import { Repository, Transactionable } from '@tugraph/database';
 import { Cache } from '@nocobase/cache';
 import { uid } from '@nocobase/utils';
 import lodash from 'lodash';

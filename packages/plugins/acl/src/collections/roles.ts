@@ -1,4 +1,4 @@
-import { CollectionOptions } from '@nocobase/database';
+import { CollectionOptions } from '@tugraph/database';
 
 export default {
   name: 'roles',

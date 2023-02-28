@@ -1,4 +1,4 @@
-import Database from '@nocobase/database';
+import Database from '@tugraph/database';
 import { getNameByParams, parseRequest, ResourcerContext, ResourceType } from '@nocobase/resourcer';
 
 export function db2resource(ctx: ResourcerContext & { db: Database }, next: () => Promise<any>) {

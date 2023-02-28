@@ -1,4 +1,4 @@
-import { Context, Next } from '@nocobase/actions';
+import { Context, Next } from '@tugraph/actions';
 import FlatToNested from 'flat-to-nested';
 
 const flatToNested = new FlatToNested({

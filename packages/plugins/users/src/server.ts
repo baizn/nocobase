@@ -1,7 +1,7 @@
 import parse from 'json-templates';
 import { resolve } from 'path';
 
-import { Collection, Op } from '@nocobase/database';
+import { Collection, Op } from '@tugraph/database';
 import { HandlerType } from '@nocobase/resourcer';
 import { Plugin } from '@tugraph/openpiece-server';
 import { Registry } from '@nocobase/utils';

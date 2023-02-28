@@ -1,4 +1,4 @@
-import { CleanOptions, Collection, SyncOptions } from '@nocobase/database';
+import { CleanOptions, Collection, SyncOptions } from '@tugraph/database';
 import { requireModule } from '@nocobase/utils';
 import execa from 'execa';
 import fs from 'fs';

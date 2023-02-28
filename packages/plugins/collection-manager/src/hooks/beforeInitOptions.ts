@@ -1,4 +1,4 @@
-import Database from '@nocobase/database';
+import Database from '@tugraph/database';
 import { uid } from '@nocobase/utils';
 import { Model } from 'sequelize';
 
