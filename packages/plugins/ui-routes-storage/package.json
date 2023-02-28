@@ -12,7 +12,7 @@
   "dependencies": {
     "flat-to-nested": "^1.1.1",
     "@nocobase/actions": "0.8.0-alpha.13",
-    "@nocobase/database": "0.8.0-alpha.13",
+    "@nocobase/database": "0.8.1-alpha.3",
     "@tugraph/openpiece-server": "^0.0.3"
   },
   "publishConfig": {

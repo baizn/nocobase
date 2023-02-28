@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/openpiece-cli",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "license": "Apache-2.0",
   "licenses": [
@@ -23,7 +23,7 @@
     "serve": "^13.0.2"
   },
   "devDependencies": {
-    "@tugraph/openpiece-devtools": "^0.0.3"
+    "@tugraph/openpiece-devtools": "^0.0.5"
   },
   "repository": {
     "type": "git",
