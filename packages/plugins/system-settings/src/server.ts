@@ -10,7 +10,7 @@ export class SystemSettingsPlugin extends Plugin {
   async install(options?: InstallOptions) {
     await this.db.getRepository('systemSettings').create({
       values: {
-        title: 'GraphX',
+        title: 'Openpiece',
         appLang: this.getInitAppLang(options),
         enabledLanguages: [this.getInitAppLang(options)],
         logo: {

@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/plugin-collection-manager",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/plugin-collection-manager",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -11,8 +11,10 @@
   ],
   "dependencies": {
     "@nocobase/database": "0.8.0-alpha.13",
-    "@tugraph/openpiece-server": "0.0.1",
-    "sequelize": "^6.9.0"
+    "@tugraph/openpiece-server": "^0.0.3",
+    "sequelize": "6.9.0"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

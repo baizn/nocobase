@@ -17,16 +17,16 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
-      "@alipay/plugin-graph-console-*": ["packages/graph-plugins/console/*/src"],
+      "@nocobase/utils/client": ["packages/core/utils/src/client"],
+      "@nocobase/*": ["packages/core/*/src"],
       "@tugraph/plugin-graph-console-*": ["packages/graph-plugins/console/*/src"],
       "@tugraph/plugin-graph-studio-*": ["packages/graph-plugins/studio/*/src"],
-      "@nocobase/app-*": ["packages/app/*/src"],
-      "@nocobase/plugin-sample-*": ["packages/samples/*/src"],
-      "@nocobase/plugin-*": ["packages/plugins/*/src"],
+      "@tugraph/openpiece-server-app": ["packages/app/server/src"],
+      "@tugraph/openpiece-client-app": ["packages/app/client/src"],
+      "@tugraph/plugin-sample-*": ["packages/samples/*/src"],
+      "@tugraph/plugin-*": ["packages/plugins/*/src"],
       "@tugraph/preset-*": ["packages/presets/src"],
-      "@nocobase/utils/client": ["packages/core/utils/src/client"],
-      "@tugraph/openpiece-*": ["packages/core/*/src"],
-      "@nocobase/*": ["packages/core/*/src"]
+      "@tugraph/openpiece-*": ["packages/core/*/src"]
     }
   },
   "ts-node": {

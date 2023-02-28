@@ -118,6 +118,7 @@ export class Model<TModelAttributes extends {} = any, TCreationAttributes extend
       return result as T;
     };
 
+    // @ts-ignore
     return traverseJSON(super.toJSON(), opts);
   }
 

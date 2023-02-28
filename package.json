@@ -18,14 +18,13 @@
     "dev": "openpiece dev",
     "start": "openpiece start",
     "build": "openpiece build",
-    "test": "openpiece test",
-    "doc": "openpiece doc",
     "postinstall": "openpiece postinstall",
     "lint": "eslint .",
     "clean": "openpiece clean",
     "version:alpha": "lerna version prerelease --preid alpha --force-publish=* --no-git-tag-version -m \"chore(versions): publish packages %s\"",
     "release:force": "lerna publish from-package --yes",
-    "release": "lerna publish"
+    "release": "lerna publish",
+    "list": "lerna list"
   },
   "resolutions": {
     "@types/react": "^17.0.0",

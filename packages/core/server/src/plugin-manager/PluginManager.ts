@@ -329,7 +329,7 @@ export class PluginManager {
   }
 
   static getPluginPkgPrefix() {
-    return (process.env.PLUGIN_PACKAGE_PREFIX || '@nocobase/plugin-,@tugraph/preset-').split(',');
+    return (process.env.PLUGIN_PACKAGE_PREFIX || '@tugraph/plugin-,@tugraph/preset-').split(',');
   }
 
   static async findPackage(name: string) {
