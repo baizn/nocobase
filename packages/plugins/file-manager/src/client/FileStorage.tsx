@@ -1,5 +1,4 @@
-import { uid } from '@formily/shared';
-import { SchemaComponent } from '@nocobase/client';
+import { SchemaComponent } from '@tugraph/openpiece-client';
 import { Card } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';

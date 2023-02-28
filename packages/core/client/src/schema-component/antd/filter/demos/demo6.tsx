@@ -9,7 +9,7 @@ import {
   useCollection,
   useCollectionManager,
   useFilterOptions
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import { Select } from 'antd';
 import React, { useState } from 'react';
 

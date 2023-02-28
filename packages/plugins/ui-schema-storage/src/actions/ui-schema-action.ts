@@ -1,4 +1,4 @@
-import { Context } from '@nocobase/actions';
+import { Context } from '@tugraph/actions';
 import { ActionParams } from '@nocobase/resourcer';
 import lodash from 'lodash';
 import UiSchemaRepository, { GetJsonSchemaOptions, GetPropertiesOptions } from '../repository';

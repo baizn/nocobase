@@ -1,4 +1,4 @@
-import { extend } from '@nocobase/database';
+import { extend } from '@tugraph/database';
 
 export default extend({
   name: 'users',

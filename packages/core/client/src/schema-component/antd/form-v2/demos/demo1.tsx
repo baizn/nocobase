@@ -8,7 +8,7 @@ import {
   SchemaComponent,
   SchemaComponentProvider,
   useFormBlockContext
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 import collections from './collections';
 

@@ -1,8 +1,8 @@
-import { resolveNocobasePackagesAlias } from '@nocobase/devtools/umiConfig';
+import { resolveNocobasePackagesAlias } from '@tugraph/openpiece-devtools';
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  title: 'NocoBase',
+  title: 'Openpiece',
   // outputPath: `./docs/dist/${lang}`,
   mode: 'site',
   resolve: {
@@ -15,7 +15,7 @@ export default defineConfig({
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/nocobase/nocobase',
+      path: 'https://github.com/baizn/nocobase',
     },
   ],
   chainWebpack(config) {

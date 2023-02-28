@@ -1,5 +1,5 @@
 import cors from '@koa/cors';
-import Database from '@nocobase/database';
+import Database from '@tugraph/database';
 import Resourcer from '@nocobase/resourcer';
 import i18next from 'i18next';
 import bodyParser from 'koa-bodyparser';

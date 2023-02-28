@@ -8,7 +8,7 @@ import {
   Table,
   useRecord,
   useRequest
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React, { createContext, useContext, useState } from 'react';
 
 const DataSourceContext = createContext(null);

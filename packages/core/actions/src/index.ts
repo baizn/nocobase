@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import { Database } from '@nocobase/database';
+import { Database } from '@tugraph/database';
 import { Action } from '@nocobase/resourcer';
 import { Cache } from '@nocobase/cache';
 import lodash from 'lodash';

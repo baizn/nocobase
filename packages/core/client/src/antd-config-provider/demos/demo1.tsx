@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import { i18n, compose, APIClient, APIClientProvider, AntdConfigProvider } from '@nocobase/client';
+import { i18n, compose, APIClient, APIClientProvider, AntdConfigProvider } from '@tugraph/openpiece-client';
 import MockAdapter from 'axios-mock-adapter';
 import { I18nextProvider } from 'react-i18next';
 

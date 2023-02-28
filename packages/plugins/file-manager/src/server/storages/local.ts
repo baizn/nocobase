@@ -1,4 +1,4 @@
-import Application from '@nocobase/server';
+import Application from '@tugraph/openpiece-server';
 import serve from 'koa-static';
 import mkdirp from 'mkdirp';
 import multer from 'multer';

@@ -1,6 +1,6 @@
 import React from 'react';
 import MockAdapter from 'axios-mock-adapter';
-import { APIClient, APIClientProvider, useRequest, compose } from '@nocobase/client';
+import { APIClient, APIClientProvider, useRequest, compose } from '@tugraph/openpiece-client';
 
 const apiClient = new APIClient();
 

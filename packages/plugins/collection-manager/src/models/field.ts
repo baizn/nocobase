@@ -1,4 +1,4 @@
-import Database, { Collection, Field, MagicAttributeModel } from '@nocobase/database';
+import Database, { Collection, Field, MagicAttributeModel } from '@tugraph/database';
 import { SyncOptions, Transactionable, UniqueConstraintError } from 'sequelize';
 
 interface LoadOptions extends Transactionable {

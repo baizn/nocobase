@@ -1,7 +1,7 @@
 import { Op, Model } from 'sequelize';
 
 import { Context } from '..';
-import { Collection, TargetKey, Repository, SortField } from '@nocobase/database';
+import { Collection, TargetKey, Repository, SortField } from '@tugraph/database';
 import { getRepositoryFromParams } from '../utils';
 
 export async function move(ctx: Context, next) {

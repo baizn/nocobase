@@ -10,7 +10,7 @@ import {
   SchemaComponentProvider,
   useFilterByTk,
   useFormBlockContext
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 import collections from './collections';
 

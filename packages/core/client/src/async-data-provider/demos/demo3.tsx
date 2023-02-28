@@ -9,7 +9,7 @@ import {
   APIClient,
   AsyncDataProvider,
   useAsyncData,
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 
 const apiClient = new APIClient();
 

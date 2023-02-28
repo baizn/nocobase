@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, MemoryRouter as Router } from 'react-router-dom';
-import { RouteRedirectProps, RouteSwitchProvider, RouteSwitch } from '@nocobase/client';
+import { RouteRedirectProps, RouteSwitchProvider, RouteSwitch } from '@tugraph/openpiece-client';
 
 const Home = () => <h1>Home</h1>;
 const About = () => <h1>About</h1>;

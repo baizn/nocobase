@@ -1,10 +1,9 @@
+// @ts-nocheck
 import path from 'path';
 
 import lodash from 'lodash';
-import { UniqueConstraintError } from 'sequelize';
 
-import PluginErrorHandler from '@nocobase/plugin-error-handler';
-import { Plugin } from '@nocobase/server';
+import { Plugin } from '@tugraph/openpiece-server';
 
 import { CollectionRepository } from '.';
 import {
@@ -17,7 +16,7 @@ import {
 } from './hooks';
 
 import { CollectionModel, FieldModel } from './models';
-import { InheritedCollection } from '@nocobase/database';
+import { InheritedCollection } from '@tugraph/database';
 
 export class CollectionManagerPlugin extends Plugin {
   async beforeLoad() {
@@ -220,16 +219,6 @@ export class CollectionManagerPlugin extends Plugin {
     await this.app.db.import({
       directory: path.resolve(__dirname, './collections'),
     });
-
-    const errorHandlerPlugin = <PluginErrorHandler>this.app.getPlugin('error-handler');
-    errorHandlerPlugin.errorHandler.register(
-      (err) => {
-        return err instanceof UniqueConstraintError;
-      },
-      (err, ctx) => {
-        return ctx.throw(400, ctx.t(`The value of ${Object.keys(err.fields)} field duplicated`));
-      },
-    );
 
     this.app.resourcer.use(async (ctx, next) => {
       if (ctx.action.resourceName === 'collections.fields' && ['create', 'update'].includes(ctx.action.actionName)) {

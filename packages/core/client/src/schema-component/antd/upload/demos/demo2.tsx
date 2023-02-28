@@ -2,7 +2,7 @@
  * title: Upload
  */
 import { FormItem } from '@formily/antd';
-import { APIClientProvider, SchemaComponent, SchemaComponentProvider, Upload } from '@nocobase/client';
+import { APIClientProvider, SchemaComponent, SchemaComponentProvider, Upload } from '@tugraph/openpiece-client';
 import React from 'react';
 import apiClient from './apiClient';
 

@@ -1,4 +1,4 @@
-import { Repository } from '@nocobase/database';
+import { Repository } from '@tugraph/database';
 import { CollectionModel } from '../models/collection';
 
 interface LoadOptions {

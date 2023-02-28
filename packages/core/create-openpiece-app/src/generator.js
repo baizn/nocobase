@@ -80,7 +80,7 @@ class AppGenerator extends Generator {
         if (!allDbDialect) {
           dependencies.push(`"sqlite3": "^5.0.8"`);
         }
-        envs.push(`DB_STORAGE=${env.DB_STORAGE || 'storage/db/nocobase.sqlite'}`);
+        envs.push(`DB_STORAGE=${env.DB_STORAGE || 'storage/db/openpiece.sqlite'}`);
         break;
       case 'mysql':
         if (!allDbDialect) {
@@ -119,11 +119,11 @@ class AppGenerator extends Generator {
       dependencies: dependencies.join(`,\n    `),
       envs: envs.join(`\n`),
       env: {
-        APP_PORT: 13000,
+        APP_PORT: 7700,
         APP_ENV: 'development',
         DB_DIALECT: dbDialect,
         APP_KEY: crypto.randomBytes(256).toString('base64'),
-        PLUGIN_PACKAGE_PREFIX: `@nocobase/plugin-,@nocobase/preset-,@${this.context.name}/plugin-`,
+        PLUGIN_PACKAGE_PREFIX: `@tugraph/plugin-,@tugraph/preset-,@tugraph/plugin-graph-console-,@tugraph/plugin-graph-studio-,@${this.context.name}/plugin-`,
         ...env,
       },
     };
@@ -131,11 +131,11 @@ class AppGenerator extends Generator {
 
   async downloadServerPackage() {
     const { name } = this.context;
-    console.log('Download: @nocobase/app-server');
+    console.log('Download: @tugraph/openpiece-server-app');
     const serverPackageDir = resolve(this.cwd, 'packages/app/server');
-    await downloadPackageFromNpm('@nocobase/app-server', serverPackageDir);
+    await downloadPackageFromNpm('@tugraph/openpiece-server-app', serverPackageDir);
     await updateJsonFile(resolve(serverPackageDir, 'package.json'), (data) => {
-      data['name'] = `@${name}/app-server`;
+      data['name'] = `@${name}/openpiece-server-app`;
       data['version'] = '0.1.0';
       return data;
     });
@@ -143,11 +143,11 @@ class AppGenerator extends Generator {
 
   async downloadClientPackage() {
     const { name } = this.context;
-    console.log('Download: @nocobase/app-client');
+    console.log('Download: @tugraph/openpiece-client-app');
     const clientPackageDir = resolve(this.cwd, 'packages/app/client');
-    await downloadPackageFromNpm('@nocobase/app-client', clientPackageDir);
+    await downloadPackageFromNpm('@tugraph/openpiece-client-app', clientPackageDir);
     await updateJsonFile(resolve(clientPackageDir, 'package.json'), (data) => {
-      data['name'] = `@${name}/app-client`;
+      data['name'] = `@${name}/openpiece-client-app`;
       data['version'] = '0.1.0';
       return data;
     });
@@ -159,7 +159,7 @@ class AppGenerator extends Generator {
 
     const { name } = this.context;
 
-    console.log(`Creating a new NocoBase application at ${chalk.green(name)}`);
+    console.log(`Creating a new Openpiece application at ${chalk.green(name)}`);
     console.log('Creating files');
 
     this.copyDirectory({
@@ -169,14 +169,14 @@ class AppGenerator extends Generator {
     });
 
     await this.downloadServerPackage();
-    // await this.downloadClientPackage();
+    await this.downloadClientPackage();
 
     this.checkDbEnv();
 
     console.log('');
     console.log(chalk.green(`$ cd ${name}`));
     console.log(chalk.green(`$ yarn install`));
-    console.log(chalk.green(`$ yarn nocobase install`));
+    console.log(chalk.green(`$ yarn openpiece install`));
     console.log(chalk.green(`$ yarn dev`));
     console.log('');
   }

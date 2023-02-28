@@ -2,7 +2,7 @@
  * title: Password
  */
 import { FormItem } from '@formily/antd';
-import { Password, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Password, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

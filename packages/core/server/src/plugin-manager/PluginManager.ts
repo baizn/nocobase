@@ -1,4 +1,4 @@
-import { CleanOptions, Collection, SyncOptions } from '@nocobase/database';
+import { CleanOptions, Collection, SyncOptions } from '@tugraph/database';
 import { requireModule } from '@nocobase/utils';
 import execa from 'execa';
 import fs from 'fs';
@@ -128,9 +128,9 @@ export class PluginManager {
   async create(name: string | string[]) {
     console.log('creating...');
     const pluginNames = Array.isArray(name) ? name : [name];
-    const { run } = require('@nocobase/cli/src/util');
+    const { run } = require('@tugraph/openpiece-cli/src/util');
     const createPlugin = async (name) => {
-      const { PluginGenerator } = require('@nocobase/cli/src/plugin-generator');
+      const { PluginGenerator } = require('@tugraph/openpiece-cli/src/plugin-generator');
       const generator = new PluginGenerator({
         cwd: resolve(process.cwd(), name),
         args: {},
@@ -232,8 +232,8 @@ export class PluginManager {
       try {
         require.resolve(`${packageName}/client`);
         await fs.promises.writeFile(file, `export { default } from '${packageName}/client';`);
-        const { run } = require('@nocobase/cli/src/util');
-        await run('yarn', ['nocobase', 'postinstall']);
+        const { run } = require('@tugraph/openpiece-cli/src/util');
+        await run('yarn', ['openpiece', 'postinstall']);
       } catch (error) {}
     }
     return instance;
@@ -329,7 +329,7 @@ export class PluginManager {
   }
 
   static getPluginPkgPrefix() {
-    return (process.env.PLUGIN_PACKAGE_PREFIX || '@nocobase/plugin-,@nocobase/preset-').split(',');
+    return (process.env.PLUGIN_PACKAGE_PREFIX || '@tugraph/plugin-,@tugraph/preset-').split(',');
   }
 
   static async findPackage(name: string) {

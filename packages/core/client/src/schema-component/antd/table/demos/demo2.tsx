@@ -1,5 +1,5 @@
 import { ISchema } from '@formily/react';
-import { Input, SchemaComponent, SchemaComponentProvider, Table } from '@nocobase/client';
+import { Input, SchemaComponent, SchemaComponentProvider, Table } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema: ISchema = {

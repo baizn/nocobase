@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { css } from '@emotion/css';
 import { observer, RecursionField, useField, useFieldSchema } from '@formily/react';
 import { Modal } from 'antd';

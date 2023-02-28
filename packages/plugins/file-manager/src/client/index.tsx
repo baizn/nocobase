@@ -1,4 +1,4 @@
-import { PluginManagerContext, SettingsCenterProvider } from '@nocobase/client';
+import { PluginManagerContext, SettingsCenterProvider } from '@tugraph/openpiece-client';
 import React, { useContext } from 'react';
 import { FileStoragePane } from './FileStorage';
 import { FileStorageShortcut } from './FileStorageShortcut';

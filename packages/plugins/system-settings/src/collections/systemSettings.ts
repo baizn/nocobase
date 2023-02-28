@@ -1,4 +1,4 @@
-import { defineCollection } from '@nocobase/database';
+import { defineCollection } from '@tugraph/database';
 
 export default defineCollection({
   name: 'systemSettings',

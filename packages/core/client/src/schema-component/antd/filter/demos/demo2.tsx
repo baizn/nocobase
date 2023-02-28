@@ -1,4 +1,4 @@
-import { AntdSchemaComponentProvider, Filter, Input, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { AntdSchemaComponentProvider, Filter, Input, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema: any = {

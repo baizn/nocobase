@@ -5,14 +5,14 @@
     "packages/*/*"
   ],
   "scripts": {
-    "nocobase": "nocobase",
-    "pm": "nocobase pm",
-    "dev": "nocobase dev",
-    "start": "nocobase start",
-    "clean": "nocobase clean",
-    "build": "nocobase build",
-    "test": "nocobase test",
-    "postinstall": "nocobase postinstall",
+    "openpiece": "openpiece",
+    "pm": "openpiece pm",
+    "dev": "openpiece dev",
+    "start": "openpiece start",
+    "clean": "openpiece clean",
+    "build": "openpiece build",
+    "test": "openpiece test",
+    "postinstall": "openpiece postinstall",
     "lint": "eslint ."
   },
   "resolutions": {
@@ -20,10 +20,10 @@
     "@types/react-dom": "^17.0.0"
   },
   "dependencies": {
-    "@nocobase/cli": "{{{version}}}",
+    "@tugraph/openpiece-cli": "{{{version}}}",
     {{{dependencies}}}
   },
   "devDependencies": {
-    "@nocobase/devtools": "{{{version}}}"
+    "@tugraph/openpiece-devtools": "{{{version}}}"
   }
 }

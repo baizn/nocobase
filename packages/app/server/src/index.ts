@@ -1,4 +1,4 @@
-import { Application } from '@nocobase/server';
+import { Application } from '@tugraph/openpiece-server';
 import config from './config';
 
 const app = new Application(config);

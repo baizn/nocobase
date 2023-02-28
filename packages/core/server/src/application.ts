@@ -1,7 +1,7 @@
 import { ACL } from '@nocobase/acl';
-import { registerActions } from '@nocobase/actions';
+import { registerActions } from '@tugraph/actions';
 import { Cache, createCache, ICacheConfig } from '@nocobase/cache';
-import Database, { Collection, CollectionOptions, IDatabaseOptions } from '@nocobase/database';
+import Database, { Collection, CollectionOptions, IDatabaseOptions } from '@tugraph/database';
 import { AppLoggerOptions, createAppLogger, Logger } from '@nocobase/logger';
 import Resourcer, { ResourceOptions } from '@nocobase/resourcer';
 import { applyMixins, AsyncEmitter, Toposort, ToposortOptions } from '@nocobase/utils';
@@ -29,7 +29,7 @@ export interface ResourcerOptions {
 }
 
 export interface ApplicationOptions {
-  database?: IDatabaseOptions | Database;
+  database?: IDatabaseOptions;
   cache?: ICacheConfig | ICacheConfig[];
   resourcer?: ResourcerOptions;
   bodyParser?: any;
@@ -239,7 +239,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     this._db = this.createDatabase(options);
 
     this._resourcer = createResourcer(options);
-    this._cli = new Command('nocobase').usage('[command] [options]');
+    this._cli = new Command('openpiece').usage('[command] [options]');
     this._i18n = createI18n(options);
     this._cache = createCache(options.cache);
     this.context.db = this._db;
@@ -362,6 +362,7 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
   }
 
   async runAsCLI(argv = process.argv, options?: ParseOptions) {
+    // @ts-ignore
     await this.db.auth({ retry: 30 });
     await this.dbVersionCheck({ exit: true });
     await this.load({

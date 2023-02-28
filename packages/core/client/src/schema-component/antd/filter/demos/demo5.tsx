@@ -2,7 +2,7 @@ import {
   AntdSchemaComponentProvider,
   FilterAction, SchemaComponent,
   SchemaComponentProvider
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema: any = {

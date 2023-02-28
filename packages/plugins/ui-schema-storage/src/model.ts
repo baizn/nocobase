@@ -1,4 +1,4 @@
-import { MagicAttributeModel } from '@nocobase/database';
+import { MagicAttributeModel } from '@tugraph/database';
 import { HookType } from './server-hooks';
 
 class UiSchemaModel extends MagicAttributeModel {

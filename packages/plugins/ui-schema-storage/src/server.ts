@@ -1,5 +1,5 @@
-import { MagicAttributeModel } from '@nocobase/database';
-import { Plugin } from '@nocobase/server';
+import { MagicAttributeModel } from '@tugraph/database';
+import { Plugin } from '@tugraph/openpiece-server';
 import { uid } from '@nocobase/utils';
 import path from 'path';
 import { uiSchemaActions } from './actions/ui-schema-action';

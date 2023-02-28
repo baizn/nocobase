@@ -1,4 +1,4 @@
-import { RouteRedirectProps } from '@nocobase/client';
+import { RouteRedirectProps } from '@tugraph/openpiece-client';
 
 export default [
   {

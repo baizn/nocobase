@@ -1,5 +1,5 @@
 import React from 'react';
-import { Action, PluginManager, PluginManagerProvider, SchemaComponentProvider } from '@nocobase/client';
+import { Action, PluginManager, PluginManagerProvider, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import * as plugins from './plugins';
 
 export default () => {

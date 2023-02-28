@@ -2,7 +2,7 @@
  * title: Markdown
  */
 import { FormItem } from '@formily/antd';
-import { Markdown, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Markdown, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

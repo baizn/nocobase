@@ -10,7 +10,7 @@ import {
   SchemaComponentProvider,
   useFormBlockContext,
   useTableBlockContext
-} from '@nocobase/client';
+} from '@tugraph/openpiece-client';
 import MockAdapter from 'axios-mock-adapter';
 import { range } from 'lodash';
 import React from 'react';

@@ -1,4 +1,4 @@
-import { InstallOptions, Plugin } from '@nocobase/server';
+import { InstallOptions, Plugin } from '@tugraph/openpiece-server';
 
 export class {{{pascalCaseName}}}Plugin extends Plugin {
   afterAdd() {}

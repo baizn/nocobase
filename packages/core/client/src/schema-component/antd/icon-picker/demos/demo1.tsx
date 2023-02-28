@@ -2,7 +2,7 @@
  * title: IconPicker
  */
 import { FormItem } from '@formily/antd';
-import { IconPicker, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { IconPicker, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema = {

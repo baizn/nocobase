@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/devtools",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/openpiece-devtools",
+  "version": "0.0.5",
   "description": "",
   "license": "Apache-2.0",
   "licenses": [
@@ -58,8 +58,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/baizn/nocobase.git",
     "directory": "packages/core/devtools"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

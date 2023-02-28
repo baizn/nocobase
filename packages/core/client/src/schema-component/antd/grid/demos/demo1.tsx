@@ -1,5 +1,5 @@
 import { observer, useFieldSchema } from '@formily/react';
-import { BlockItem, DragHandler, Grid, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { BlockItem, DragHandler, Grid, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const Block = observer((props) => {

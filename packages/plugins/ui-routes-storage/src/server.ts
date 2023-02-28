@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { skip } from '@nocobase/acl';
-import { MagicAttributeModel } from '@nocobase/database';
-import { Plugin } from '@nocobase/server';
+import { MagicAttributeModel } from '@tugraph/database';
+import { Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 import { getAccessible } from './actions/getAccessible';
 
@@ -36,11 +37,6 @@ export class UiRoutesStoragePlugin extends Plugin {
         title: 'NocoBase Admin',
         routes: [
           // test...
-          // {
-          //   type: 'route',
-          //   path: '/admin/workflows/:id',
-          //   component: 'WorkflowPage',
-          // },
           // {
           //   type: 'route',
           //   path: '/admin/block-templates/:key',

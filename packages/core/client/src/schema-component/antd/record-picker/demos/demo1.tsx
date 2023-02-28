@@ -3,7 +3,7 @@
  */
 import { FormItem } from '@formily/antd';
 import { ISchema } from '@formily/react';
-import { Action, Input, RecordPicker, SchemaComponent, SchemaComponentProvider, Table } from '@nocobase/client';
+import { Action, Input, RecordPicker, SchemaComponent, SchemaComponentProvider, Table } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const schema: ISchema = {

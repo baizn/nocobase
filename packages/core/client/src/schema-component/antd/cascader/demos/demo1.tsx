@@ -1,5 +1,5 @@
 import { FormItem } from '@formily/antd';
-import { Cascader, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Cascader, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const options = [

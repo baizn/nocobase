@@ -1,1 +1,1 @@
-export { default } from '@nocobase/plugin-file-manager/client';
+export { default } from '@tugraph/plugin-file-manager/client';

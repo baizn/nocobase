@@ -2,7 +2,7 @@
  * title: Radio Group with color
  */
 import { FormItem } from '@formily/antd';
-import { Radio, SchemaComponent, SchemaComponentProvider } from '@nocobase/client';
+import { Radio, SchemaComponent, SchemaComponentProvider } from '@tugraph/openpiece-client';
 import React from 'react';
 
 const options = [

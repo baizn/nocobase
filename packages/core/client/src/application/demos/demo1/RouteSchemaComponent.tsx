@@ -1,5 +1,5 @@
 import React from 'react';
-import { SchemaComponent, useRoute } from '@nocobase/client';
+import { SchemaComponent, useRoute } from '@tugraph/openpiece-client';
 
 export const RouteSchemaComponent = () => {
   const route = useRoute();

@@ -1,4 +1,4 @@
-import { getUmiConfig, resolveNocobasePackagesAlias } from '@nocobase/devtools/umiConfig';
+import { getUmiConfig, resolveNocobasePackagesAlias } from '@tugraph/openpiece-devtools';
 import { defineConfig } from 'umi';
 
 const umiConfig = getUmiConfig();
@@ -27,15 +27,12 @@ export default defineConfig({
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
-    '@antv/graphin': 'Graphin',
-    '@antv/g6': 'G6',
     antd: 'antd',
     '@antv/g2plot': 'G2Plot',
     'antd/es/*': 'antd',
     '@ant-design/charts': 'charts',
     '@ant-design/icons': 'icons',
     moment: 'moment',
-    '@alipay/graphinsight': 'GISDK',
   },
   scripts: [
     'https://gw.alipayobjects.com/os/lib/react/17.0.2/umd/react.production.min.js',
@@ -47,13 +44,8 @@ export default defineConfig({
     'https://gw.alipayobjects.com/os/lib/antd/4.20.6/dist/antd.min.js',
     'https://gw.alipayobjects.com/os/lib/ant-design/charts/1.2.13/dist/charts.min.js',
     'https://gw.alipayobjects.com/os/lib/ant-design/icons/4.6.4/dist/index.umd.min.js',
-    // <!--- Graphin DEPENDENCIES-->
-    'https://gw.alipayobjects.com/os/lib/antv/g6/4.7.0/dist/g6.min.js',
-    'https://gw.alipayobjects.com/os/lib/antv/graphin/2.7.9/dist/graphin.min.js',
     // <!--- G2/G2Plot DEPENDENCIES-->
     'https://gw.alipayobjects.com/os/lib/antv/g2plot/2.4.16/dist/g2plot.min.js',
-    // <!--- GISDK DEPENDENCIES-->
-    'https://gw.alipayobjects.com/os/lib/alipay/graphinsight/2.23.0/dist/index.min.js',
   ],
   styles: [
     // "https://gw.alipayobjects.com/os/lib/antd/4.18.3/dist/antd.min.css",

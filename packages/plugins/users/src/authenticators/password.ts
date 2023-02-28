@@ -1,5 +1,5 @@
-import { PasswordField } from '@nocobase/database';
-import { Context, Next } from '@nocobase/actions';
+import { PasswordField } from '@tugraph/database';
+import { Context, Next } from '@tugraph/actions';
 import { namespace } from '..';
 
 export default async function(ctx: Context, next: Next) {

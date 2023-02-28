@@ -11,7 +11,7 @@ export function registerCli(app: Application) {
   require('./upgrade').default(app);
   require('./pm').default(app);
 
-  // development only with @nocobase/cli
+  // development only with @tugraph/openpiece-cli
   app.command('build').argument('[packages...]');
   app.command('clean');
   app.command('dev').usage('[options]').option('-p, --port [port]').option('--client').option('--server');

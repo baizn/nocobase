@@ -2,7 +2,7 @@
  * title: Insert Adjacent
  */
 import React from 'react';
-import { SchemaComponentProvider, SchemaComponent, useDesignable } from '@nocobase/client';
+import { SchemaComponentProvider, SchemaComponent, useDesignable } from '@tugraph/openpiece-client';
 import { observer, Schema, useFieldSchema } from '@formily/react';
 import { Button, Space } from 'antd';
 import { uid } from '@formily/shared';

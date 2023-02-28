@@ -1,4 +1,4 @@
-import { Context, Next } from '@nocobase/actions';
+import { Context, Next } from '@tugraph/actions';
 
 export async function parseToken(ctx: Context, next: Next) {
   const user = await findUserByToken(ctx);

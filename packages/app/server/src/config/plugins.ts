@@ -1,3 +1,3 @@
-import { PluginConfiguration } from '@nocobase/server';
+import { PluginConfiguration } from '@tugraph/openpiece-server';
 
-export default ['nocobase'] as PluginConfiguration[];
+export default ['openpiece'] as PluginConfiguration[];

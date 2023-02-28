@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/database",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/database",
+  "version": "0.0.2",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -21,7 +21,7 @@
     "mathjs": "^10.6.1",
     "moment": "2.x",
     "semver": "^7.3.7",
-    "sequelize": "^6.9.0",
+    "sequelize": "6.9.0",
     "umzug": "^3.1.1"
   },
   "devDependencies": {
@@ -29,8 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nocobase/nocobase.git",
+    "url": "git+https://github.com/baizn/nocobase.git",
     "directory": "packages/database"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

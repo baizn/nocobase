@@ -1,6 +1,6 @@
 import { FileOutlined } from '@ant-design/icons';
 import { uid } from '@formily/shared';
-import { ActionContext, PluginManager, SchemaComponent } from '@nocobase/client';
+import { ActionContext, PluginManager, SchemaComponent } from '@tugraph/openpiece-client';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { storageSchema } from './schemas/storage';

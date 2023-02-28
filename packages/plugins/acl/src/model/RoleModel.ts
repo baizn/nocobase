@@ -1,4 +1,4 @@
-import { Model } from '@nocobase/database';
+import { Model } from '@tugraph/database';
 import { ACL } from '@nocobase/acl';
 
 export class RoleModel extends Model {

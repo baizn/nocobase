@@ -1,6 +1,6 @@
 {
-  "name": "@nocobase/plugin-system-settings",
-  "version": "0.8.0-alpha.13",
+  "name": "@tugraph/plugin-system-settings",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -9,8 +9,11 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "devDependencies": {
-    "@nocobase/test": "0.8.0-alpha.13"
+  "dependencies": {
+    "@tugraph/database": "^0.0.2",
+    "@tugraph/openpiece-server": "^0.0.6"
   },
-  "gitHead": "ce588eefb0bfc50f7d5bbee575e0b5e843bf6644"
+  "publishConfig": {
+    "access": "public"
+  }
 }

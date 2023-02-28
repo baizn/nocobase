@@ -1,5 +1,5 @@
 import { skip } from '@nocobase/acl';
-import { InstallOptions, Plugin } from '@nocobase/server';
+import { InstallOptions, Plugin } from '@tugraph/openpiece-server';
 import { resolve } from 'path';
 
 export class SystemSettingsPlugin extends Plugin {
@@ -10,7 +10,7 @@ export class SystemSettingsPlugin extends Plugin {
   async install(options?: InstallOptions) {
     await this.db.getRepository('systemSettings').create({
       values: {
-        title: 'GraphX',
+        title: 'Openpiece',
         appLang: this.getInitAppLang(options),
         enabledLanguages: [this.getInitAppLang(options)],
         logo: {

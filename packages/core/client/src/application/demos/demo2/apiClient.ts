@@ -1,4 +1,4 @@
-import { APIClient } from '@nocobase/client';
+import { APIClient } from '@tugraph/openpiece-client';
 import mock from './mock';
 
 const apiClient = new APIClient({
