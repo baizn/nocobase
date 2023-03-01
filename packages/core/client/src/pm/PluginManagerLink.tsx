@@ -1,28 +1,10 @@
 import { AppstoreAddOutlined, SettingOutlined } from '@ant-design/icons';
-import { ISchema } from '@formily/react';
-import { uid } from '@formily/shared';
 import { Dropdown, Menu } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { PluginManager } from '../plugin-manager';
 import { ActionContext } from '../schema-component';
-
-const schema: ISchema = {
-  type: 'object',
-  properties: {
-    [uid()]: {
-      'x-component': 'Action.Drawer',
-      type: 'void',
-      title: '{{t("Collections & Fields")}}',
-      properties: {
-        configuration: {
-          'x-component': 'ConfigurationTable',
-        },
-      },
-    },
-  },
-};
 
 export const PluginManagerLink = () => {
   const [visible, setVisible] = useState(false);
@@ -62,10 +44,6 @@ export const SettingsCenterDropdown = () => {
       title: t('System settings'),
       path: 'system-settings/system-settings',
     },
-    // {
-    //   title: t('Graph Collections'),
-    //   path: 'graph/collections',
-    // },
   ];
   return (
     <ActionContext.Provider value={{ visible, setVisible }}>

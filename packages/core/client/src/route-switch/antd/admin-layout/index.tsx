@@ -135,15 +135,30 @@ const InternalAdminLayout = (props: any) => {
     <Layout>
       <Layout.Header
         className={css`
-          .ant-menu.ant-menu-dark .ant-menu-item-selected,
-          .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
-            background-color: rgba(255, 255, 255, 0.1);
-          }
-          .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-          }
-        `}
-        style={{ height: 46, lineHeight: '46px', position: 'relative', paddingLeft: 0 }}
+        .ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a, .ant-menu-dark .ant-menu-item > span > a {
+          color: rgba(26,27,37,0.65);
+        }
+        .ant-menu.ant-menu-dark .ant-menu-item-selected,
+        .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+          height: 46px;
+          background-color: rgba(255, 255, 255, 0.1);
+          color: rgba(54,55,64,1);
+          border-bottom: 2px solid rgba(54,55,64,1);
+        }
+        .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+        .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+          background: #e4ebff;
+        }
+        .ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon, .ant-menu-dark .ant-menu-item-selected .anticon {
+          color: rgba(54,55,64,1);
+        }
+        .ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon + span, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+          color: rgba(54,55,64,1);
+        }
+      `}
+        style={{ height: 46, lineHeight: '46px', position: 'relative', paddingLeft: 0, background: '#e4ebff', borderBottom: '1px solid rgba(22,80,255,0.08)' }}
       >
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', height: '100%', width: 'calc(100vw - 300px)' }}>
           <div style={{ width: 200, display: 'inline-flex', color: '#fff', padding: '0', alignItems: 'center' }}>
@@ -173,8 +188,33 @@ const InternalAdminLayout = (props: any) => {
           <CurrentUser />
         </div>
       </Layout.Header>
-      <Layout>
-        <Layout.Sider style={{ display: 'none' }} theme={'light'} ref={sideMenuRef}></Layout.Sider>
+      <Layout style={{ background: '#e4ebff' }}>
+        <Layout.Sider style={{ display: 'none' }} theme={'light'} ref={sideMenuRef}
+          className={
+            css`
+              .ant-layout-sider-children {
+                padding: 8px;
+                background: rgb(228, 235, 255);
+                border-right: 1px solid rgba(26,27,37,0.06);
+              }
+              .ant-menu-root.ant-menu-vertical, .ant-menu-root.ant-menu-vertical-left, .ant-menu-root.ant-menu-vertical-right, .ant-menu-root.ant-menu-inline {
+                background: rgb(228, 235, 255);
+              }
+              .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
+                border-right: none;
+              }
+              .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+                border-right: none;
+              }
+              .ant-menu-inline.ant-menu-root .ant-menu-item, .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
+                color: rgba(26,27,37,0.65);
+              }
+              .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+                background-color: rgba(26,27,37,0.04);
+                color: rgba(54,55,64,1);
+              }
+            `
+          }></Layout.Sider>
         <Layout.Content
           className={css`
             min-height: calc(100vh - 46px);
