@@ -29,18 +29,6 @@ export const BlockInitializers = {
           title: '{{t("Details")}}',
           component: 'DetailsBlockInitializer',
         },
-        {
-          key: 'calendar',
-          type: 'item',
-          title: '{{t("Calendar")}}',
-          component: 'CalendarBlockInitializer',
-        },
-        {
-          key: 'kanban',
-          type: 'item',
-          title: '{{t("Kanban")}}',
-          component: 'KanbanBlockInitializer',
-        },
       ],
     },
     {

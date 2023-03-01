@@ -1,6 +1,5 @@
 export * from './action';
 export * from './block-item';
-export * from './calendar';
 export * from './card-item';
 export * from './cascader';
 export * from './checkbox';
@@ -16,7 +15,6 @@ export * from './grid';
 export * from './icon-picker';
 export * from './input';
 export * from './input-number';
-export * from './kanban';
 export * from './markdown';
 export * from './menu';
 export * from './page';

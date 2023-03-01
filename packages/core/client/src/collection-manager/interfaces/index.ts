@@ -1,7 +1,6 @@
 export * from './attachment';
 export * from './checkbox';
 export * from './checkboxGroup';
-export * from './chinaRegion';
 export * from './createdAt';
 export * from './createdBy';
 export * from './datetime';

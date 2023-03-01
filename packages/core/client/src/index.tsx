@@ -8,7 +8,6 @@ export * from './application';
 export * from './async-data-provider';
 export * from './block-provider';
 export * from './board';
-export * from './china-region';
 export * from './collection-manager';
 export * from './document-title';
 export * from './i18n';
