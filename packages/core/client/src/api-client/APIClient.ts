@@ -23,12 +23,19 @@ export class APIClient extends APIClientSDK {
         if (redirectTo) {
           return (window.location.href = redirectTo);
         }
-        notification.error({
-          message: error?.response?.data?.errors?.map?.((error: any) => {
-            return React.createElement('div', { children: error.message });
-          }),
-        });
-        throw error;
+        if (error?.response?.data?.errors) {
+          notification.error({
+            message: error?.response?.data?.errors?.map?.((error: any) => {
+              return React.createElement('div', { children: error.message || '账号或密码错误' });
+            }),
+          });
+          throw error;
+        } else {
+          notification.error({
+            message: '登录失败',
+            description: error?.response?.data,
+          });
+        }
       },
     );
   }
