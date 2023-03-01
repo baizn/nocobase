@@ -158,7 +158,7 @@ const InternalAdminLayout = (props: any) => {
           color: rgba(54,55,64,1);
         }
       `}
-        style={{ height: 46, lineHeight: '46px', position: 'relative', paddingLeft: 0, background: '#e4ebff', borderBottom: '1px solid rgba(22,80,255,0.08)' }}
+        style={{ height: 47, lineHeight: '46px', position: 'relative', paddingLeft: 0, background: '#e4ebff', borderBottom: '1px solid rgba(22,80,255,0.08)' }}
       >
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', height: '100%', width: 'calc(100vw - 300px)' }}>
           <div style={{ width: 200, display: 'inline-flex', color: '#fff', padding: '0', alignItems: 'center' }}>
