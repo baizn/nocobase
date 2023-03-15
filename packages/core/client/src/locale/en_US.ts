@@ -509,4 +509,8 @@ export default {
   "Selector": "Selector",
   "Inner": "Inner",
   "Search and select collection": "Search and select collection",
+  "GraphSchema": "Graph Schema",
+  "GraphQuery": "Graph Query",
+  "GraphExplore": "Graph Explore",
+  "GraphConsole": "Graph Console"
 }

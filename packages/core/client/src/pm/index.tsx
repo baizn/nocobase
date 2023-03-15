@@ -7,12 +7,12 @@ import { Redirect, useHistory, useRouteMatch } from 'react-router-dom';
 import { ACLPane } from '../acl';
 import { useAPIClient, useRequest } from '../api-client';
 import { CollectionManagerPane } from '../collection-manager';
-import { useDocumentTitle } from '../document-title';
 import { Icon } from '../icon';
 import { RouteSwitchContext } from '../route-switch';
 import { useCompile } from '../schema-component';
 import { BlockTemplatesPane } from '../schema-templates';
 import { SystemSettingsPane } from '../system-settings';
+import { Marketplace } from './marketplace'
 
 export const SettingsCenterContext = createContext<any>({});
 
@@ -179,14 +179,15 @@ const BuiltinPlugins = () => {
 
 const MarketplacePlugins = () => {
   const { t } = useTranslation();
-  return <div style={{ fontSize: 18 }}>{t('Coming soon...')}</div>;
+  return <div style={{ fontSize: 18, width: '100%' }}>
+    <Marketplace />
+  </div>;
 };
 
 const PluginList = (props) => {
   const match = useRouteMatch<any>();
   const history = useHistory<any>();
   const { tabName = 'local' } = match.params || {};
-  const { setTitle } = useDocumentTitle();
   const { t } = useTranslation();
 
   return (
@@ -194,6 +195,7 @@ const PluginList = (props) => {
       <PageHeader
         ghost={false}
         title={t('Plugin manager')}
+        style={{ backgroundColor: '#e4ebff', borderBottom: '1px solid #d9d9d9' }}
         footer={
           <Tabs
             activeKey={tabName}
@@ -202,7 +204,7 @@ const PluginList = (props) => {
             }}
           >
             <Tabs.TabPane tab={t('Local')} key={'local'} />
-            <Tabs.TabPane tab={t('Built-in')} key={'built-in'} />
+            {/* <Tabs.TabPane tab={t('Built-in')} key={'built-in'} /> */}
             <Tabs.TabPane tab={t('Marketplace')} key={'marketplace'} />
           </Tabs>
         }
@@ -211,7 +213,7 @@ const PluginList = (props) => {
         {React.createElement(
           {
             local: LocalPlugins,
-            'built-in': BuiltinPlugins,
+            // 'built-in': BuiltinPlugins,
             marketplace: MarketplacePlugins,
           }[tabName],
         )}
@@ -274,6 +276,7 @@ const SettingsCenter = (props) => {
     const tabName = Object.keys(items?.[pluginName]?.tabs || {}).shift();
     return `/admin/settings/${pluginName}/${tabName}`;
   }, [items]);
+
   const { pluginName, tabName } = match.params || {};
   if (!pluginName) {
     return <Redirect to={firstUri} />;

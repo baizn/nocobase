@@ -8,7 +8,7 @@ import {
 import { Card } from 'antd';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HelloDesigner } from './HelloDesigner';
+import { HelloDesigner } from './HelloDesigner'; 
 
 export const HelloBlockInitializer = props => {
   const { insert } = props;
@@ -38,7 +38,7 @@ export const HelloBlockInitializer = props => {
 
 export default React.memo(props => {
   const items = useContext(SchemaInitializerContext);
-  const children = items.BlockInitializers.items[2].children;
+  const children = items.BlockInitializers.items[1].children;
 
   children.push({
     key: 'hello',

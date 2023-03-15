@@ -32,6 +32,30 @@ export const BlockInitializers = {
       ],
     },
     {
+      key: 'graph-schema',
+      type: 'itemGroup',
+      title: '{{t("GraphSchema")}}',
+      children: []
+    },
+    {
+      key: 'graph-query',
+      type: 'itemGroup',
+      title: '{{t("GraphQuery")}}',
+      children: []
+    },
+    {
+      key: 'graph-explore',
+      type: 'itemGroup',
+      title: '{{t("GraphExplore")}}',
+      children: []
+    },
+    {
+      key: 'graph-console',
+      type: 'itemGroup',
+      title: '{{t("GraphConsole")}}',
+      children: []
+    },
+    {
       key: 'media',
       type: 'itemGroup',
       title: '{{t("Other blocks")}}',
@@ -41,12 +65,6 @@ export const BlockInitializers = {
           type: 'item',
           title: '{{t("Markdown")}}',
           component: 'MarkdownBlockInitializer',
-        },
-        {
-          key: 'auditLogs',
-          type: 'item',
-          title: '{{t("Audit logs")}}',
-          component: 'AuditLogsBlockInitializer',
         },
       ],
     },

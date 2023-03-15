@@ -5,7 +5,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Redirect, useHistory } from 'react-router-dom';
 import { SchemaComponent, useAPIClient, useCurrentDocumentTitle, useSystemSettings } from '..';
-import VerificationCode from './VerificationCode';
 
 const signupPageSchema: ISchema = {
   type: 'object',
@@ -19,26 +18,6 @@ const signupPageSchema: ISchema = {
       'x-validator': 'email',
       'x-decorator': 'FormItem',
       'x-component-props': { placeholder: '{{t("Email")}}', style: {} },
-    },
-    phone: {
-      type: 'string',
-      required: true,
-      'x-component': 'Input',
-      'x-validator': 'phone',
-      'x-decorator': 'FormItem',
-      'x-component-props': { placeholder: '{{t("Phone")}}', style: {} },
-      'x-visible': '{{smsAuthEnabled}}',
-    },
-    code: {
-      type: 'string',
-      required: true,
-      'x-component': 'VerificationCode',
-      'x-component-props': {
-        actionType: 'users:signup',
-        targetFieldName: 'phone',
-      },
-      'x-decorator': 'FormItem',
-      'x-visible': '{{smsAuthEnabled}}',
     },
     password: {
       type: 'string',
@@ -141,7 +120,7 @@ export interface SignupPageProps {
 export const SignupPage = (props: SignupPageProps) => {
   useCurrentDocumentTitle('Signup');
   const ctx = useSystemSettings();
-  const { allowSignUp, smsAuthEnabled } = ctx?.data?.data || {};
+  const { allowSignUp } = ctx?.data?.data || {};
   if (!allowSignUp) {
     return <Redirect to={'/signin'} />;
   }
@@ -149,11 +128,8 @@ export const SignupPage = (props: SignupPageProps) => {
   return (
     <SchemaComponent
       schema={schema || signupPageSchema}
-      components={{
-        VerificationCode,
-        ...components,
-      }}
-      scope={{ useSignup, smsAuthEnabled, ...scope }}
+      components={components}
+      scope={{ useSignup, ...scope }}
     />
   );
 };
