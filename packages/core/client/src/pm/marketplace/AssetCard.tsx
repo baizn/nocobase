@@ -18,7 +18,6 @@ interface IAssetCardProps {
 }
 
 const AssetCard: React.FC<IAssetCardProps> = ({ infos }) => {
-	console.log(infos)
 	const [state, setState] = useState({
 		used: false
 	})

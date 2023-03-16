@@ -3,9 +3,7 @@ import {
   SchemaComponentOptions,
   SchemaInitializer,
   SchemaInitializerContext,
-  SettingsCenterProvider,
 } from '@tugraph/openpiece-client';
-import { Card } from 'antd';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HelloDesigner } from './HelloDesigner'; 
@@ -48,23 +46,8 @@ export default React.memo(props => {
   });
 
   return (
-    <SettingsCenterProvider
-      settings={{
-        'sample-hello': {
-          title: 'Hello',
-          icon: 'ApiOutlined',
-          tabs: {
-            tab1: {
-              title: 'Hello tab',
-              component: () => <Card bordered={false}>Hello Settings</Card>,
-            },
-          },
-        },
-      }}
-    >
-      <SchemaComponentOptions components={{ HelloDesigner, HelloBlockInitializer }}>
-        <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>
-      </SchemaComponentOptions>
-    </SettingsCenterProvider>
+    <SchemaComponentOptions components={{ HelloDesigner, HelloBlockInitializer }}>
+      <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>
+    </SchemaComponentOptions>
   );
 });

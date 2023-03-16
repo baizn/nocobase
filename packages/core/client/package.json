@@ -61,5 +61,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/baizn/nocobase.git"
+  "repository": "https://github.com/baizn/nocobase.git",
+  "files.insertFinalNewline": true, 
+  "files.trimFinalNewlines": true
 }
