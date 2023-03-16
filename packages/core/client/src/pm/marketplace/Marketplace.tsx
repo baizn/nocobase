@@ -26,7 +26,7 @@ const Marketplace = () => {
       children: <AssetCardList path='src/components/dash-board' />
     }
   ]
-  
+
   return (
 		<div>
       <Tabs>
