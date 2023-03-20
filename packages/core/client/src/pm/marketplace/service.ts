@@ -1,5 +1,5 @@
 import request from 'axios'
-import { OPENPIECE_SERVER_URL, PROJECT_NAMESPACE } from '@tugraph/openpiece-client'
+import { OPENPIECE_SERVER_URL, PROJECT_NAMESPACE } from '../../Constants'
 
 /**
  * 通过资产路径获取组件列表
@@ -36,4 +36,20 @@ export const queryFileDetailInfo = async (filePath: string, branchName: string =
 	}).then(res => res.data)
 
 	console.log(result)
+}
+
+/**
+ * 加载组件
+ * @returns 
+ */
+export const loadPlugin = async () => {
+	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/plugin`, {
+		responseType: 'json',
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+		},
+		withCredentials: true
+	}).then(res => res.data)
+
+	return result
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card, Tooltip, Avatar, Tag, Switch, Popconfirm } from 'antd'
 import { EditOutlined, QuestionCircleOutlined, ProfileOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import { queryFileDetailInfo } from './service'
+import { queryFileDetailInfo, loadPlugin } from './service'
 const { Meta } = Card;
 
 interface CardInfo {
@@ -22,11 +22,13 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos }) => {
 		used: false
 	})
 	const { used } = state
-	const handleUsePlugin = () => {
+	const handleUsePlugin = async () => {
 		setState({
 			...state,
 			used: !used
 		})
+
+		await loadPlugin()
 	}
 
 	const queryFileDetailInfoByPath = async () => {
