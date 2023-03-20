@@ -3,12 +3,10 @@ import {
   SchemaComponentOptions,
   SchemaInitializer,
   SchemaInitializerContext,
-  SettingsCenterProvider,
 } from '@tugraph/openpiece-client';
-import { Card } from 'antd';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HelloDesigner } from './HelloDesigner';
+import { HelloDesigner } from './HelloDesigner'; 
 
 export const HelloBlockInitializer = props => {
   const { insert } = props;
@@ -38,7 +36,7 @@ export const HelloBlockInitializer = props => {
 
 export default React.memo(props => {
   const items = useContext(SchemaInitializerContext);
-  const children = items.BlockInitializers.items[2].children;
+  const children = items.BlockInitializers.items[1].children;
 
   children.push({
     key: 'hello',
@@ -48,23 +46,8 @@ export default React.memo(props => {
   });
 
   return (
-    <SettingsCenterProvider
-      settings={{
-        'sample-hello': {
-          title: 'Hello',
-          icon: 'ApiOutlined',
-          tabs: {
-            tab1: {
-              title: 'Hello tab',
-              component: () => <Card bordered={false}>Hello Settings</Card>,
-            },
-          },
-        },
-      }}
-    >
-      <SchemaComponentOptions components={{ HelloDesigner, HelloBlockInitializer }}>
-        <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>
-      </SchemaComponentOptions>
-    </SettingsCenterProvider>
+    <SchemaComponentOptions components={{ HelloDesigner, HelloBlockInitializer }}>
+      <SchemaInitializerContext.Provider value={items}>{props.children}</SchemaInitializerContext.Provider>
+    </SchemaComponentOptions>
   );
 });

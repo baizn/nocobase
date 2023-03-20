@@ -164,12 +164,6 @@ export const RecordBlockInitializers = (props: any) => {
               title: '{{t("Markdown")}}',
               component: 'MarkdownBlockInitializer',
             },
-            {
-              key: 'auditLogs',
-              type: 'item',
-              title: '{{t("Audit logs")}}',
-              component: 'AuditLogsBlockInitializer',
-            },
           ],
         },
       ]}

@@ -7,12 +7,11 @@ import { Redirect, useHistory, useRouteMatch } from 'react-router-dom';
 import { ACLPane } from '../acl';
 import { useAPIClient, useRequest } from '../api-client';
 import { CollectionManagerPane } from '../collection-manager';
-import { useDocumentTitle } from '../document-title';
 import { Icon } from '../icon';
 import { RouteSwitchContext } from '../route-switch';
 import { useCompile } from '../schema-component';
-import { BlockTemplatesPane } from '../schema-templates';
 import { SystemSettingsPane } from '../system-settings';
+import { Marketplace } from './marketplace'
 
 export const SettingsCenterContext = createContext<any>({});
 
@@ -93,46 +92,6 @@ const PluginCard = (props) => {
   );
 };
 
-const BuiltInPluginCard = (props) => {
-  const { data } = props;
-  return (
-    <Card
-      bordered={false}
-      style={{ width: 'calc(20% - 24px)', marginRight: 24, marginBottom: 24 }}
-      // actions={[<a>Settings</a>, <a>Remove</a>, <Switch size={'small'} defaultChecked={true}></Switch>]}
-    >
-      <Card.Meta
-        className={css`
-          .ant-card-meta-avatar {
-            margin-top: 8px;
-            .ant-avatar {
-              border-radius: 2px;
-            }
-          }
-        `}
-        avatar={<Avatar />}
-        description={data.description}
-        title={
-          <span>
-            {data.name}
-            <span
-              className={css`
-                display: block;
-                color: rgba(0, 0, 0, 0.45);
-                font-weight: normal;
-                font-size: 13px;
-                // margin-left: 8px;
-              `}
-            >
-              {data.version}
-            </span>
-          </span>
-        }
-      />
-    </Card>
-  );
-};
-
 const LocalPlugins = () => {
   const { data, loading } = useRequest({
     url: 'applicationPlugins:list',
@@ -155,38 +114,17 @@ const LocalPlugins = () => {
   );
 };
 
-const BuiltinPlugins = () => {
-  const { data, loading } = useRequest({
-    url: 'applicationPlugins:list',
-    params: {
-      filter: {
-        'builtIn.$isTruly': true,
-      },
-      sort: 'name',
-    },
-  });
-  if (loading) {
-    return <Spin />;
-  }
-  return (
-    <>
-      {data?.data?.map((item) => {
-        return <BuiltInPluginCard data={item} />;
-      })}
-    </>
-  );
-};
-
 const MarketplacePlugins = () => {
   const { t } = useTranslation();
-  return <div style={{ fontSize: 18 }}>{t('Coming soon...')}</div>;
+  return <div style={{ fontSize: 18, width: '100%' }}>
+    <Marketplace />
+  </div>;
 };
 
 const PluginList = (props) => {
   const match = useRouteMatch<any>();
   const history = useHistory<any>();
   const { tabName = 'local' } = match.params || {};
-  const { setTitle } = useDocumentTitle();
   const { t } = useTranslation();
 
   return (
@@ -194,6 +132,7 @@ const PluginList = (props) => {
       <PageHeader
         ghost={false}
         title={t('Plugin manager')}
+        style={{ backgroundColor: '#e4ebff', borderBottom: '1px solid #d9d9d9' }}
         footer={
           <Tabs
             activeKey={tabName}
@@ -202,7 +141,6 @@ const PluginList = (props) => {
             }}
           >
             <Tabs.TabPane tab={t('Local')} key={'local'} />
-            <Tabs.TabPane tab={t('Built-in')} key={'built-in'} />
             <Tabs.TabPane tab={t('Marketplace')} key={'marketplace'} />
           </Tabs>
         }
@@ -211,7 +149,6 @@ const PluginList = (props) => {
         {React.createElement(
           {
             local: LocalPlugins,
-            'built-in': BuiltinPlugins,
             marketplace: MarketplacePlugins,
           }[tabName],
         )}
@@ -228,16 +165,6 @@ const settings = {
       roles: {
         title: '{{t("Roles & Permissions")}}',
         component: ACLPane,
-      },
-    },
-  },
-  'block-templates': {
-    title: '{{t("Block templates")}}',
-    icon: 'LayoutOutlined',
-    tabs: {
-      list: {
-        title: '{{t("Block templates")}}',
-        component: BlockTemplatesPane,
       },
     },
   },
@@ -274,6 +201,7 @@ const SettingsCenter = (props) => {
     const tabName = Object.keys(items?.[pluginName]?.tabs || {}).shift();
     return `/admin/settings/${pluginName}/${tabName}`;
   }, [items]);
+
   const { pluginName, tabName } = match.params || {};
   if (!pluginName) {
     return <Redirect to={firstUri} />;

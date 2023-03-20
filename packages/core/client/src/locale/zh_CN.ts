@@ -623,4 +623,8 @@ export default {
   "Selector": "选择器",
   "Inner": "里面",
   "Search and select collection": "搜索并选择数据表",
+  "GraphSchema": "图模型",
+  "GraphQuery": "图查询",
+  "GraphExplore": "图分析",
+  "GraphConsole": "图运维"
 }
