@@ -1,15 +1,17 @@
-import { AppstoreAddOutlined, SettingOutlined } from '@ant-design/icons';
-import { Dropdown, Menu } from 'antd';
+import { AppstoreAddOutlined, SettingOutlined, ExportOutlined, LoadingOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, message } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { PluginManager } from '../plugin-manager';
 import { ActionContext } from '../schema-component';
+import { useGetSourceCode } from '../hooks/useGetSourceCode';
 
 export const PluginManagerLink = () => {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
   const history = useHistory();
+
   return (
     <ActionContext.Provider value={{ visible, setVisible }}>
       <PluginManager.Toolbar.Item
@@ -79,6 +81,45 @@ export const SettingsCenterDropdown = () => {
         <PluginManager.Toolbar.Item
           icon={<SettingOutlined />}
           // title={t('Settings center')}
+        ></PluginManager.Toolbar.Item>
+      </Dropdown>
+    </ActionContext.Provider>
+  );
+};
+
+export const AppExport = () => {
+  const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
+  const [messageApi, contextHolder] = message.useMessage();
+  const { runGetSourceCode, getSourceCodeLoading } = useGetSourceCode();
+  const items = [
+    {
+      title: t('Export source code'),
+    },
+    // {
+    //   title: t('Export static assets'),
+    // },
+  ];
+
+  return (
+    <ActionContext.Provider value={{ visible, setVisible }}>
+      <Dropdown
+        overlay={
+          <Menu>
+            <Menu.ItemGroup title={t('Export')}>
+              {items.map((item) => {
+                return (
+                  <Menu.Item onClick={runGetSourceCode} key={item.title}>
+                    {item.title}
+                  </Menu.Item>
+                );
+              })}
+            </Menu.ItemGroup>
+          </Menu>
+        }
+      >
+        <PluginManager.Toolbar.Item
+          icon={getSourceCodeLoading ? <LoadingOutlined /> : <ExportOutlined />}
         ></PluginManager.Toolbar.Item>
       </Dropdown>
     </ActionContext.Provider>
