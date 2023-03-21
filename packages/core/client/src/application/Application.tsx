@@ -11,20 +11,20 @@ import { CollectionManagerShortcut } from '../collection-manager';
 import { RemoteDocumentTitleProvider } from '../document-title';
 import { i18n } from '../i18n';
 import { PluginManagerProvider } from '../plugin-manager';
-import PMProvider, { PluginManagerLink, SettingsCenterDropdown } from '../pm';
+import PMProvider, { PluginManagerLink, SettingsCenterDropdown, AppExport } from '../pm';
 import {
   AdminLayout,
   AuthLayout,
   RemoteRouteSwitchProvider,
   RouteSchemaComponent,
   RouteSwitch,
-  useRoutes
+  useRoutes,
 } from '../route-switch';
 import {
   AntdSchemaComponentProvider,
   DesignableSwitch,
   MenuItemInitializers,
-  SchemaComponentProvider
+  SchemaComponentProvider,
 } from '../schema-component';
 import { SchemaInitializerProvider } from '../schema-initializer';
 import { BlockTemplateDetails, BlockTemplatePage, SchemaTemplateShortcut } from '../schema-templates';
@@ -102,6 +102,7 @@ export class Application {
         SchemaTemplateShortcut,
         PluginManagerLink,
         SettingsCenterDropdown,
+        AppExport,
       },
     });
     this.use(SchemaComponentProvider, { components: { Link, NavLink } });
