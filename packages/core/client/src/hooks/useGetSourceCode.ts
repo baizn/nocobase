@@ -8,8 +8,10 @@ export const useGetSourceCode = () => {
   const { run: runGetSourceCode, loading: getSourceCodeLoading } = useRequest(querySourceCode, {
     manual: true,
     onSuccess: (res) => {
-      if (res?.data) {
+      if (res?.data && res?.success) {
         downloadRemoteFile(`${HOST}${res?.data?.path}`, 'openpiece.tar.gz');
+      } else if (!res?.success) {
+        message.error(res?.errorMsg ?? 'Excepted error');
       }
     },
     onError: (err) => {
