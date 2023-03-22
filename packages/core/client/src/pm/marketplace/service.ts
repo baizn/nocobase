@@ -7,8 +7,8 @@ import { OPENPIECE_SERVER_URL, PROJECT_NAMESPACE } from '../../Constants'
  * @param branchName 分支名称
  * @returns 
  */
-export const queryAssetFolderList = async (assetPath: string, branchName: string = 'master') => {
-	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/list/${PROJECT_NAMESPACE}?path=${assetPath}&branchName=${branchName}`, {
+export const queryAssetFolderList = async (assetPath: string, projectName: string = PROJECT_NAMESPACE, branchName: string = 'master') => {
+	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/list/${projectName}?path=${assetPath}&branchName=${branchName}`, {
 		responseType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
@@ -39,11 +39,34 @@ export const queryFileDetailInfo = async (filePath: string, branchName: string =
 }
 
 /**
- * 加载组件
+ * 将组件转成为 Openpiece 平台可消费的插件
+ * @param name 组件名称
+ * @param packageName 组件包名称
  * @returns 
  */
-export const loadPlugin = async () => {
+export const componentToPlugin = async (name: string, packageName: string = '@tugraph/components') => {
 	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/plugin`, {
+		responseType: 'json',
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+		},
+		params: {
+			name,
+			packageName
+		},
+		withCredentials: true
+	}).then(res => res.data)
+
+	return result
+}
+
+/**
+ * 所有 Openpiece 平台已加载的组件
+ * @param name 组件名称
+ * @returns 
+ */
+export const loadedPlugins = async () => {
+	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/plugin/loaded`, {
 		responseType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
@@ -51,5 +74,5 @@ export const loadPlugin = async () => {
 		withCredentials: true
 	}).then(res => res.data)
 
-	return result
+	return result.data
 }
