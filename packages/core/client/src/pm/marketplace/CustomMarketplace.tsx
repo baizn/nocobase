@@ -55,7 +55,7 @@ const CustomMarketPlace: React.FC<IProps> = ({ updateTabName }) => {
     queryLoadedPluginList()
   }, [])
 
-  const { cpath, projectName, loadedPluginList } = state
+  const { cpath, projectName, loadedPluginList, packageName } = state
   return (
     <div>
       <Card style={{ marginBottom: 8 }}>
@@ -104,7 +104,7 @@ const CustomMarketPlace: React.FC<IProps> = ({ updateTabName }) => {
       </Card>
       {
         cpath && projectName &&
-        <AssetCardList projectName={projectName} path={cpath} loadedPluginList={loadedPluginList} respLoadingStatus={setLoading} />
+        <AssetCardList projectName={projectName} path={cpath} loadedPluginList={loadedPluginList} respLoadingStatus={setLoading} packageName={packageName} />
       }
     </div>
   )

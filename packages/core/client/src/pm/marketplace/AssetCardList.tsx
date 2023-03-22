@@ -116,7 +116,7 @@ const AssetCardList: React.FC<IAssetCardListProps> = ({ path, loadedPluginList, 
 					<Row>
 						{
 							componentList.map(d => {
-								return <Col span={7} style={{ marginRight: 16 }}>
+								return <Col span={7} style={{ marginRight: 16, marginBottom: 16 }}>
 									<AssetCard infos={d} loadedPluginList={loadedPluginList} packageName={packageName} />
 								</Col>
 							})
