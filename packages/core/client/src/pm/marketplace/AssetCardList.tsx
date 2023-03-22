@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Menu, Row, Col } from 'antd'
+import { Menu, Row, Col, Spin } from 'antd'
 import AssetCard from './AssetCard'
-import { queryAssetFolderList } from './service'
+import { ILoadedPlugin } from './Marketplace'
+import { loadedPlugins, queryAssetFolderList } from './service'
 
 interface IAssetCardListProps {
 	path: string;
+	projectName?: string;
+	packageName?: string;
+	loadedPluginList: ILoadedPlugin[];
+	respLoadingStatus?: (status: boolean) => void;
 }
 
-const AssetCardList: React.FC<IAssetCardListProps> = ({ path }) => {
+const AssetCardList: React.FC<IAssetCardListProps> = ({ path, loadedPluginList, projectName, respLoadingStatus, packageName }) => {
 	const [state, setState] = useState({
-		path,
 		navList: [],
 		menuPath: '',
-		componentList: []
+		componentList: [],
+		loading: false
 	})
 
 	/**
@@ -20,11 +25,26 @@ const AssetCardList: React.FC<IAssetCardListProps> = ({ path }) => {
 	 * @param assetPath 资产路径
 	 */
 	const queryGraphMenuList = async (assetPath: string) => {
-		const currentList = await queryAssetFolderList(assetPath)
+		setState({
+			...state,
+			loading: true
+		})
+
+		if (respLoadingStatus) {
+			respLoadingStatus(true)
+		}
+
+		const currentList = await queryAssetFolderList(assetPath, projectName)
+
+		if (respLoadingStatus) {
+			respLoadingStatus(false)
+		}
+
 		setState({
 			...state,
 			navList: currentList,
-			menuPath: currentList[0].path
+			menuPath: currentList[0].path,
+			loading: false
 		})
 	}
 
@@ -33,19 +53,34 @@ const AssetCardList: React.FC<IAssetCardListProps> = ({ path }) => {
 	 * @param filepath 
 	 */
 	const queryComponentList = async (filepath: string) => {
-		const currentList = await queryAssetFolderList(filepath)
+		setState({
+			...state,
+			loading: true
+		})
+
+		if (respLoadingStatus) {
+			respLoadingStatus(true)
+		}
+
+		const currentList = await queryAssetFolderList(filepath, projectName)
+
+		if (respLoadingStatus) {
+			respLoadingStatus(false)
+		}
+
 		setState({
 			...state,
 			componentList: currentList,
-			menuPath: filepath
+			menuPath: filepath,
+			loading: false
 		})
 	}
 
-	const { path: assetPath, navList, componentList, menuPath } = state
+	const { navList, componentList, menuPath, loading } = state
 
 	useEffect(() => {
-		queryGraphMenuList(assetPath)
-	}, [assetPath])
+		queryGraphMenuList(path)
+	}, [path])
 
 	useEffect(() => {
 		if (menuPath) {
@@ -72,22 +107,24 @@ const AssetCardList: React.FC<IAssetCardListProps> = ({ path }) => {
 	}
 
 	return (
-		<Row>
-			<Col span={4}>
-				<Menu items={menuItems} mode='inline' selectedKeys={[menuPath]} style={{ width: 220 }} onClick={handleMenuClick} />
-			</Col>
-			<Col span={20}>
-				<Row>
-					{
-						componentList.map(d => {
-							return <Col span={7} style={{ marginRight: 16 }}>
-								<AssetCard infos={d} />
-							</Col>
-						})
-					}
-				</Row>
-			</Col>
-		</Row>
+		<Spin tip='请稍等，正在努力加载组件列表中……' spinning={loading} >
+			<Row>
+				<Col span={4}>
+					<Menu items={menuItems} mode='inline' selectedKeys={[menuPath]} style={{ width: 220 }} onClick={handleMenuClick} />
+				</Col>
+				<Col span={20}>
+					<Row>
+						{
+							componentList.map(d => {
+								return <Col span={7} style={{ marginRight: 16 }}>
+									<AssetCard infos={d} loadedPluginList={loadedPluginList} packageName={packageName} />
+								</Col>
+							})
+						}
+					</Row>
+				</Col>
+			</Row>
+		</Spin>
 	)
 }
 

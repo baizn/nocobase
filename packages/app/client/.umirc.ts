@@ -41,7 +41,7 @@ export default defineConfig({
     // <!--- Antd DEPENDENCIES-->
     'https://gw.alipayobjects.com/os/lib/lodash/4.17.21/lodash.min.js',
     'https://gw.alipayobjects.com/os/lib/moment/2.29.1/moment.js',
-    'https://gw.alipayobjects.com/os/lib/antd/4.20.6/dist/antd.min.js',
+    'https://gw.alipayobjects.com/os/lib/antd/4.24.8/dist/antd.min.js',
     'https://gw.alipayobjects.com/os/lib/ant-design/charts/1.2.13/dist/charts.min.js',
     'https://gw.alipayobjects.com/os/lib/ant-design/icons/4.6.4/dist/index.umd.min.js',
     // <!--- G2/G2Plot DEPENDENCIES-->
@@ -50,6 +50,6 @@ export default defineConfig({
   styles: [
     // "https://gw.alipayobjects.com/os/lib/antd/4.18.3/dist/antd.min.css",
     // "https://gw.alipayobjects.com/os/lib/alipay/theme-tools/0.3.0/dist/GraphInsight/light.css",
-    'https://gw.alipayobjects.com/os/lib/antd/4.23.5/dist/antd.css',
+    'https://gw.alipayobjects.com/os/lib/antd/4.24.8/dist/antd.css',
   ],
 });
