@@ -232,7 +232,7 @@ export class Database extends EventEmitter implements AsyncEmitter {
 
     this.migrations = new Migrations(context);
     this.migrator = new Umzug({
-      logger: migratorOptions.logger || console,
+      logger: console,
       migrations: this.migrations.callback(),
       context,
       storage: new SequelizeStorage({

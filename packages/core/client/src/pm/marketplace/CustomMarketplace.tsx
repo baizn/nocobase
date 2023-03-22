@@ -56,6 +56,10 @@ const CustomMarketPlace: React.FC<IProps> = ({ updateTabName }) => {
   }, [])
 
   const { cpath, projectName, loadedPluginList, packageName } = state
+  const initFormValue = {
+    assetName: 'GraphBitComponents',
+    sourceCodePath: 'src/components'
+  }
   return (
     <div>
       <Card style={{ marginBottom: 8 }}>
@@ -64,6 +68,7 @@ const CustomMarketPlace: React.FC<IProps> = ({ updateTabName }) => {
           name="basic"
           autoComplete="off"
           onValuesChange={handleValueChange}
+          initialValues={initFormValue}
         >
           <Row>
             <Col span={7}>

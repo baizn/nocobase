@@ -2,7 +2,6 @@ import { ACL } from '@nocobase/acl';
 import { registerActions } from '@tugraph/actions';
 import { Cache, createCache, ICacheConfig } from '@nocobase/cache';
 import Database, { Collection, CollectionOptions, IDatabaseOptions } from '@tugraph/database';
-import { AppLoggerOptions, createAppLogger, Logger } from '@nocobase/logger';
 import Resourcer, { ResourceOptions } from '@nocobase/resourcer';
 import { applyMixins, AsyncEmitter, Toposort, ToposortOptions } from '@nocobase/utils';
 import chalk from 'chalk';
@@ -39,7 +38,6 @@ export interface ApplicationOptions {
   i18n?: i18n | InitOptions;
   plugins?: PluginConfiguration[];
   acl?: boolean;
-  logger?: AppLoggerOptions;
   pmSock?: string;
 }
 
@@ -143,7 +141,6 @@ export class ApplicationVersion {
 
 export class Application<StateT = DefaultState, ContextT = DefaultContext> extends Koa implements AsyncEmitter {
   protected _db: Database;
-  protected _logger: Logger;
 
   protected _resourcer: Resourcer;
 
@@ -208,18 +205,8 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     return this._appManager;
   }
 
-  get logger() {
-    return this._logger;
-  }
-
-  get log() {
-    return this._logger;
-  }
-
   protected init() {
     const options = this.options;
-    const logger = createAppLogger(options.logger);
-    this._logger = logger.instance;
     // @ts-ignore
     this._events = [];
     // @ts-ignore
@@ -228,8 +215,6 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     this.middleware = new Toposort<any>();
     this.plugins = new Map<string, Plugin>();
     this._acl = createACL();
-
-    this.use(logger.middleware, { tag: 'logger' });
 
     if (this._db) {
       // MaxListenersExceededWarning
@@ -243,7 +228,6 @@ export class Application<StateT = DefaultState, ContextT = DefaultContext> exten
     this._i18n = createI18n(options);
     this._cache = createCache(options.cache);
     this.context.db = this._db;
-    this.context.logger = this._logger;
     this.context.resourcer = this._resourcer;
     this.context.cache = this._cache;
 

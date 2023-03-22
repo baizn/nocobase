@@ -22,7 +22,6 @@
     "@tugraph/plugin-users": "^0.0.2",
     "@tugraph/database": "^0.0.1",
     "@nocobase/cache": "0.8.0-alpha.13",
-    "@nocobase/logger": "0.8.0-alpha.13",
     "@tugraph/openpiece-server": "^0.0.6"
   },
   "repository": {
