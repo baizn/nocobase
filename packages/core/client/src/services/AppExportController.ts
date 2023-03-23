@@ -12,3 +12,15 @@ export async function querySourceCode() {
     withCredentials: true,
   });
 }
+
+/* 删除源文件 */
+export async function deleteSourceCode() {
+  return request(`${HOST}/api/app/delete`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    withCredentials: true,
+  });
+}
