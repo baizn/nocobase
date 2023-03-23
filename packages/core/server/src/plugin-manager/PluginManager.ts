@@ -216,6 +216,8 @@ export class PluginManager {
         enabled: !!enabled,
         builtIn: !!builtIn,
         installed: !!installed,
+        // 加到 plugin 表中的 used 字段默认都未 1
+        used: 1,
         options: {
           ...others,
         },

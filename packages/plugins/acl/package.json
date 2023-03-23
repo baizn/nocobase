@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/plugin-acl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "license": "Apache-2.0",
   "licenses": [
@@ -14,8 +14,8 @@
   "dependencies": {
     "@nocobase/acl": "0.8.0-alpha.13",
     "@tugraph/database": "^0.0.2",
-    "@tugraph/plugin-users": "^0.0.2",
-    "@tugraph/openpiece-server": "^0.0.6"
+    "@tugraph/plugin-users": "^0.0.3",
+    "@tugraph/openpiece-server": "^0.0.8"
   },
   "repository": {
     "type": "git",

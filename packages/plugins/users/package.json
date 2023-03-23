@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/plugin-users",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -13,7 +13,7 @@
     "@tugraph/actions": "^0.0.2",
     "@tugraph/database": "^0.0.2",
     "@nocobase/resourcer": "0.8.0-alpha.13",
-    "@tugraph/openpiece-server": "^0.0.6",
+    "@tugraph/openpiece-server": "^0.0.8",
     "@nocobase/utils": "0.8.0-alpha.13",
     "json-templates": "^4.2.0",
     "jsonwebtoken": "^8.5.1"

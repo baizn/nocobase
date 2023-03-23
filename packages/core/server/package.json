@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/openpiece-server",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "main": "lib/index.js",
   "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
@@ -16,7 +16,6 @@
     "@koa/router": "^9.4.0",
     "@nocobase/acl": "0.8.0-alpha.13",
     "@nocobase/resourcer": "0.8.0-alpha.13",
-    "@nocobase/logger": "0.8.0-alpha.13",
     "@tugraph/actions": "^0.0.2",
     "@tugraph/database": "^0.0.2",
     "chalk": "^4.1.1",
