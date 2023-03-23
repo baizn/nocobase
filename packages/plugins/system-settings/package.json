@@ -1,6 +1,6 @@
 {
   "name": "@tugraph/plugin-system-settings",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "licenses": [
@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "@tugraph/database": "^0.0.2",
-    "@tugraph/openpiece-server": "^0.0.6"
+    "@tugraph/openpiece-server": "^0.0.8"
   },
   "publishConfig": {
     "access": "public"
