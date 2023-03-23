@@ -6,10 +6,6 @@
     "@tugraph/openpiece-client": "^0.0.8",
     "@tugraph/openpiece-server": "^0.0.8"
   },
-  "peerDependencies": {
-    "@tugraph/openpiece-client": "*",
-    "@tugraph/openpiece-server": "*"
-  },
   "publishConfig": {
     "access": "public"
   }
