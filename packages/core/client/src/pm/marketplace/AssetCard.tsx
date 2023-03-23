@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Card, Tooltip, Avatar, Tag, Switch, Popconfirm, Spin } from 'antd'
-import { EditOutlined, QuestionCircleOutlined, ProfileOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import React, { useState } from 'react'
+import { Card, Tooltip, Input, Tag, Switch, Spin, Modal, Row, Col } from 'antd'
+import { EditOutlined, QuestionCircleOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { queryFileDetailInfo, componentToPlugin } from './service'
 import { ILoadedPlugin } from './Marketplace';
 const { Meta } = Card;
@@ -21,22 +21,27 @@ interface IAssetCardProps {
 }
 
 const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, packageName }) => {
+	const defaultComponentName = `${infos.name[0].toUpperCase()}${infos.name.substring(1)}`
 	const [state, setState] = useState({
 		used: loadedPluginList.map(d => d.name).includes(infos.name),
-		loading: false
+		loading: false,
+		visible: false,
+		componentName: defaultComponentName
 	})
 	const { used, loading } = state
 	const handleUsePlugin = async () => {
 		setState({
 			...state,
-			loading: true
+			loading: true,
+			visible: false
 		})
 
-		const { name } = infos // Skeleton
-		const status = await componentToPlugin(name, packageName)
+		const status = await componentToPlugin(state.componentName, packageName)
+
 		if (status.success) {
 			// 安装成功
 			setState({
+				...state,
 				used: true,
 				loading: false
 			})
@@ -48,6 +53,28 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 		console.log(result)
 	}
 
+	const handleCancel = () => {
+		setState({
+			...state,
+			visible: false
+		})
+	}
+
+	const handleChangeSwitch = (checked: boolean) => {
+		setState({
+			...state,
+			visible: checked
+		})
+	}
+
+	const handleComponentNameChange = (evt) => {
+		console.log(evt, evt.target.value)
+		setState({
+			...state,
+			componentName: evt.target.value
+		})
+	}
+
 	return (
 		<Spin tip='正在努力加载中，请稍等片刻……' spinning={loading}>
 			<Card bordered={false}
@@ -57,19 +84,13 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 					</Tooltip>,
 					!used ? 
 					<Tooltip title='将远程组件加载到平台中使用'>
-						<Popconfirm 
-							title='确定加载该组件吗？'
-							icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
-							onConfirm={handleUsePlugin}
-							okText='确定'
-							cancelText='取消'>
-							<Switch
-								checkedChildren={<CheckOutlined />}
-								unCheckedChildren={<CloseOutlined />}
-								checked={used}
-								disabled={used}
-							/>
-						</Popconfirm>
+						<Switch
+							checkedChildren={<CheckOutlined />}
+							unCheckedChildren={<CloseOutlined />}
+							checked={used}
+							disabled={used}
+							onChange={handleChangeSwitch}
+						/>
 					</Tooltip>
 					:
 					<Tooltip title='要卸载组件请到本地资产中卸载'>
@@ -93,6 +114,14 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 					description={infos.description || infos.path}
 				/>
 			</Card>		
+			<Modal title={<><QuestionCircleOutlined style={{ color: 'red', marginRight: 8 }} />加载组件</>} open={state.visible} onOk={handleUsePlugin} onCancel={handleCancel}>
+				<Row>
+					<Col>导出的组件的默认名称为：{defaultComponentName}，请确认是否正确。</Col>
+					<Col span={24} style={{ margin: '16px 0' }}>如果不正确，请在下面的输入框中重新输入组件名称。</Col>
+					<Col span={4}>组件名称：</Col>
+					<Col span={20}><Input style={{ width: 350 }} placeholder="请输入组件名称，组件名称以大驼峰方式命名" onChange={handleComponentNameChange} /></Col>
+				</Row>
+			</Modal>
 		</Spin>
 	)
 }

@@ -58,7 +58,8 @@ const CustomMarketPlace: React.FC<IProps> = ({ updateTabName }) => {
   const { cpath, projectName, loadedPluginList, packageName } = state
   const initFormValue = {
     assetName: 'GraphBitComponents',
-    sourceCodePath: 'src/components'
+    sourceCodePath: 'src/components',
+    packageName: '@alipay/tugraph-studio'
   }
   return (
     <div>
