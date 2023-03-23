@@ -90,7 +90,6 @@ export const SettingsCenterDropdown = () => {
 export const AppExport = () => {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
-  const [messageApi, contextHolder] = message.useMessage();
   const { runGetSourceCode, getSourceCodeLoading } = useGetSourceCode();
   const items = [
     {
