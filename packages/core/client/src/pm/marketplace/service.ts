@@ -1,4 +1,4 @@
-import request from 'axios'
+import request from 'umi-request'
 import { OPENPIECE_SERVER_URL, PROJECT_NAMESPACE } from '../../Constants'
 
 /**
@@ -8,13 +8,16 @@ import { OPENPIECE_SERVER_URL, PROJECT_NAMESPACE } from '../../Constants'
  * @returns 
  */
 export const queryAssetFolderList = async (assetPath: string, projectName: string = PROJECT_NAMESPACE, branchName: string = 'master') => {
-	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/list/${projectName}?path=${assetPath}&branchName=${branchName}`, {
+	const result = await request(`${OPENPIECE_SERVER_URL}/api/asset/list/${projectName}?path=${assetPath}&branchName=${branchName}`, {
+		method: 'GET',
 		responseType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'application/json',
 		},
+		credentials: 'include',
 		withCredentials: true
-	}).then(res => res.data)
+	})
 
 	const currentList = result.data.filter(d => d.type === 'tree')
 
@@ -27,13 +30,16 @@ export const queryAssetFolderList = async (assetPath: string, projectName: strin
  * @param branchName 分支名称
  */
 export const queryFileDetailInfo = async (filePath: string, branchName: string = 'master') => {
-	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/sourcecode/${PROJECT_NAMESPACE}?path=${filePath}&branchName=${branchName}`, {
+	const result = await request(`${OPENPIECE_SERVER_URL}/api/asset/sourcecode/${PROJECT_NAMESPACE}?path=${filePath}&branchName=${branchName}`, {
+		method: 'GET',
 		responseType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'application/json',
 		},
+		credentials: 'include',
 		withCredentials: true
-	}).then(res => res.data)
+	})
 
 	console.log(result)
 }
@@ -45,17 +51,20 @@ export const queryFileDetailInfo = async (filePath: string, branchName: string =
  * @returns 
  */
 export const componentToPlugin = async (name: string, packageName: string = '@tugraph/components') => {
-	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/plugin`, {
+	const result = await request(`${OPENPIECE_SERVER_URL}/api/asset/plugin`, {
+		method: 'GET',
 		responseType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'application/json',
 		},
 		params: {
 			name,
 			packageName
 		},
+		credentials: 'include',
 		withCredentials: true
-	}).then(res => res.data)
+	})
 
 	return result
 }
@@ -66,13 +75,36 @@ export const componentToPlugin = async (name: string, packageName: string = '@tu
  * @returns 
  */
 export const loadedPlugins = async () => {
-	const result = await request.get(`${OPENPIECE_SERVER_URL}/api/asset/plugin/loaded`, {
+	const result = await request(`${OPENPIECE_SERVER_URL}/api/asset/plugin/loaded`, {
+		method: 'GET',
 		responseType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'application/json',
 		},
+		credentials: 'include',
 		withCredentials: true
-	}).then(res => res.data)
+	})
 
 	return result.data
+}
+
+
+export const updatePluginFiled = async (pluginName: string, options) => {
+	const result = await request(`${OPENPIECE_SERVER_URL}/api/asset/plugin`, {
+		method: 'PUT',
+		responseType: 'json',
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'application/json',
+		},
+		data: {
+			pluginName,
+			options
+		},
+		credentials: 'include',
+    withCredentials: true,
+	})
+
+	return result
 }
