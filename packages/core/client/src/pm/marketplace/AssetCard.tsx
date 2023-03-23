@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Card, Tooltip, Input, Tag, Switch, Spin, Modal, Row, Col } from 'antd'
+import { Card, Tooltip, Input, Tag, Switch, Spin, Modal, Row, Col, message } from 'antd'
 import { EditOutlined, QuestionCircleOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import { queryFileDetailInfo, componentToPlugin } from './service'
+import { queryFileDetailInfo, componentToPlugin, updatePluginFiled } from './service'
 import { ILoadedPlugin } from './Marketplace';
 const { Meta } = Card;
 
@@ -36,9 +36,21 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 			visible: false
 		})
 
+		if (!state.componentName) {
+			message.error('组件名称为空')
+			return
+		}
 		const status = await componentToPlugin(state.componentName, packageName)
 
 		if (status.success) {
+			// 安装成功以后，更新插件表
+			const pluginName = state.componentName.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+			await updatePluginFiled(pluginName, {
+				path: infos.path
+			})
+
+			message.success('加载成功')
+
 			// 安装成功
 			setState({
 				...state,
@@ -68,7 +80,6 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 	}
 
 	const handleComponentNameChange = (evt) => {
-		console.log(evt, evt.target.value)
 		setState({
 			...state,
 			componentName: evt.target.value
