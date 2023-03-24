@@ -3,6 +3,7 @@ export default {
   repository: 'PluginManagerRepository',
   fields: [
     { type: 'string', name: 'name', unique: true },
+    { type: 'string', name: 'packageName' },
     { type: 'string', name: 'version' },
     { type: 'boolean', name: 'enabled' },
     { type: 'boolean', name: 'installed' },
