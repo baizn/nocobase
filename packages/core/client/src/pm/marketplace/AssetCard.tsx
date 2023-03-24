@@ -41,12 +41,13 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 			return
 		}
 		const status = await componentToPlugin(state.componentName, packageName)
-
+		debugger
 		if (status.success) {
 			// 安装成功以后，更新插件表
 			const pluginName = state.componentName.replace(/\B([A-Z])/g, '-$1').toLowerCase()
 			await updatePluginFiled(pluginName, {
-				path: infos.path
+				path: infos.path,
+				packageName
 			})
 
 			message.success('加载成功')
