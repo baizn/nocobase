@@ -12,9 +12,7 @@
     "strict": true,
     "skipLibCheck": true,
     "paths": {
-      "@tugraph/plugin-graph-console-*/client": ["../../graph-plugins/console/*/src/client"],
-      "@tugraph/plugin-graph-studio-*/client": ["../../graph-plugins/studio/*/src/client"],
-      "@tugraph/plugin-sample-*/client": ["../../samples/*/src/client"],
+      "@tugraph/plugin-graph-*/client": ["../../graph-plugins/*/src/client"],
       "@tugraph/plugin-*/client": ["../../plugins/*/src/client"],
       "@nocobase/utils/client": ["../../core/utils/src/client"],
       "@tugraph/openpiece-*": ["../../core/*/src"],

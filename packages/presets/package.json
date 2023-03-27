@@ -15,7 +15,6 @@
     "@tugraph/plugin-client": "^0.0.3",
     "@tugraph/plugin-collection-manager": "^0.0.4",
     "@tugraph/plugin-file-manager": "^0.0.3",
-    "@tugraph/plugin-sample-hello": "^0.0.3",
     "@tugraph/plugin-system-settings": "^0.0.4",
     "@tugraph/plugin-ui-routes-storage": "^0.0.3",
     "@tugraph/plugin-ui-schema-storage": "^0.0.3",

@@ -20,3 +20,8 @@ dist/
 docker/**/storage
 cache/diskstore-*
 packages/app/client/src/components/
+packages/graph-plugins
+packages/app/client/src/plugins/
+!packages/app/client/src/plugins/file-manager.ts
+
+

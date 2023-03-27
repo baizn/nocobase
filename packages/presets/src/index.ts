@@ -17,8 +17,6 @@ export class PresetNocoBase extends Plugin {
       builtIn: true,
       installed: true,
     });
-    const samples = ['sample-hello'];
-    await this.app.pm.add(samples, {});
     await this.app.reload();
   }
 

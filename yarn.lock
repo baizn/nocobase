@@ -2,10 +2,29 @@
 # yarn lockfile v1
 
 
+"@alipay/tugraph-console@latest":
+  version "0.0.3"
+  resolved "https://registry.antgroup-inc.cn/@alipay/tugraph-console/-/tugraph-console-0.0.3.tgz#d6b2a46f2ffacb6dd7c64afc7c79e323e92e189a"
+  integrity sha512-eQmEnDoEjeZWpFHFCg2Ht2ZpTLrZOcXaao+sEuazKc/FPbqeDoXsT5OMzt1Il6XfibYyeVVrTnKi6slXtDcbiA==
+  dependencies:
+    "@ant-design/icons" "^4.8.0"
+    "@ant-design/pro-components" "^2.3.37"
+    "@antv/g6" "^4.7.14"
+    "@codemirror/lang-json" "^6.0.1"
+    "@uiw/react-codemirror" "^4.19.5"
+    ahooks "^3.7.2"
+    antd "^4.24.8"
+    immer "^9.0.19"
+    moment "^2.29.4"
+    react-syntax-highlighter "^15.5.0"
+    umi "^3.5.20"
+    umi-request "^1.4.0"
+    use-immer "^0.8.1"
+
 "@alipay/tugraph-studio@latest":
-  version "0.0.4"
-  resolved "https://registry.antgroup-inc.cn/@alipay/tugraph-studio/-/tugraph-studio-0.0.4.tgz#3fc25219dc19dfcb1edc3934640e28877f6ed313"
-  integrity sha512-UuPwRV0pvlJJ7wM+ek79PM5x3iYYPZs5pgw35pDFPlKcDyDNjKr53R2JsTlvl/PfTEQODuyI1fisXbzjm6m79w==
+  version "0.0.5"
+  resolved "https://registry.antgroup-inc.cn/@alipay/tugraph-studio/-/tugraph-studio-0.0.5.tgz#c0ad0cdbcaf3d3967bc281bfdf12ddfbcbb36ea2"
+  integrity sha512-nuMrjVz7dsU2/8sEpaCi1vr3NsJ4Z6Q0s1FqDH2FYMpgqkSEe9R6qaDvPy/r2hMSidy2j5ldzQ/Fsys6cF2nAA==
   dependencies:
     "@ant-design/icons" "^4.8.0"
     "@ant-design/pro-components" "^2.3.37"

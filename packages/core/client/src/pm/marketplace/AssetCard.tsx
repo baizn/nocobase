@@ -56,7 +56,8 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 			setState({
 				...state,
 				used: true,
-				loading: false
+				loading: false,
+				visible: false
 			})
 		}
 	}
