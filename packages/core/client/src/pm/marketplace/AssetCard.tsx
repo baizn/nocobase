@@ -19,9 +19,10 @@ interface IAssetCardProps {
 	infos: CardInfo;
 	loadedPluginList: ILoadedPlugin[];
 	packageName?: string;
+	official?: boolean;
 }
 
-const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, packageName }) => {
+const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, packageName, official = false }) => {
 	const [state, setState] = useState({
 		used: loadedPluginList.map(d => d.name).includes(infos.name),
 		loading: false,
@@ -78,11 +79,22 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 		})
 	}
 
+	const handleOnLineEdit = () => {
+		// 官方组件库支持在线查看和编辑
+		const onlineURL = `https://alex.alipay.com/antcode/Ant_Graph/GraphBitComponents/blob/master/${infos.path}/index.tsx`
+		window.open(onlineURL)
+	}
+
 	return (
 		<Spin tip='正在努力加载中，请稍等片刻……' spinning={loading}>
 			<Card bordered={false}
 				actions={[
-					<Tooltip title='在线编辑资产，敬请期待……'>
+					official ?
+					<Tooltip title='官方资产支持在线编辑'>
+						<EditOutlined key="edit" onClick={handleOnLineEdit} />
+					</Tooltip>
+					:
+					<Tooltip title='非官方资产暂时不支持在线编辑，敬请期待……'>
 						<EditOutlined key="edit" />
 					</Tooltip>,
 					!used ? 
