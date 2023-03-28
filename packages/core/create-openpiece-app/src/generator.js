@@ -123,7 +123,7 @@ class AppGenerator extends Generator {
         APP_ENV: 'development',
         DB_DIALECT: dbDialect,
         APP_KEY: crypto.randomBytes(256).toString('base64'),
-        PLUGIN_PACKAGE_PREFIX: `@tugraph/plugin-,@tugraph/preset-,@tugraph/plugin-graph-console-,@tugraph/plugin-graph-studio-,@${this.context.name}/plugin-`,
+        PLUGIN_PACKAGE_PREFIX: `@tugraph/plugin-,@tugraph/plugin-graph-,@tugraph/preset-,@${this.context.name}/plugin-`,
         ...env,
       },
     };

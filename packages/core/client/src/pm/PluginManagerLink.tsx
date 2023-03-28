@@ -38,10 +38,10 @@ export const SettingsCenterDropdown = () => {
       title: t('Roles & Permissions'),
       path: 'acl/roles',
     },
-    {
-      title: t('File storages'),
-      path: 'file-manager/storages',
-    },
+    // {
+    //   title: t('File storages'),
+    //   path: 'file-manager/storages',
+    // },
     {
       title: t('System settings'),
       path: 'system-settings/system-settings',
