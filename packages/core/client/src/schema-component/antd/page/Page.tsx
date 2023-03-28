@@ -1,23 +1,10 @@
-import { useField } from '@formily/react';
-import { PageHeader as AntdPageHeader } from 'antd';
-import React, { useEffect } from 'react';
-import { useDocumentTitle } from '../../../document-title';
-import { useCompile } from '../../hooks';
+import React from 'react';
 
-export const Page = props => {
-  const { children, ...others } = props;
-  const field = useField();
-  const compile = useCompile();
-  const { title, setTitle } = useDocumentTitle();
-  useEffect(() => {
-    if (!title) {
-      setTitle(field.title);
-    }
-  }, [field.title, title]);
+export const Page = (props) => {
+  const { children } = props;
   return (
     <>
-      <AntdPageHeader style={{ background: '#e4ebff' }} ghost={false} title={compile(title)} {...others} />
-      <div style={{ margin: 24, marginTop: 0 }}>{children}</div>
+      <div style={{ margin: 24 }}>{children}</div>
     </>
   );
 };

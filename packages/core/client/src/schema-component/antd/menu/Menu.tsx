@@ -72,7 +72,7 @@ const designerCss = css`
   align-items: center;
   margin-left: -20px;
   margin-right: -20px;
-  padding: 0 20px;
+  padding: 0 12px;
   width: calc(100% + 40px);
   &:hover {
     > .general-schema-designer {
