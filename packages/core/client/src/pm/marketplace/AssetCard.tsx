@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Card, Tooltip, Input, Tag, Switch, Spin, Modal, Row, Col, message } from 'antd'
-import { EditOutlined, QuestionCircleOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import { queryFileDetailInfo, componentToPlugin, updatePluginFiled } from './service'
+import { Card, Tooltip, Tag, Switch, Spin, message } from 'antd'
+import { EditOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { componentToPlugin, updatePluginFiled } from './service'
 import { ILoadedPlugin } from './Marketplace';
+import PluginModal from './PluginModal'
 const { Meta } = Card;
 
-interface CardInfo {
+export interface CardInfo {
 	name: string;
 	version: string;
 	path: string;
@@ -21,33 +22,33 @@ interface IAssetCardProps {
 }
 
 const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, packageName }) => {
-	const defaultComponentName = `${infos.name[0].toUpperCase()}${infos.name.substring(1)}`
 	const [state, setState] = useState({
 		used: loadedPluginList.map(d => d.name).includes(infos.name),
 		loading: false,
 		visible: false,
-		componentName: defaultComponentName
+		options: []
 	})
+
 	const { used, loading } = state
-	const handleUsePlugin = async () => {
+	const handleUsePlugin = async (componentName: string, pname: string = packageName) => {		
 		setState({
 			...state,
 			loading: true,
 			visible: false
 		})
 
-		if (!state.componentName) {
+		if (!componentName) {
 			message.error('组件名称为空')
 			return
 		}
-		const status = await componentToPlugin(state.componentName, packageName)
+		const status = await componentToPlugin(componentName, pname)
 		
 		if (status.success) {
 			// 安装成功以后，更新插件表
-			const pluginName = state.componentName.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+			const pluginName = componentName.replace(/\B([A-Z])/g, '-$1').toLowerCase()
 			await updatePluginFiled(pluginName, {
 				path: infos.path,
-				packageName
+				packageName: pname
 			})
 
 			message.success('加载成功')
@@ -62,10 +63,6 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 		}
 	}
 
-	const queryFileDetailInfoByPath = async () => {
-		const result = await queryFileDetailInfo(infos.path + '/index.ts', 'master')
-		console.log(result)
-	}
 
 	const handleCancel = () => {
 		setState({
@@ -78,13 +75,6 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 		setState({
 			...state,
 			visible: checked
-		})
-	}
-
-	const handleComponentNameChange = (evt) => {
-		setState({
-			...state,
-			componentName: evt.target.value
 		})
 	}
 
@@ -108,11 +98,11 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 					:
 					<Tooltip title='要卸载组件请到本地资产中卸载'>
 						<Switch
-								checkedChildren={<CheckOutlined />}
-								unCheckedChildren={<CloseOutlined />}
-								checked={used}
-								disabled={used}
-							/>
+							checkedChildren={<CheckOutlined />}
+							unCheckedChildren={<CloseOutlined />}
+							checked={used}
+							disabled={used}
+						/>
 					</Tooltip>
 				]}
 				>
@@ -127,14 +117,10 @@ const AssetCard: React.FC<IAssetCardProps> = ({ infos, loadedPluginList, package
 					description={infos.description || infos.path}
 				/>
 			</Card>		
-			<Modal title={<><QuestionCircleOutlined style={{ color: 'red', marginRight: 8 }} />加载组件</>} open={state.visible} onOk={handleUsePlugin} onCancel={handleCancel}>
-				<Row>
-					<Col>导出的组件的默认名称为：{defaultComponentName}，请确认是否正确。</Col>
-					<Col span={24} style={{ margin: '16px 0' }}>如果不正确，请在下面的输入框中重新输入组件名称。</Col>
-					<Col span={4}>组件名称：</Col>
-					<Col span={20}><Input style={{ width: 350 }} placeholder="请输入组件名称，组件名称以大驼峰方式命名" onChange={handleComponentNameChange} /></Col>
-				</Row>
-			</Modal>
+			{
+				state.visible &&
+				<PluginModal visible={state.visible} infos={infos} usePlugin={handleUsePlugin} cancel={handleCancel} packageName={packageName} />
+			}
 		</Spin>
 	)
 }
