@@ -41,7 +41,7 @@ export const queryFileDetailInfo = async (filePath: string, branchName: string =
 		withCredentials: true
 	})
 
-	console.log(result)
+	return result
 }
 
 /**

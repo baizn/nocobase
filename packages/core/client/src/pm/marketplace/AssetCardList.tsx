@@ -10,9 +10,10 @@ interface IAssetCardListProps {
 	packageName?: string;
 	loadedPluginList: ILoadedPlugin[];
 	respLoadingStatus?: (status: boolean) => void;
+	official?: boolean;
 }
 
-const AssetCardList: React.FC<IAssetCardListProps> = ({ path, loadedPluginList, projectName, respLoadingStatus, packageName }) => {
+const AssetCardList: React.FC<IAssetCardListProps> = ({ path, loadedPluginList, projectName, respLoadingStatus, packageName, official }) => {
 	const [state, setState] = useState({
 		navList: [],
 		menuPath: '',
@@ -117,7 +118,7 @@ const AssetCardList: React.FC<IAssetCardListProps> = ({ path, loadedPluginList, 
 						{
 							componentList.map(d => {
 								return <Col span={7} style={{ marginRight: 16, marginBottom: 16 }}>
-									<AssetCard infos={d} loadedPluginList={loadedPluginList} packageName={packageName} />
+									<AssetCard infos={d} loadedPluginList={loadedPluginList} packageName={packageName} official={official} />
 								</Col>
 							})
 						}

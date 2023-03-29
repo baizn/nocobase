@@ -30,22 +30,22 @@ const DefaultMarketplace = () => {
     {
       label: 'Console',
       key: 'graph-console',
-      children: <AssetCardList path='src/components/console' loadedPluginList={loadedPluginList} />
+      children: <AssetCardList path='src/components/console' loadedPluginList={loadedPluginList} official={true} />
     },
     {
       label: 'Studio',
       key: 'graph-studio',
-      children: <AssetCardList path='src/components/studio' loadedPluginList={loadedPluginList} />
+      children: <AssetCardList path='src/components/studio' loadedPluginList={loadedPluginList} official={true} />
     },
     {
       label: 'Explore',
       key: 'graph-explore',
-      children: <AssetCardList path='src/components/explore' loadedPluginList={loadedPluginList} />
+      children: <AssetCardList path='src/components/explore' loadedPluginList={loadedPluginList} official={true} />
     },
     {
       label: 'Dashboard',
       key: 'graph-dash-board',
-      children: <AssetCardList path='src/components/dash-board' loadedPluginList={loadedPluginList} />
+      children: <AssetCardList path='src/components/dash-board' loadedPluginList={loadedPluginList} official={true} />
     }
   ]
 
