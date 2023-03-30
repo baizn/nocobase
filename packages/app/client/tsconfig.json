@@ -12,7 +12,6 @@
     "strict": true,
     "skipLibCheck": true,
     "paths": {
-      "@tugraph/plugin-graph-*/client": ["../../graph-plugins/*/src/client"],
       "@tugraph/plugin-*/client": ["../../plugins/*/src/client"],
       "@nocobase/utils/client": ["../../core/utils/src/client"],
       "@tugraph/openpiece-*": ["../../core/*/src"],

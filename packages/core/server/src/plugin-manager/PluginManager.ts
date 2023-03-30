@@ -10,7 +10,7 @@ import { Plugin } from '../plugin';
 import collectionOptions from './options/collection';
 import resourceOptions from './options/resource';
 import { PluginManagerRepository } from './PluginManagerRepository';
-import { runScript } from './util'
+import { runScript } from './util';
 
 export interface PluginManagerOptions {
   app: Application;
@@ -313,11 +313,11 @@ export class PluginManager {
         throw new Error(`${name} plugin does not exist`);
       }
       await plugin.remove();
-      
+
       // 删除 plugins 源码文件
-      runScript('rimraf', ['-rf', `packages/graph-plugins/${pluginName}`])
+      runScript('rimraf', ['-rf', `packages/plugins/${pluginName}`]);
       // 删除 app/client/plugin 下的文件
-      runScript('rimraf', ['-rf', `packages/app/client/src/plugins/${pluginName}.ts`])
+      runScript('rimraf', ['-rf', `packages/app/client/src/plugins/${pluginName}.ts`]);
     }
     await this.repository.remove(name);
     this.app.reload();
